@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hpmoc.plot module &mdash; HEALPix Multi-Order Coordinate Library (HPMOC) 0.3.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="canonical" href="http://hpmoc.stc.shhpmoc.plot.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hpmoc.plotters module" href="hpmoc.plotters.html" />
+    <link rel="prev" title="hpmoc.partial module" href="hpmoc.partial.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> HEALPix Multi-Order Coordinate Library (HPMOC)
+          </a>
+              <div class="version">
+                0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jup/plotting-examples.html">Plotting Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Basic-Plotting">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-and-Pseudocylindrical-projections">Cylindrical and Pseudocylindrical projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Mollweide-Projection">Mollweide Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Hammer-Aitoff-Projection">Hammer-Aitoff Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-equal-area">Cylindrical equal-area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Plate-Carée-Projection">Plate Carée Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Projections">Zenithal Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Slant-Orthographic-Projection">Slant Orthographic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Gnomonic-Projection">Gnomonic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equidistant-Projection">Zenithal Equidistant Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equal-Area-Projection">Zenithal Equal-Area Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Arbitrary-WCS-Projections">Arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> Projections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Rotations">Rotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#2-Angle-Rotations">2-Angle Rotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#3-Angle-Rotations">3-Angle Rotations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Cylindrical-and-Pseudocylindrical-Projections">Rotations in Cylindrical and Pseudocylindrical Projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Zenithal-Projections">Rotations in Zenithal Projections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Zoomed-Plots">Zoomed Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Fixed-Angular-Width">Fixed Angular Width</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Scatterplots">Scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Contours-around-Credible-Regions">Contours around Credible Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Multi-layered-plots">Multi-layered plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Grid-Plots">Grid Plots</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.html">hpmoc package</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.abstract.html">hpmoc.abstract module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.atlas.html">hpmoc.atlas package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.fits.html">hpmoc.fits module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy.html">hpmoc.healpy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy_utils.html">hpmoc.healpy_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.io.html">hpmoc.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.abstract.html">hpmoc.io.abstract module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.astroquery.html">hpmoc.io.astroquery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.gracedb.html">hpmoc.io.gracedb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.ligo.html">hpmoc.io.ligo module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.partial.html">hpmoc.partial module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">hpmoc.plot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plotters.html">hpmoc.plotters module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.points.html">hpmoc.points module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.psf.html">hpmoc.psf module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.utils.html">hpmoc.utils module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HEALPix Multi-Order Coordinate Library (HPMOC)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>hpmoc.plot module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hpmoc.plot.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-hpmoc.plot">
+<span id="hpmoc-plot-module"></span><h1>hpmoc.plot module<a class="headerlink" href="#module-hpmoc.plot" title="Permalink to this headline"></a></h1>
+<p>Plotting commands implemented using Astropy (rather than HEALPy) for greater
+flexibility, robustness, and cross-platform compatibility. Meant to replace
+the plotters in <code class="docutils literal notranslate"><span class="pre">plotters</span></code>. These provide similar functionality to the
+plotters provided by the <code class="docutils literal notranslate"><span class="pre">ligo.skymap</span></code> package as well as <code class="docutils literal notranslate"><span class="pre">healpy</span></code>; those
+packages are not included as dependencies, but the high-performance rendering
+tools included in <code class="docutils literal notranslate"><span class="pre">hpmoc</span></code> are totally compatible with those plotting tools
+through the <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap.render</span></code> interface (in fact, the previous
+version of these plotting scripts used <code class="docutils literal notranslate"><span class="pre">healpy</span></code> for its included projection
+axes and coordinate transforms).</p>
+<p>Available projections are drawn from the FITS standard. You can specify your
+own projections using the appropriate FITS headers plugged into an
+<code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> world coordinate system instance as the <code class="docutils literal notranslate"><span class="pre">projection</span></code>
+argument to a subplot or <code class="docutils literal notranslate"><span class="pre">astropy.visualization.wcsaxes.WCSAxes</span></code> instance.
+The projection code follows the “4-3” form defined in the
+<a class="reference external" href="https://fits.gsfc.nasa.gov/fits_standard.html">FITS Definition</a> document, i.e. by specifying the coordinate type
+(e.g. <code class="docutils literal notranslate"><span class="pre">RA--</span></code> for right ascension) right-padded by enough dashes to fill
+4 characters, followed by an additional <code class="docutils literal notranslate"><span class="pre">-</span></code> and the 3-character projection
+code (one of those listed below) to specify the projection. This information is
+then stored in the <code class="docutils literal notranslate"><span class="pre">CTYPEi</span></code> headers. Pixel-scaling through the <code class="docutils literal notranslate"><span class="pre">CDELTi</span></code>
+headers has a projection-dependent normalization and further depends on pixel
+resolution of the final image. Details on WCS header fields are available in
+the <a class="reference external" href="https://fits.gsfc.nasa.gov/fits_standard.html">FITS Definition</a>, and the normalization factors can be extracted from
+each projection’s definition in
+<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002A&amp;A...395.1077C">Representations of celestial coordinates in FITS</a>.</p>
+<p>The complete list of available projections can be found in the
+<a class="reference external" href="https://fits.gsfc.nasa.gov/fits_standard.html">FITS Definition</a>, with concrete transformation definitions given in
+the <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002A&amp;A...395.1077C">Representations of Celestial Coordinates in FITS</a>. The table of
+available projections is reproduced below, with sections linking to the
+corresponding section in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002A&amp;A...395.1077C">Representations of Celestial Coordinates in FITS</a>.
+Note that not all valid WCS projections can be displayed by astropy at time of
+writing; in particular, the HEALPIX <code class="docutils literal notranslate"><span class="pre">HPX</span></code> projection does not work out of the
+box, which is one of the (many) motivations for this plotting library.</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Available Projections</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 25%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>φ_0</p></th>
+<th class="head"><p>θ_0</p></th>
+<th class="head"><p>Properties1</p></th>
+<th class="head"><p>Projection name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AZP</p></td>
+<td><p>0◦</p></td>
+<td><p>90◦</p></td>
+<td><p>Sect. 5.1.1</p></td>
+<td><p>Zenithal perspective</p></td>
+</tr>
+<tr class="row-odd"><td><p>SZP</p></td>
+<td><p>0◦</p></td>
+<td><p>90◦</p></td>
+<td><p>Sect. 5.1.2</p></td>
+<td><p>Slant zenithal perspective</p></td>
+</tr>
+<tr class="row-even"><td><p>TAN</p></td>
+<td><p>0◦</p></td>
+<td><p>90◦</p></td>
+<td><p>Sect. 5.1.3</p></td>
+<td><p>Gnomonic</p></td>
+</tr>
+<tr class="row-odd"><td><p>STG</p></td>
+<td><p>0◦</p></td>
+<td><p>90◦</p></td>
+<td><p>Sect. 5.1.4</p></td>
+<td><p>Stereographic</p></td>
+</tr>
+<tr class="row-even"><td><p>SIN</p></td>
+<td><p>0◦</p></td>
+<td><p>90◦</p></td>
+<td><p>Sect. 5.1.5</p></td>
+<td><p>Slant orthographic</p></td>
+</tr>
+<tr class="row-odd"><td><p>ARC</p></td>
+<td><p>0◦</p></td>
+<td><p>90◦</p></td>
+<td><p>Sect. 5.1.6</p></td>
+<td><p>Zenithal equidistant</p></td>
+</tr>
+<tr class="row-even"><td><p>ZPN</p></td>
+<td><p>0◦</p></td>
+<td><p>90◦</p></td>
+<td><p>Sect. 5.1.7</p></td>
+<td><p>Zenithal polynomial</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZEA</p></td>
+<td><p>0◦</p></td>
+<td><p>90◦</p></td>
+<td><p>Sect. 5.1.8</p></td>
+<td><p>Zenithal equal-area</p></td>
+</tr>
+<tr class="row-even"><td><p>AIR</p></td>
+<td><p>0◦</p></td>
+<td><p>90◦</p></td>
+<td><p>Sect. 5.1.9</p></td>
+<td><p>Airy</p></td>
+</tr>
+<tr class="row-odd"><td><p>CYP</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.2.1</p></td>
+<td><p>Cylindrical perspective</p></td>
+</tr>
+<tr class="row-even"><td><p>CEA</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.2.2</p></td>
+<td><p>Cylindrical equal area</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAR</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.2.3</p></td>
+<td><p>Plate carrée</p></td>
+</tr>
+<tr class="row-even"><td><p>MER</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.2.4</p></td>
+<td><p>Mercator</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFL</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.3.1</p></td>
+<td><p>Samson-Flamsteed</p></td>
+</tr>
+<tr class="row-even"><td><p>PAR</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.3.2</p></td>
+<td><p>Parabolic</p></td>
+</tr>
+<tr class="row-odd"><td><p>MOL</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.3.3</p></td>
+<td><p>Mollweide</p></td>
+</tr>
+<tr class="row-even"><td><p>AIT</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.3.4</p></td>
+<td><p>Hammer-Aitoff</p></td>
+</tr>
+<tr class="row-odd"><td><p>COP</p></td>
+<td><p>0◦</p></td>
+<td><p>θa</p></td>
+<td><p>Sect. 5.4.1</p></td>
+<td><p>Conic perspective</p></td>
+</tr>
+<tr class="row-even"><td><p>COE</p></td>
+<td><p>0◦</p></td>
+<td><p>θa</p></td>
+<td><p>Sect. 5.4.2</p></td>
+<td><p>Conic equal-area</p></td>
+</tr>
+<tr class="row-odd"><td><p>COD</p></td>
+<td><p>0◦</p></td>
+<td><p>θa</p></td>
+<td><p>Sect. 5.4.3</p></td>
+<td><p>Conic equidistant</p></td>
+</tr>
+<tr class="row-even"><td><p>COO</p></td>
+<td><p>0◦</p></td>
+<td><p>θa</p></td>
+<td><p>Sect. 5.4.4</p></td>
+<td><p>Conic orthomorphic</p></td>
+</tr>
+<tr class="row-odd"><td><p>BON</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.5.1</p></td>
+<td><p>Bonne’s equal area</p></td>
+</tr>
+<tr class="row-even"><td><p>PCO</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.5.2</p></td>
+<td><p>Polyconic</p></td>
+</tr>
+<tr class="row-odd"><td><p>TSC</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.6.1</p></td>
+<td><p>Tangential spherical cube</p></td>
+</tr>
+<tr class="row-even"><td><p>CSC</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.6.2</p></td>
+<td><p>COBE quadrilateralized spherical cube</p></td>
+</tr>
+<tr class="row-odd"><td><p>QSC</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 5.6.3</p></td>
+<td><p>Quadrilateralized spherical cube</p></td>
+</tr>
+<tr class="row-even"><td><p>HPX</p></td>
+<td><p>0◦</p></td>
+<td><p>0◦</p></td>
+<td><p>Sect. 6 2</p></td>
+<td><p>HEALPix grid</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.partial.PartialUniqSkymap</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.visualization.wcsaxes</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">ligo.skymap</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">healpy</span></code></p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.dec_exclusions">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">dec_exclusions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plot.dec_exclusions" title="Permalink to this definition"></a></dt>
+<dd><p>Get declination values to exclude from ticks.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.get_colormap">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">get_colormap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plot.get_colormap" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.get_frame_class">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">get_frame_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">projection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.wcs.WCS</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.io.fits.Header</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'MOL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.visualization.wcsaxes.frame.BaseFrame</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vdelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><span class="pre">hpmoc.points.PointsTuple</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigmas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(1,)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">astropy.visualization.wcsaxes.frame.BaseFrame</span></span></span><a class="headerlink" href="#hpmoc.plot.get_frame_class" title="Permalink to this definition"></a></dt>
+<dd><p>Get the frame class associated with a given projection. If already given a
+<code class="docutils literal notranslate"><span class="pre">frame_class</span></code>, returns it immediately, making this function idempotent.
+Will otherwise try to determine the best frame choice from the given
+arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>projection</strong> (<em>str</em><em>, </em><em>WCS</em><em>, or </em><em>Header</em><em>, </em><em>optional</em>) – The projection to use. See <code class="docutils literal notranslate"><span class="pre">get_wcs</span></code> for details. Only used if a
+<code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+<li><p><strong>frame_class</strong> (<em>str</em><em> or </em><em>BaseFrame</em>) – The frame class; optionally pass it to ensure that an argument is an
+instance of <code class="docutils literal notranslate"><span class="pre">BaseFrame</span></code>.</p></li>
+<li><p><strong>vdelta</strong> (<em>float</em><em>, </em><em>optional</em>) – Manual vdelta override. Give up if set and return <code class="docutils literal notranslate"><span class="pre">RectangularFrame</span></code>.</p></li>
+<li><p><strong>hdelta</strong> (<em>float</em><em>, </em><em>optional</em>) – Manual hdelta override. Give up if set and return <code class="docutils literal notranslate"><span class="pre">RectangularFrame</span></code>.</p></li>
+<li><p><strong>rot</strong> – See the note in <code class="docutils literal notranslate"><span class="pre">get_wcs</span></code> on these arguments. If both rotation and
+window are set for ARC (zenithal equidistant), switch to
+<code class="docutils literal notranslate"><span class="pre">RectangularFrame</span></code>.</p></li>
+<li><p><strong>scatter</strong> – See the note in <code class="docutils literal notranslate"><span class="pre">get_wcs</span></code> on these arguments. If both rotation and
+window are set for ARC (zenithal equidistant), switch to
+<code class="docutils literal notranslate"><span class="pre">RectangularFrame</span></code>.</p></li>
+<li><p><strong>sigmas</strong> – See the note in <code class="docutils literal notranslate"><span class="pre">get_wcs</span></code> on these arguments. If both rotation and
+window are set for ARC (zenithal equidistant), switch to
+<code class="docutils literal notranslate"><span class="pre">RectangularFrame</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>frame_class</strong> – The frame class best-suited to this type of projection.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>astropy.visualization.wcsaxes.frame.BaseFrame</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>IndexError</strong> – If the specified projection could not be found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.get_projection">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">get_projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">projection</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plot.get_projection" title="Permalink to this definition"></a></dt>
+<dd><p>If <code class="docutils literal notranslate"><span class="pre">projection</span></code> is already an <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> instance, return it; if
+it is an <code class="docutils literal notranslate"><span class="pre">astropy.io.fits.Header</span></code>, return <code class="docutils literal notranslate"><span class="pre">WCS(projection)</span></code>. If it is a
+string, try to create a new <code class="docutils literal notranslate"><span class="pre">WCS</span></code> using <code class="docutils literal notranslate"><span class="pre">get_wcs</span></code> with <code class="docutils literal notranslate"><span class="pre">*args</span></code> and
+<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> passed to that function; failing that, try to interpret
+<code class="docutils literal notranslate"><span class="pre">projection</span></code> as a raw FITS header and instantiate a <code class="docutils literal notranslate"><span class="pre">WCS</span></code> therefrom.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.get_ticks">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">get_ticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plot.get_ticks" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.get_wcs">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">get_wcs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">projection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">180</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vdelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facing_sky</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><span class="pre">hpmoc.points.PointsTuple</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigmas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(1,)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">astropy.wcs.WCS</span></span></span><a class="headerlink" href="#hpmoc.plot.get_wcs" title="Permalink to this definition"></a></dt>
+<dd><p>Get a <code class="docutils literal notranslate"><span class="pre">WCS</span></code> instance by name to match the given parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>projection</strong> (<em>str</em>) – <p>The following projections are available by default. See <code class="docutils literal notranslate"><span class="pre">hpmoc.plot</span></code>
+documentation for instructions on constructing your own WCS headers for
+other plot styles, which can be passed in instead using a <code class="docutils literal notranslate"><span class="pre">WCS</span></code>
+instance. You can also use this approach to plot the skymap over an
+existing <code class="docutils literal notranslate"><span class="pre">WCS</span></code> taken from another fits file, making it easy to plot
+skymaps over other astrophysical data. This function will return
+<code class="docutils literal notranslate"><span class="pre">WCS</span></code> instances for the following projection types:</p>
+<p><strong>Cylindrical/Pseudo-cylindrical</strong> (For all-sky plots)</p>
+<ul>
+<li><p>MOL: <em>Mollweide, mollview, Homolographic, Homalographic, Babinet,
+Elliptical</em></p></li>
+<li><p>AIT: <em>Hammer-Aitoff, Aitoff, Hammer, Aitov, Hammer equal-area</em></p></li>
+<li><p>CAR: <em>Carée, Plate carée, Caree, Plate caree, Cartesian, Tyre,
+cartview, Equidistant cylindrical</em></p></li>
+<li><p>CEA: <em>Cylindrical equal-area, Lambert equal area</em></p></li>
+<li><p>SFL: <em>Sanson-Flamsteed</em></p></li>
+<li><p>PAR: <em>Parabolic, Craster</em></p></li>
+</ul>
+<p><strong>Zenithal</strong></p>
+<ul>
+<li><p>TAN: <em>gnomonic, gnomview, Central, zoom</em></p></li>
+<li><p>SIN: <em>Slant Orthographic, Orthographic, Globe, orthview</em></p></li>
+<li><p>ARC: <em>Zenithal Equidistant, azimuthal equidistant, azeqview, Postel,
+Equidistant, Globular</em></p></li>
+<li><p>ZEA: <em>Zenithal Equal-area, Azimuthal equivalent, polar azimuthal,
+Lambert azimuthal equivalent, Lambert azimuthal equal-area, Lambert
+polar azimuthal, Lambert</em></p></li>
+</ul>
+</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Width of the image in pixels. If not provided, default to the height
+for zenithal projections and twice the height for azimuthal
+projections.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the image in pixels.</p></li>
+<li><p><strong>hdelta</strong> (<em>float</em><em>, </em><em>optional</em>) – The CDELT1 value, if you wish to override the default. Note that the
+actual angular width of a pixel at the reference point depends on this
+value <em>as well as</em> the projection used. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given.</em></p></li>
+<li><p><strong>vdelta</strong> (<em>float</em><em>, </em><em>optional</em>) – The CDELT2 value, if you wish to override the default. Note that the
+actual angular height of a pixel at the reference point depends on this
+value <em>as well as</em> the projection used. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given.</em></p></li>
+<li><p><strong>rot</strong> (<em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>) or </em><em>(</em><em>float</em><em>, </em><em>float</em><em>)</em><em>, </em><em>optional</em>) – Euler angles for rotations about the Z, X, Z axes. These are
+immediately translated to <code class="docutils literal notranslate"><span class="pre">CRVAL1,</span> <span class="pre">CRVAL2,</span> <span class="pre">LONPOLE</span></code> in the returned
+<code class="docutils literal notranslate"><span class="pre">WCS</span></code>; that is, the first two angles specify the angle of the center
+of the image, while the last specifies an additional rotation of the
+reference pole about the Z-axis. See <code class="docutils literal notranslate"><span class="pre">hpmoc.plot</span></code> documentation for
+further references. Defaults to centering on RA = 180, dec = 0 (the
+convention used in most plots produced by LIGO). If only two angles are
+provided, <code class="docutils literal notranslate"><span class="pre">LONPOLE</span></code> will be determined automatically such that the
+center of the skymap is given by the <cite>(RA, dec)</cite> given and the
+orientation of the plot is otherwise unchanged.</p></li>
+<li><p><strong>facing_sky</strong> (<em>bool</em>) – Whether the projection is outward- or inward-facing. Equivalent to
+reversing the direction of the longitude.</p></li>
+<li><p><strong>scatter</strong> (<em>List</em><em>[</em><a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a><em>]</em>) – A list of collections of point sources that will be plotted. If only
+one collection containing one point source is provided and <code class="docutils literal notranslate"><span class="pre">rot=None</span></code>
+(the default), then <code class="docutils literal notranslate"><span class="pre">rot</span></code> will be set to the location of that single
+point source.</p></li>
+<li><p><strong>sigmas</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – See <code class="docutils literal notranslate"><span class="pre">plot</span></code> for meaning. If <code class="docutils literal notranslate"><span class="pre">sigmas</span></code> is non-empty; <code class="docutils literal notranslate"><span class="pre">rot</span></code> is set by
+a single point source in <code class="docutils literal notranslate"><span class="pre">scatter</span></code> as described above; <code class="docutils literal notranslate"><span class="pre">hdelta</span></code>
+and <code class="docutils literal notranslate"><span class="pre">vdelta</span></code> are both <code class="docutils literal notranslate"><span class="pre">None</span></code>; and the <code class="docutils literal notranslate"><span class="pre">projection</span></code> is an alias
+for ARC (zenithal equidistant), then <code class="docutils literal notranslate"><span class="pre">hdelta</span></code> and <code class="docutils literal notranslate"><span class="pre">vdelta</span></code> will be
+set so that the returned frame is 1.5x the size of the largest error
+region plotted in the smallest axis. This provides an easy way to
+visually emphasize singular points of interest.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>wcs</strong> – A <code class="docutils literal notranslate"><span class="pre">WCS</span></code> instance that can be used for rendering and plotting.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>astropy.wcs.WCS</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>IndexError</strong> – If the specified projection could not be found or if an argument is
+    specified incorrectly.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.gridplot">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">gridplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">skymaps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">hpmoc.PartialUniqSkymap</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.wcs.WCS</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.figure.Figure</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">matplotlib.gridspec.GridSpec</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projections</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.wcs.WCS</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.io.fits.Header</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.wcs.WCS</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.io.fits.Header</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.visualization.wcsaxes.WCSAxes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">('MOL',)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><span class="pre">hpmoc.points.PointsTuple</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hspace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wspace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wshrink</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.gridspec.GridSpec</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">astropy.visualization.wcsaxes.WCSAxes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hpmoc.plot.gridplot" title="Permalink to this definition"></a></dt>
+<dd><p>Make a grid plot of multiple skymaps (optionally with scatterplots for
+each).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*skymaps</strong> (<em>'hpmoc.PartialUniqSkymap'</em><em>, </em><em>array</em><em>, or </em><em>(</em><em>array</em><em>, </em><em>array</em><em>)</em>) – The skymaps to plot. Can be a <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code>, a
+single-resolution HEALPix skymap <em>in NEST ordering only</em>, or a tuple of
+(pixel values, NUNIQ indices) accepted as the first two arguments to
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code>.</p></li>
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em><em> or </em><em>dict</em><em>, </em><em>optional</em>) – The figure to plot to. If not provided, a new figure will be created.
+If a dictonary is provided, it will be passed as keyword arguments to
+create a new figure. If a <code class="docutils literal notranslate"><span class="pre">GridSpec</span></code> is provided, then the figure
+to which it is attached will be used, and that <code class="docutils literal notranslate"><span class="pre">GridSpec</span></code> will be used
+to define the layout.</p></li>
+<li><p><strong>projections</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>WCS</em><em>, </em><em>fits.Header</em><em>, </em><em>List</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>WCS</em><em>, </em><em>fits.Header</em><em>, </em><em>WCSAxes</em><em>]</em><em>]</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – A list of projections (see the <code class="docutils literal notranslate"><span class="pre">projection</span></code> argument of <code class="docutils literal notranslate"><span class="pre">plot</span></code>) to
+use for each skymap in <code class="docutils literal notranslate"><span class="pre">skymaps</span></code>. If multiple projections are
+specified, they will be plotted alongside each other; if this makes the
+figure too wide, change the number of columns in the grid with
+<code class="docutils literal notranslate"><span class="pre">ncols</span></code>. You can also pass a list of lists of axes of the type
+returned by this function (which you should do while also passing a
+<code class="docutils literal notranslate"><span class="pre">GridSpec</span></code> as <code class="docutils literal notranslate"><span class="pre">fig</span></code>), allowing you to plot multiple layers of data
+to the same grid plot.</p></li>
+<li><p><strong>scatters</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a><em>]</em><em>]</em><em>, </em><em>optional</em>) – Scatterplots to use, one list for each skymap containing the sets of
+points to plot for that skymap. For any of the skymaps which are
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instances, you can default to plotting that
+instance’s <code class="docutils literal notranslate"><span class="pre">point_sources</span></code> by passing <code class="docutils literal notranslate"><span class="pre">None</span></code> instead of a list of
+point sources; this is also the default behavior if <code class="docutils literal notranslate"><span class="pre">scatters=None</span></code>.</p></li>
+<li><p><strong>subplot_height</strong> (<em>float</em><em>, </em><em>optional</em>) – The height of each subplot (in inches). Width is automatically
+determined. Overall figure height will be this times <code class="docutils literal notranslate"><span class="pre">ncols</span></code>.
+<em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">fig</span></code> <em>is a pre-existing figure, or if</em> <code class="docutils literal notranslate"><span class="pre">figsize</span></code> <em>is
+specified as a keyword argument in</em> <code class="docutils literal notranslate"><span class="pre">fig</span></code> (though this is not
+recommended usage and should be avoided unless you know what you’re
+doing).</p></li>
+<li><p><strong>ncols</strong> (<em>int</em><em>, </em><em>optional</em>) – How many columns of <em>skymaps</em> to include in the grid. <strong>NB: All
+subplots for a single skymap are counted as a single column</strong> (in
+contrast to <code class="docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code>, which counts each subplot
+in a single column). The number of rows is determined automatically
+from the number of skymaps provided combined with <code class="docutils literal notranslate"><span class="pre">ncols</span></code>.</p></li>
+<li><p><strong>hspace</strong> (<em>float</em><em>, </em><em>optional</em>) – How much vertical space (height) to reserve between subplots.</p></li>
+<li><p><strong>wspace</strong> (<em>float</em><em>, </em><em>optional</em>) – How much horizontal space (width) to reserve between subplots.</p></li>
+<li><p><strong>wshrink</strong> (<em>float</em><em> or </em><em>list of floats</em><em>, </em><em>optional</em>) – Scale the plot widths by this much. Useful if you are adding color
+bars to preserve spacing. If a list, each element corresponds to a
+projection.</p></li>
+<li><p><strong>subplot_kwargs</strong> (<em>List</em><em>[</em><em>Optional</em><em>[</em><em>List</em><em>[</em><em>dict</em><em>]</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Lists of keyword argument dictionaries that will be used for each
+subplot. The first index specifies the plotter, and the second index
+specifies the skymap from <code class="docutils literal notranslate"><span class="pre">skymaps</span></code>. This behavior allows you to
+easily specify lists of keyword arguments for specific projections
+(since often) only one of the <code class="docutils literal notranslate"><span class="pre">projections</span></code> requires skymap-specific
+parameters).  <strong>NB: These subplot-specific keyword arguments take
+precedence over</strong> <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> <strong>for their respective subplots.
+Projection-related keyword arguments are ignored if</strong> <code class="docutils literal notranslate"><span class="pre">projections</span></code>
+<strong>is a list of lists of axes; see the</strong> <code class="docutils literal notranslate"><span class="pre">plot</span></code> <strong>documentation
+for further details.</strong></p></li>
+<li><p><strong>left</strong> (<em>float</em>) – Bounds for the GridSpec within the plot. Move <code class="docutils literal notranslate"><span class="pre">top</span></code> down, for
+example, if you want more space for a super-title with
+<code class="docutils literal notranslate"><span class="pre">plt.suptitle</span></code>.</p></li>
+<li><p><strong>right</strong> (<em>float</em>) – Bounds for the GridSpec within the plot. Move <code class="docutils literal notranslate"><span class="pre">top</span></code> down, for
+example, if you want more space for a super-title with
+<code class="docutils literal notranslate"><span class="pre">plt.suptitle</span></code>.</p></li>
+<li><p><strong>bottom</strong> (<em>float</em>) – Bounds for the GridSpec within the plot. Move <code class="docutils literal notranslate"><span class="pre">top</span></code> down, for
+example, if you want more space for a super-title with
+<code class="docutils literal notranslate"><span class="pre">plt.suptitle</span></code>.</p></li>
+<li><p><strong>top</strong> (<em>float</em>) – Bounds for the GridSpec within the plot. Move <code class="docutils literal notranslate"><span class="pre">top</span></code> down, for
+example, if you want more space for a super-title with
+<code class="docutils literal notranslate"><span class="pre">plt.suptitle</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments applied to all projections; <strong>again, see</strong> <code class="docutils literal notranslate"><span class="pre">plot</span></code>
+<strong>for usages and caveats.</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>gs</strong> (<em>matplotlib.gridspec.GridSpec</em>) – The <code class="docutils literal notranslate"><span class="pre">GridSpec</span></code> defining the shape of the subplots. Access the plotted
+figure as <code class="docutils literal notranslate"><span class="pre">gs.figure</span></code>. Reuse this layout by passing <code class="docutils literal notranslate"><span class="pre">gs</span></code> to another
+invocation of <code class="docutils literal notranslate"><span class="pre">gridplot</span></code>.</p></li>
+<li><p><strong>axs</strong> (<em>List[List[‘astropy.visualization.wcsaxes.WCSAxes’]]</em>) – The axes which were plotted. The first index (outer list) corresponds
+to the projection used, and the second index (inner lists) correspond
+to the skymap. Reuse the axes and projections by passing
+<code class="docutils literal notranslate"><span class="pre">projections=axs</span></code> to another invocation of <code class="docutils literal notranslate"><span class="pre">gridplot</span></code>.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">scatters</span></code> is provided and is ill-formatted or not of the same
+    length as <code class="docutils literal notranslate"><span class="pre">skymaps</span></code>; if <code class="docutils literal notranslate"><span class="pre">subplot_kwargs</span></code> is included and is not of
+    the same length as <code class="docutils literal notranslate"><span class="pre">projections</span></code>, or if its elements are neither
+    <code class="docutils literal notranslate"><span class="pre">None</span></code> nor lists of the same length as <code class="docutils literal notranslate"><span class="pre">skymaps</span></code>; if <code class="docutils literal notranslate"><span class="pre">fig</span></code> is
+    passed as a <code class="docutils literal notranslate"><span class="pre">GridSpec</span></code> which is not compatible with the rest of the
+    arguments given; or if one of the
+    <code class="docutils literal notranslate"><span class="pre">projections</span></code> is specified as a string but cannot be found in this
+    module.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.plot.plot" title="hpmoc.plot.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.plot">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skymap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">hpmoc.PartialUniqSkymap</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.wcs.WCS</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><span class="pre">hpmoc.points.PointsTuple</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">matplotlib.colors.Colormap</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'gist_heat_r'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigmas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(1,)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">astropy.visualization.wcsaxes.WCSAxes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.visualization.wcsaxes.WCSAxesSubplot</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.wcs.WCS</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.io.fits.Header</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Mollweide'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.visualization.wcsaxes.frame.BaseFrame</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">180</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vdelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facing_sky</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.figure.Figure</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">matplotlib.gridspec.SubplotSpec</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cr_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cr_filled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cr_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cr_label_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixels_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">hpmoc.PartialUniqSkymap</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">astropy.visualization.wcsaxes.WCSAxes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.visualization.wcsaxes.WCSAxesSubplot</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hpmoc.plot.plot" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>skymap</strong> (<em>'hpmoc.PartialUniqSkymap'</em><em>, </em><em>array</em><em>, or </em><em>(</em><em>array</em><em>, </em><em>array</em><em>)</em>) – The skymap to plot. Can be a <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code>, a single-resolution
+HEALPix skymap <em>in NEST ordering only</em>, or a tuple of (pixel values,
+NUNIQ indices) accepted as the first two arguments to
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code>.</p></li>
+<li><p><strong>scatter</strong> (<a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a>) – Point-sources to plot as a scatter-map, with disks showing their error
+regions. Provide multiple (ideally with different colors) to plot many
+populations at once.</p></li>
+<li><p><strong>vmin</strong> (<em>float</em><em>, </em><em>optional</em>) – The smallest value in the color map used to plot <code class="docutils literal notranslate"><span class="pre">skymap</span></code>. Set
+<code class="docutils literal notranslate"><span class="pre">None</span></code> to have it calculated automatically.</p></li>
+<li><p><strong>vmax</strong> (<em>float</em><em>, </em><em>optional</em>) – The largest value in the color map used to plot <code class="docutils literal notranslate"><span class="pre">skymap</span></code>. Set
+<code class="docutils literal notranslate"><span class="pre">None</span></code> to have it calculated automatically.</p></li>
+<li><p><strong>cmap</strong> (<em>str</em><em> or </em><em>matplotlib.colors.Colormap</em>) – The color map to use to plot <code class="docutils literal notranslate"><span class="pre">skymap</span></code>. Note that the colors for the
+point sources in <code class="docutils literal notranslate"><span class="pre">scatter</span></code> are set using the <code class="docutils literal notranslate"><span class="pre">rgba</span></code> parameter in
+<code class="docutils literal notranslate"><span class="pre">PointsTuple</span></code> and will not be affected by this value. If <code class="docutils literal notranslate"><span class="pre">None</span></code>,
+the skymap itself will not be plotted; this can be useful if overlaying
+multiple skymaps.</p></li>
+<li><p><strong>missing_color</strong> (<em>str</em><em> or </em><em>(</em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>)</em><em>, </em><em>optional</em>) – The color to use for missing parts of the skymap. If not provided, they
+simply will not be shown.</p></li>
+<li><p><strong>nan_color</strong> (<em>str</em><em> or </em><em>(</em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>)</em><em>, </em><em>optional</em>) – The color to use for parts of the map that are included but equal to
+<code class="docutils literal notranslate"><span class="pre">np.nan</span></code>. If not provided, will be the same as <code class="docutils literal notranslate"><span class="pre">missing_color</span></code>
+(meaning transparent if that argument is not provided), i.e. they will
+be plotted as if the pixels were missing. <strong>Will not use the</strong>
+<code class="docutils literal notranslate"><span class="pre">alpha</span></code> <strong>argument (to allow for highlighting NaN values more
+clearly;</strong> to use the same <code class="docutils literal notranslate"><span class="pre">alpha</span></code> value, you can create an RGBA
+tuple including the desired color and your shared alpha value, e.g.
+<code class="docutils literal notranslate"><span class="pre">nan_color=[*matplotlib.colors.to_rgb('pink'),</span> <span class="pre">alpha]</span></code>.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – The opacity of the plotted skymap image.</p></li>
+<li><p><strong>sigmas</strong> (<em>Iterable</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The size of the error region about each point source to plot in units
+of its error parameter sigma.</p></li>
+<li><p><strong>scatter_labels</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to show labels for the scattered points. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display
+either their labels (if defined) or their indices within the
+<code class="docutils literal notranslate"><span class="pre">PointsTuple.points</span></code> list. If given as a <code class="docutils literal notranslate"><span class="pre">dict</span></code>, will be
+interpreted as keyword arguments to pass to <code class="docutils literal notranslate"><span class="pre">WCSAxes.text</span></code>, which can
+be used to control the appearance of the point source labels.</p></li>
+<li><p><strong>ax</strong> (<em>WCSAxes</em><em> or </em><em>WCSAxesSubplot</em><em>, </em><em>optional</em>) – Axes to plot to. If provided, all other arguments pertaining to
+creating a <code class="docutils literal notranslate"><span class="pre">WCS</span></code> and <code class="docutils literal notranslate"><span class="pre">WCSAxes</span></code> instance are ignored, and these axes
+are used instead.</p></li>
+<li><p><strong>projection</strong> (<em>str</em><em>, </em><em>WCS</em><em>, or </em><em>Header</em><em>, </em><em>optional</em>) – Either provide the name of the projection (see <code class="docutils literal notranslate"><span class="pre">get_wcs</span></code> docstring
+for valid names) to create a new <code class="docutils literal notranslate"><span class="pre">WCS</span></code> for this plot, or provide
+a ready-made <code class="docutils literal notranslate"><span class="pre">WCS</span></code> instance or FITS <code class="docutils literal notranslate"><span class="pre">Header</span></code> from which such an
+instance can be crafted. In the first case, you will need to specify
+other parameters needed to fully define the world coordinate system.
+In the latter cases, you might need to customize <code class="docutils literal notranslate"><span class="pre">frame</span></code>.
+<em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given.</em></p></li>
+<li><p><strong>frame_class</strong> (<em>BaseFrame</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – The frame type to use for this plot, e.g. a <code class="docutils literal notranslate"><span class="pre">RectangularFrame</span></code> (for
+a plate carée/Cartesian plot) or an <code class="docutils literal notranslate"><span class="pre">EllipticalFrame</span></code> for a
+Mollweide plot. Selected automatically when <code class="docutils literal notranslate"><span class="pre">projection</span></code> is specified
+by name, otherwise defaults to <code class="docutils literal notranslate"><span class="pre">RectangularFrame</span></code>. You can also
+specify <cite>frame_class=’rectangular’</cite> or <cite>frame_class=’elliptical’</cite> to
+choose one of these two frames.</p></li>
+<li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Width of the image in pixels. If not provided, default to the height
+for zenithal projections and twice the height for azimuthal
+projections. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given or if</em> <code class="docutils literal notranslate"><span class="pre">projection</span></code> <em>is a</em>
+<code class="docutils literal notranslate"><span class="pre">WCS</span></code> <em>instance.</em></p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – The height of the plot in pixels. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given or if</em>
+<code class="docutils literal notranslate"><span class="pre">projection</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">WCS</span></code> <em>instance.</em></p></li>
+<li><p><strong>hdelta</strong> (<em>float</em><em>, </em><em>optional</em>) – The CDELT1 value, if you wish to override the default. Note that the
+actual angular width of a pixel at the reference point depends on this
+value <em>as well as</em> the projection used. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given
+or if</em> <code class="docutils literal notranslate"><span class="pre">projection</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">WCS</span></code> <em>instance.</em></p></li>
+<li><p><strong>vdelta</strong> (<em>float</em><em>, </em><em>optional</em>) – The CDELT2 value, if you wish to override the default. Note that the
+actual angular height of a pixel at the reference point depends on this
+value <em>as well as</em> the projection used. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given
+or if</em> <code class="docutils literal notranslate"><span class="pre">projection</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">WCS</span></code> <em>instance.</em></p></li>
+<li><p><strong>rot</strong> (<em>(</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>) or </em><em>(</em><em>float</em><em>, </em><em>float</em><em>)</em><em>, </em><em>optional</em>) – Euler angles for rotations about the Z, X, Z axes. These are
+immediately translated to <code class="docutils literal notranslate"><span class="pre">CRVAL1,</span> <span class="pre">CRVAL2,</span> <span class="pre">LONPOLE</span></code> in the returned
+<code class="docutils literal notranslate"><span class="pre">WCS</span></code>; that is, the first two angles specify the angle of the center
+of the image, while the last specifies an additional rotation of the
+reference pole about the Z-axis. See <code class="docutils literal notranslate"><span class="pre">hpmoc.plot</span></code> documentation for
+further references. Defaults to centering on RA = 180, dec = 0 (the
+convention used in most plots produced by LIGO). If only two angles are
+provided, <code class="docutils literal notranslate"><span class="pre">LONPOLE</span></code> will be determined automatically such that the
+center of the skymap is given by the <cite>(RA, dec)</cite> given and the
+orientation of the plot is otherwise unchanged. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code>
+<em>is given or if</em> <code class="docutils literal notranslate"><span class="pre">projection</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">WCS</span></code> <em>instance.</em></p></li>
+<li><p><strong>facing_sky</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the projection is outward- or inward-facing. Equivalent to
+reversing the direction of the longitude. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given
+or if</em> <code class="docutils literal notranslate"><span class="pre">projection</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">WCS</span></code> <em>instance.</em></p></li>
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em><em> or </em><em>dict</em><em>, </em><em>optional</em>) – The figure to plot to. If not provided, a new figure will be created.
+If a dictonary is provided, it will be passed as keyword arguments to
+create a new figure. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given.</em></p></li>
+<li><p><strong>subplot</strong> (<em>(</em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>) or </em><em>SubplotSpec</em><em>, </em><em>optional</em>) – If provided, initialize the plot as a subplot using the standard
+<code class="docutils literal notranslate"><span class="pre">Figure.subplot</span></code> matplotlib interface, returning a <code class="docutils literal notranslate"><span class="pre">WCSAxesSubplot</span></code>
+instance rather than a <code class="docutils literal notranslate"><span class="pre">WCSAxes</span></code> instance.
+<em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">ax</span></code> <em>is given.</em></p></li>
+<li><p><strong>cr</strong> (<em>Iterable</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – If provided, plot contour lines around the credible regions
+specified in this list. For example, <code class="docutils literal notranslate"><span class="pre">cr=[0.9]</span></code> will plot contours
+around the smallest region containing 90% of the skymap’s integrated
+value.</p></li>
+<li><p><strong>cr_format</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>str</em><em>]</em><em>, </em><em>optional</em>) – A function taking the CR level (e.g. <code class="docutils literal notranslate"><span class="pre">0.9</span></code> for 90% CR) and the actual
+value of the skymap on that contour and returning a string to be used
+to label each contour. If not provided, contours will not be labeled.
+<em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">cr</span></code> <em>is empty.</em></p></li>
+<li><p><strong>cr_filled</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to fill the contours using <code class="docutils literal notranslate"><span class="pre">contourf</span></code> rather than
+<code class="docutils literal notranslate"><span class="pre">contour</span></code>. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">cr</span></code> <em>is empty.</em></p></li>
+<li><p><strong>cr_kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional arguments to pass to either <code class="docutils literal notranslate"><span class="pre">contour</span></code> or <code class="docutils literal notranslate"><span class="pre">contourf</span></code>.
+<em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">cr</span></code> <em>is empty.</em></p></li>
+<li><p><strong>cr_label_kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Arguments to pass to <code class="docutils literal notranslate"><span class="pre">clabel</span></code> governing the display format of
+contour labels.</p></li>
+<li><p><strong>pixels</strong> (<em>bool</em><em> or </em><em>dict</em><em>, </em><em>optional</em>) – Whether to plot pixel borders. <em>You should probably keep this</em>
+<code class="docutils literal notranslate"><span class="pre">False</span></code> <em>if you are doing an all-sky plot, since border plotting is
+slow for a large number of pixels, and the boundaries will not be
+visible anyway unless each visible pixel’s size is comparable to the
+overall size of the plot window.</em> If you just want to see information
+about e.g. the size of pixels across the whole sky, consider plotting
+<code class="docutils literal notranslate"><span class="pre">skymap.orders(as_skymap=True)</span></code> to see a color map of pixel sizes
+instead. If given as a <code class="docutils literal notranslate"><span class="pre">dict</span></code>, will be interpreted as keyword
+arguments to pass to <code class="docutils literal notranslate"><span class="pre">WCSAxes.plot</span></code>, which can be used to control the
+appearance of the pixel borders.</p></li>
+<li><p><strong>pixels_format</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap"><em>PartialUniqSkymap</em></a><em>]</em><em>, </em><em>Iterable</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – A function that takes a skymap and returns a string for each pixel.
+Will be called on the selection of pixels overlapping with the visible
+area, so don’t worry about optimizing it, since just plotting the
+borders will be slow enough for a large number of visible pixels.
+The returned string will be plotted over the center of each pixel,
+which again is only useful if the pixels are large with respect to the
+size of the plot window.</p></li>
+<li><p><strong>cbar</strong> (<em>bool</em><em> or </em><em>dict</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, add a colorbar for the plotted skymap. If a <code class="docutils literal notranslate"><span class="pre">dict</span></code> is
+provided, pass it as the keyword arguments to
+<code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.colorbar</span></code>. <em>Ignored if</em> <code class="docutils literal notranslate"><span class="pre">cmap=None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The axes that were just plotted to.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>WCSAxes or WCSAxesSubplot</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.partial.PartialUniqSkymap</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.colorbar</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.gridspec.SubplotSpec</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.io.fits.Header</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.visualization.wcsaxes.WCSAxes</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.ra_exclusions">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">ra_exclusions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plot.ra_exclusions" title="Permalink to this definition"></a></dt>
+<dd><p>Get RA values to exclude from ticks.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.register_dec_exclusion">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">register_dec_exclusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plot.register_dec_exclusion" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plot.register_ra_exclusion">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plot.</span></span><span class="sig-name descname"><span class="pre">register_ra_exclusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plot.register_ra_exclusion" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hpmoc.partial.html" class="btn btn-neutral float-left" title="hpmoc.partial module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hpmoc.plotters.html" class="btn btn-neutral float-right" title="hpmoc.plotters module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Stefan Trklja Countryman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

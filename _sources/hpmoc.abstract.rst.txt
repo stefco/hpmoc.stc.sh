@@ -1,0 +1,7 @@
+hpmoc.abstract module
+=====================
+
+.. automodule:: hpmoc.abstract
+   :members:
+   :undoc-members:
+   :show-inheritance:

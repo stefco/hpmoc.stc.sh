@@ -1,0 +1,7 @@
+hpmoc.partial module
+====================
+
+.. automodule:: hpmoc.partial
+   :members:
+   :undoc-members:
+   :show-inheritance:

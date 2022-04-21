@@ -1,0 +1,7 @@
+hpmoc.atlas package
+===================
+
+.. automodule:: hpmoc.atlas
+   :members:
+   :undoc-members:
+   :show-inheritance:

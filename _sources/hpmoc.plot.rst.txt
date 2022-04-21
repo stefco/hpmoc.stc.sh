@@ -1,0 +1,7 @@
+hpmoc.plot module
+=================
+
+.. automodule:: hpmoc.plot
+   :members:
+   :undoc-members:
+   :show-inheritance:

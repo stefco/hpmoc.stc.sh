@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index &mdash; HEALPix Multi-Order Coordinate Library (HPMOC) 0.3.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="canonical" href="http://hpmoc.stc.shgenindex.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> HEALPix Multi-Order Coordinate Library (HPMOC)
+          </a>
+              <div class="version">
+                0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jup/plotting-examples.html">Plotting Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Basic-Plotting">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-and-Pseudocylindrical-projections">Cylindrical and Pseudocylindrical projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Mollweide-Projection">Mollweide Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Hammer-Aitoff-Projection">Hammer-Aitoff Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-equal-area">Cylindrical equal-area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Plate-Carée-Projection">Plate Carée Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Projections">Zenithal Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Slant-Orthographic-Projection">Slant Orthographic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Gnomonic-Projection">Gnomonic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equidistant-Projection">Zenithal Equidistant Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equal-Area-Projection">Zenithal Equal-Area Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Arbitrary-WCS-Projections">Arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> Projections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Rotations">Rotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#2-Angle-Rotations">2-Angle Rotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#3-Angle-Rotations">3-Angle Rotations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Cylindrical-and-Pseudocylindrical-Projections">Rotations in Cylindrical and Pseudocylindrical Projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Zenithal-Projections">Rotations in Zenithal Projections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Zoomed-Plots">Zoomed Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Fixed-Angular-Width">Fixed Angular Width</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Scatterplots">Scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Contours-around-Credible-Regions">Contours around Credible Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Multi-layered-plots">Multi-layered plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Grid-Plots">Grid Plots</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.html">hpmoc package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.abstract.html">hpmoc.abstract module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.atlas.html">hpmoc.atlas package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.fits.html">hpmoc.fits module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy.html">hpmoc.healpy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy_utils.html">hpmoc.healpy_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.io.html">hpmoc.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.abstract.html">hpmoc.io.abstract module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.astroquery.html">hpmoc.io.astroquery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.gracedb.html">hpmoc.io.gracedb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.ligo.html">hpmoc.io.ligo module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.partial.html">hpmoc.partial module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plot.html">hpmoc.plot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plotters.html">hpmoc.plotters module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.points.html">hpmoc.points module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.psf.html">hpmoc.psf module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.utils.html">hpmoc.utils module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HEALPix Multi-Order Coordinate Library (HPMOC)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Index</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.abstract.html#hpmoc.abstract.AbstractPartialUniqSkymap">AbstractPartialUniqSkymap (class in hpmoc.abstract)</a>
+</li>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.add_disks">add_disks() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.add_scatterplot">add_scatterplot() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.Rgba.alpha">alpha (hpmoc.points.Rgba property)</a>
+</li>
+      <li><a href="hpmoc.healpy_utils.html#hpmoc.healpy_utils.alt_compress">alt_compress() (in module hpmoc.healpy_utils)</a>
+</li>
+      <li><a href="hpmoc.healpy_utils.html#hpmoc.healpy_utils.alt_expand">alt_expand() (in module hpmoc.healpy_utils)</a>
+</li>
+      <li><a href="hpmoc.healpy.html#hpmoc.healpy.ang2vec">ang2vec() (in module hpmoc.healpy)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.ang_dist">ang_dist() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.apply">apply() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.area">area() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.io.html#hpmoc.io.IoRegistry.astroquery">astroquery (hpmoc.io.IoRegistry attribute)</a>
+</li>
+      <li><a href="hpmoc.io.astroquery.html#hpmoc.io.astroquery.AstroqueryIo">AstroqueryIo (class in hpmoc.io.astroquery)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.astype">astype() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas">Atlas (class in hpmoc.atlas)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.atlas_dual">atlas_dual() (in module hpmoc.atlas)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.azeqview">azeqview() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.plotters.html#hpmoc.plotters.azeqview">(in module hpmoc.plotters)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.io.html#hpmoc.io.IoRegistry.basic">basic (hpmoc.io.IoRegistry attribute)</a>
+</li>
+      <li><a href="hpmoc.io.html#hpmoc.io.BasicIo">BasicIo (class in hpmoc.io)</a>
+</li>
+      <li><a href="hpmoc.fits.html#hpmoc.fits.bintable_dtype">bintable_dtype() (in module hpmoc.fits)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.points.html#hpmoc.points.Rgba.blue">blue (hpmoc.points.Rgba property)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.bool_to_uint8">bool_to_uint8() (in module hpmoc.partial)</a>
+</li>
+      <li><a href="hpmoc.healpy.html#hpmoc.healpy.boundaries">boundaries() (in module hpmoc.healpy)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.fits.html#hpmoc.fits.calculate_max_rows_read">calculate_max_rows_read() (in module hpmoc.fits)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.cartview">cartview() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.plotters.html#hpmoc.plotters.cartview">(in module hpmoc.plotters)</a>
+</li>
+      </ul></li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.check_valid_nside">check_valid_nside() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.check_valid_nuniq">check_valid_nuniq() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.close_loops">close_loops() (in module hpmoc.atlas)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.cmap">cmap() (hpmoc.points.PointsTuple method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.compress">compress() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.healpy_utils.html#hpmoc.healpy_utils.compress_masks">compress_masks() (in module hpmoc.healpy_utils)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.connectors">connectors (hpmoc.atlas.Atlas attribute)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.coords">coords() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.copy">copy() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.corners">corners (hpmoc.atlas.Atlas attribute)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.current_faces">current_faces (hpmoc.atlas.Atlas attribute)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.current_sides">current_sides (hpmoc.atlas.Atlas attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.dangle_rad">dangle_rad() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.plot.html#hpmoc.plot.dec_exclusions">dec_exclusions() (in module hpmoc.plot)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.dedup">dedup() (hpmoc.points.PointsTuple class method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.default_cmap">default_cmap() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.density_from_table">density_from_table() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.diadic_dunder">diadic_dunder() (in module hpmoc.partial)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.dispatch">dispatch() (in module hpmoc.atlas)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.EmptyStream">EmptyStream</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.fits.html#hpmoc.fits.extract_probdensity">extract_probdensity() (in module hpmoc.fits)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.faces">faces (hpmoc.atlas.Atlas attribute)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.TmpGunzipFits.filename">filename (hpmoc.utils.TmpGunzipFits attribute)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.fill">fill() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.utils.html#hpmoc.utils.fill">(in module hpmoc.utils)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.fixed">fixed() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.Rgba.from_hex">from_hex() (hpmoc.points.Rgba class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.get_ax_angles">get_ax_angles() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.get_ax_nside">get_ax_nside() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.plot.html#hpmoc.plot.get_colormap">get_colormap() (in module hpmoc.plot)</a>
+</li>
+      <li><a href="hpmoc.plot.html#hpmoc.plot.get_frame_class">get_frame_class() (in module hpmoc.plot)</a>
+</li>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.get_hp_ax_img_shape">get_hp_ax_img_shape() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.plot.html#hpmoc.plot.get_projection">get_projection() (in module hpmoc.plot)</a>
+</li>
+      <li><a href="hpmoc.plot.html#hpmoc.plot.get_ticks">get_ticks() (in module hpmoc.plot)</a>
+</li>
+      <li><a href="hpmoc.plot.html#hpmoc.plot.get_wcs">get_wcs() (in module hpmoc.plot)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.gnomview">gnomview() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.plotters.html#hpmoc.plotters.gnomview">(in module hpmoc.plotters)</a>
+</li>
+      </ul></li>
+      <li><a href="hpmoc.io.html#hpmoc.io.IoRegistry.gracedb">gracedb (hpmoc.io.IoRegistry attribute)</a>
+</li>
+      <li><a href="hpmoc.io.gracedb.html#hpmoc.io.gracedb.GracedbIo">GracedbIo (class in hpmoc.io.gracedb)</a>
+</li>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.graticule">graticule() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.Rgba.green">green (hpmoc.points.Rgba property)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.gridplot">gridplot() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.plot.html#hpmoc.plot.gridplot">(in module hpmoc.plot)</a>
+</li>
+      </ul></li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.group_slices">group_slices() (in module hpmoc.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.handle_compressed_infile">handle_compressed_infile() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.healpix_atlas">healpix_atlas() (in module hpmoc.atlas)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.healpix_base_atlas">healpix_base_atlas() (in module hpmoc.atlas)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.healpix_grid_limits">healpix_grid_limits() (in module hpmoc.atlas)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.healpix_side_subpixel_luts">healpix_side_subpixel_luts() (in module hpmoc.atlas)</a>
+</li>
+      <li>
+    hpmoc
+
+      <ul>
+        <li><a href="hpmoc.html#module-hpmoc">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.abstract
+
+      <ul>
+        <li><a href="hpmoc.abstract.html#module-hpmoc.abstract">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.atlas
+
+      <ul>
+        <li><a href="hpmoc.atlas.html#module-hpmoc.atlas">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.fits
+
+      <ul>
+        <li><a href="hpmoc.fits.html#module-hpmoc.fits">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.healpy
+
+      <ul>
+        <li><a href="hpmoc.healpy.html#module-hpmoc.healpy">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.healpy_utils
+
+      <ul>
+        <li><a href="hpmoc.healpy_utils.html#module-hpmoc.healpy_utils">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.io
+
+      <ul>
+        <li><a href="hpmoc.io.html#module-hpmoc.io">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    hpmoc.io.abstract
+
+      <ul>
+        <li><a href="hpmoc.io.abstract.html#module-hpmoc.io.abstract">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.io.astroquery
+
+      <ul>
+        <li><a href="hpmoc.io.astroquery.html#module-hpmoc.io.astroquery">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.io.gracedb
+
+      <ul>
+        <li><a href="hpmoc.io.gracedb.html#module-hpmoc.io.gracedb">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.io.ligo
+
+      <ul>
+        <li><a href="hpmoc.io.ligo.html#module-hpmoc.io.ligo">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.partial
+
+      <ul>
+        <li><a href="hpmoc.partial.html#module-hpmoc.partial">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.plot
+
+      <ul>
+        <li><a href="hpmoc.plot.html#module-hpmoc.plot">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.plotters
+
+      <ul>
+        <li><a href="hpmoc.plotters.html#module-hpmoc.plotters">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.points
+
+      <ul>
+        <li><a href="hpmoc.points.html#module-hpmoc.points">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.psf
+
+      <ul>
+        <li><a href="hpmoc.psf.html#module-hpmoc.psf">module</a>
+</li>
+      </ul></li>
+      <li>
+    hpmoc.utils
+
+      <ul>
+        <li><a href="hpmoc.utils.html#module-hpmoc.utils">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.idx_in_chart">idx_in_chart() (in module hpmoc.atlas)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.TmpGunzipFits.infile">infile (hpmoc.utils.TmpGunzipFits attribute)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.interp_wcs">interp_wcs() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.interp_wcs_nn">interp_wcs_nn() (in module hpmoc.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.intersection">intersection() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.io.html#hpmoc.io.IoRegistry">IoRegistry (class in hpmoc.io)</a>
+</li>
+      <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.IoStrategy">IoStrategy (class in hpmoc.io.abstract)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.is_gz">is_gz() (in module hpmoc.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.label">label (hpmoc.points.PointsTuple property)</a>
+</li>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.label_graticule">label_graticule() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.layer_plot">layer_plot() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.healpy.html#hpmoc.healpy.LazyMod">LazyMod (class in hpmoc.healpy)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.io.html#hpmoc.io.IoRegistry.ligo">ligo (hpmoc.io.IoRegistry attribute)</a>
+</li>
+      <li><a href="hpmoc.io.html#hpmoc.io.IoRegistry.ligo_old">ligo_old (hpmoc.io.IoRegistry attribute)</a>
+</li>
+      <li><a href="hpmoc.io.ligo.html#hpmoc.io.ligo.LigoIo">LigoIo (class in hpmoc.io.ligo)</a>
+</li>
+      <li><a href="hpmoc.fits.html#hpmoc.fits.load_ligo">load_ligo() (in module hpmoc.fits)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.marker">marker (hpmoc.points.PointsTuple property)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.max">max() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.max_uint_type">max_uint_type() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.meta_dict">meta_dict() (hpmoc.points.PointsTuple method)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.meta_read">meta_read() (hpmoc.points.PointsTuple class method)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.min">min() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.min_int_dtype">min_int_dtype() (in module hpmoc.utils)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="hpmoc.html#module-hpmoc">hpmoc</a>
+</li>
+        <li><a href="hpmoc.abstract.html#module-hpmoc.abstract">hpmoc.abstract</a>
+</li>
+        <li><a href="hpmoc.atlas.html#module-hpmoc.atlas">hpmoc.atlas</a>
+</li>
+        <li><a href="hpmoc.fits.html#module-hpmoc.fits">hpmoc.fits</a>
+</li>
+        <li><a href="hpmoc.healpy.html#module-hpmoc.healpy">hpmoc.healpy</a>
+</li>
+        <li><a href="hpmoc.healpy_utils.html#module-hpmoc.healpy_utils">hpmoc.healpy_utils</a>
+</li>
+        <li><a href="hpmoc.io.html#module-hpmoc.io">hpmoc.io</a>
+</li>
+        <li><a href="hpmoc.io.abstract.html#module-hpmoc.io.abstract">hpmoc.io.abstract</a>
+</li>
+        <li><a href="hpmoc.io.astroquery.html#module-hpmoc.io.astroquery">hpmoc.io.astroquery</a>
+</li>
+        <li><a href="hpmoc.io.gracedb.html#module-hpmoc.io.gracedb">hpmoc.io.gracedb</a>
+</li>
+        <li><a href="hpmoc.io.ligo.html#module-hpmoc.io.ligo">hpmoc.io.ligo</a>
+</li>
+        <li><a href="hpmoc.partial.html#module-hpmoc.partial">hpmoc.partial</a>
+</li>
+        <li><a href="hpmoc.plot.html#module-hpmoc.plot">hpmoc.plot</a>
+</li>
+        <li><a href="hpmoc.plotters.html#module-hpmoc.plotters">hpmoc.plotters</a>
+</li>
+        <li><a href="hpmoc.points.html#module-hpmoc.points">hpmoc.points</a>
+</li>
+        <li><a href="hpmoc.psf.html#module-hpmoc.psf">hpmoc.psf</a>
+</li>
+        <li><a href="hpmoc.utils.html#module-hpmoc.utils">hpmoc.utils</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.mollview">mollview() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.plotters.html#hpmoc.plotters.mollview">(in module hpmoc.plotters)</a>
+</li>
+      </ul></li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.monochrome_opacity_colormap">monochrome_opacity_colormap() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.multiplot">multiplot() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.plotters.html#hpmoc.plotters.multiplot">(in module hpmoc.plotters)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.nest2ang">nest2ang() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.nest2dangle">nest2dangle() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.nest2uniq">nest2uniq() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.nest_reres">nest_reres() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.fits.html#hpmoc.fits.next_hdu">next_hdu() (in module hpmoc.fits)</a>
+</li>
+      <li><a href="hpmoc.fits.html#hpmoc.fits.next_header">next_header() (in module hpmoc.fits)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.next_side">next_side() (in module hpmoc.atlas)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.NoDisks">NoDisks</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.nside">nside() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.healpy.html#hpmoc.healpy.nside2order">nside2order() (in module hpmoc.healpy)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.nside2pixarea">nside2pixarea() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.nside_quantile_indices">nside_quantile_indices() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.nside_slices">nside_slices() (in module hpmoc.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.io.html#hpmoc.io.OldLigoIo">OldLigoIo (class in hpmoc.io)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.orders">orders() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.ortho_translate">ortho_translate() (hpmoc.atlas.Atlas method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.orthview">orthview() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.plotters.html#hpmoc.plotters.orthview">(in module hpmoc.plotters)</a>
+</li>
+      </ul></li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.outline_effect">outline_effect() (in module hpmoc.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap">PartialUniqSkymap (class in hpmoc.partial)</a>
+</li>
+      <li><a href="hpmoc.healpy.html#hpmoc.healpy.pix2xyf">pix2xyf() (in module hpmoc.healpy)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.plot">plot() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.plot.html#hpmoc.plot.plot">(in module hpmoc.plot)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.point_sources">point_sources (hpmoc.partial.PartialUniqSkymap attribute)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.points">points (hpmoc.points.PointsTuple property)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple">PointsTuple (class in hpmoc.points)</a>
+</li>
+      <li><a href="hpmoc.psf.html#hpmoc.psf.psf_gaussian">psf_gaussian() (in module hpmoc.psf)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.StubIo.qualname">qualname (hpmoc.io.abstract.StubIo attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.quantiles">quantiles() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.plot.html#hpmoc.plot.ra_exclusions">ra_exclusions() (in module hpmoc.plot)</a>
+</li>
+      <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.IoStrategy.read">read (hpmoc.io.abstract.IoStrategy attribute)</a>
+
+      <ul>
+        <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.ReadonlyIo.read">(hpmoc.io.abstract.ReadonlyIo attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.StubIo.read">read() (hpmoc.io.abstract.StubIo class method)</a>
+
+      <ul>
+        <li><a href="hpmoc.io.astroquery.html#hpmoc.io.astroquery.AstroqueryIo.read">(hpmoc.io.astroquery.AstroqueryIo static method)</a>
+</li>
+        <li><a href="hpmoc.io.html#hpmoc.io.BasicIo.read">(hpmoc.io.BasicIo static method)</a>
+</li>
+        <li><a href="hpmoc.io.gracedb.html#hpmoc.io.gracedb.GracedbIo.read">(hpmoc.io.gracedb.GracedbIo static method)</a>
+</li>
+        <li><a href="hpmoc.io.ligo.html#hpmoc.io.ligo.LigoIo.read">(hpmoc.io.ligo.LigoIo static method)</a>
+</li>
+        <li><a href="hpmoc.io.html#hpmoc.io.OldLigoIo.read">(hpmoc.io.OldLigoIo static method)</a>
+</li>
+        <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.read">(hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      </ul></li>
+      <li><a href="hpmoc.fits.html#hpmoc.fits.read_bintable_chunks">read_bintable_chunks() (in module hpmoc.fits)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.read_partial_skymap">read_partial_skymap() (in module hpmoc.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.ReadonlyIo">ReadonlyIo (class in hpmoc.io.abstract)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.Rgba.red">red (hpmoc.points.Rgba property)</a>
+</li>
+      <li><a href="hpmoc.plot.html#hpmoc.plot.register_dec_exclusion">register_dec_exclusion() (in module hpmoc.plot)</a>
+</li>
+      <li><a href="hpmoc.plot.html#hpmoc.plot.register_ra_exclusion">register_ra_exclusion() (in module hpmoc.plot)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.render">render() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.render">(hpmoc.points.PointsTuple method)</a>
+</li>
+        <li><a href="hpmoc.utils.html#hpmoc.utils.render">(in module hpmoc.utils)</a>
+</li>
+      </ul></li>
+      <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.StubIo.requirements">requirements (hpmoc.io.abstract.StubIo attribute)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.reraster">reraster() (hpmoc.partial.PartialUniqSkymap method)</a>
+
+      <ul>
+        <li><a href="hpmoc.utils.html#hpmoc.utils.reraster">(in module hpmoc.utils)</a>
+</li>
+      </ul></li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.resol2nside">resol2nside() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.Rgba">Rgba (class in hpmoc.points)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.rgba">rgba (hpmoc.points.PointsTuple property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.s">s (hpmoc.partial.PartialUniqSkymap attribute)</a>
+</li>
+      <li><a href="hpmoc.points.html#hpmoc.points.PointsTuple.scale_sigma">scale_sigma() (hpmoc.points.PointsTuple method)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.set_partial_skymap_metadata">set_partial_skymap_metadata() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.sides">sides (hpmoc.atlas.Atlas attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.sky_area">sky_area() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.sky_area_deg">sky_area_deg() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.sort">sort() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.square_matrix_connectors">square_matrix_connectors() (in module hpmoc.atlas)</a>
+</li>
+      <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.StubIo">StubIo (class in hpmoc.io.abstract)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.TmpGunzipFits">TmpGunzipFits (class in hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.to">to() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.points.html#hpmoc.points.Rgba.to_hex">to_hex() (hpmoc.points.Rgba method)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.to_table">to_table() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.translate">translate() (hpmoc.atlas.Atlas method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.u">u (hpmoc.partial.PartialUniqSkymap attribute)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq2dangle">uniq2dangle() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq2nest">uniq2nest() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq2nest_and_nside">uniq2nest_and_nside() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq2nside">uniq2nside() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq2order">uniq2order() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq2xyf_nside">uniq2xyf_nside() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq_coarsen">uniq_coarsen() (in module hpmoc.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq_diadic">uniq_diadic() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq_intersection">uniq_intersection() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq_minimize">uniq_minimize() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.uniq_sample">uniq_sample() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.unit">unit (hpmoc.partial.PartialUniqSkymap property)</a>
+</li>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.unmask_partial_image">unmask_partial_image() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.unzip_atlas">unzip_atlas() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.unzip_orders">unzip_orders() (hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.valid_idx">valid_idx() (hpmoc.atlas.Atlas method)</a>
+</li>
+      <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.value">value (hpmoc.partial.PartialUniqSkymap property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.visufunc">visufunc() (in module hpmoc.plotters)</a>
+</li>
+      <li><a href="hpmoc.plotters.html#hpmoc.plotters.visufunc_defaults">visufunc_defaults() (in module hpmoc.plotters)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.wcs2ang">wcs2ang() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.wcs2mask_and_uniq">wcs2mask_and_uniq() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.wcs2nest">wcs2nest() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.wcs2resol">wcs2resol() (in module hpmoc.utils)</a>
+</li>
+      <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.IoStrategy.write">write (hpmoc.io.abstract.IoStrategy attribute)</a>
+</li>
+      <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.ReadonlyIo.write">write() (hpmoc.io.abstract.ReadonlyIo static method)</a>
+
+      <ul>
+        <li><a href="hpmoc.io.abstract.html#hpmoc.io.abstract.StubIo.write">(hpmoc.io.abstract.StubIo class method)</a>
+</li>
+        <li><a href="hpmoc.io.html#hpmoc.io.BasicIo.write">(hpmoc.io.BasicIo static method)</a>
+</li>
+        <li><a href="hpmoc.io.gracedb.html#hpmoc.io.gracedb.GracedbIo.write">(hpmoc.io.gracedb.GracedbIo static method)</a>
+</li>
+        <li><a href="hpmoc.io.ligo.html#hpmoc.io.ligo.LigoIo.write">(hpmoc.io.ligo.LigoIo method)</a>
+</li>
+        <li><a href="hpmoc.io.html#hpmoc.io.OldLigoIo.write">(hpmoc.io.OldLigoIo method)</a>
+</li>
+        <li><a href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.write">(hpmoc.partial.PartialUniqSkymap method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.x_limits">x_limits (hpmoc.atlas.Atlas attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.healpy.html#hpmoc.healpy.xyf2pix">xyf2pix() (in module hpmoc.healpy)</a>
+</li>
+      <li><a href="hpmoc.utils.html#hpmoc.utils.xyf_nside2uniq">xyf_nside2uniq() (in module hpmoc.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="hpmoc.atlas.html#hpmoc.atlas.Atlas.y_limits">y_limits (hpmoc.atlas.Atlas attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Stefan Trklja Countryman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

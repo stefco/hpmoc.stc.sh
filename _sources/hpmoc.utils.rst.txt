@@ -1,0 +1,7 @@
+hpmoc.utils module
+==================
+
+.. automodule:: hpmoc.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

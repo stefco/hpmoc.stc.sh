@@ -1,0 +1,7 @@
+hpmoc.points module
+===================
+
+.. automodule:: hpmoc.points
+   :members:
+   :undoc-members:
+   :show-inheritance:

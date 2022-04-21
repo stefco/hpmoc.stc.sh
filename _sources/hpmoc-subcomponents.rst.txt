@@ -1,0 +1,14 @@
+.. toctree::
+
+   hpmoc.abstract.rst
+   hpmoc.atlas.rst
+   hpmoc.fits.rst
+   hpmoc.healpy.rst
+   hpmoc.healpy_utils.rst
+   hpmoc.io.rst
+   hpmoc.partial.rst
+   hpmoc.plot.rst
+   hpmoc.plotters.rst
+   hpmoc.points.rst
+   hpmoc.psf.rst
+   hpmoc.utils.rst

@@ -1,0 +1,7 @@
+hpmoc.fits module
+=================
+
+.. automodule:: hpmoc.fits
+   :members:
+   :undoc-members:
+   :show-inheritance:

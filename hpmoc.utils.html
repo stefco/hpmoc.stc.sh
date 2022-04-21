@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hpmoc.utils module &mdash; HEALPix Multi-Order Coordinate Library (HPMOC) 0.3.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="canonical" href="http://hpmoc.stc.shhpmoc.utils.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="hpmoc.psf module" href="hpmoc.psf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> HEALPix Multi-Order Coordinate Library (HPMOC)
+          </a>
+              <div class="version">
+                0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jup/plotting-examples.html">Plotting Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Basic-Plotting">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-and-Pseudocylindrical-projections">Cylindrical and Pseudocylindrical projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Mollweide-Projection">Mollweide Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Hammer-Aitoff-Projection">Hammer-Aitoff Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-equal-area">Cylindrical equal-area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Plate-Carée-Projection">Plate Carée Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Projections">Zenithal Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Slant-Orthographic-Projection">Slant Orthographic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Gnomonic-Projection">Gnomonic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equidistant-Projection">Zenithal Equidistant Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equal-Area-Projection">Zenithal Equal-Area Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Arbitrary-WCS-Projections">Arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> Projections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Rotations">Rotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#2-Angle-Rotations">2-Angle Rotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#3-Angle-Rotations">3-Angle Rotations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Cylindrical-and-Pseudocylindrical-Projections">Rotations in Cylindrical and Pseudocylindrical Projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Zenithal-Projections">Rotations in Zenithal Projections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Zoomed-Plots">Zoomed Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Fixed-Angular-Width">Fixed Angular Width</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Scatterplots">Scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Contours-around-Credible-Regions">Contours around Credible Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Multi-layered-plots">Multi-layered plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Grid-Plots">Grid Plots</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.html">hpmoc package</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.abstract.html">hpmoc.abstract module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.atlas.html">hpmoc.atlas package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.fits.html">hpmoc.fits module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy.html">hpmoc.healpy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy_utils.html">hpmoc.healpy_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.io.html">hpmoc.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.abstract.html">hpmoc.io.abstract module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.astroquery.html">hpmoc.io.astroquery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.gracedb.html">hpmoc.io.gracedb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.ligo.html">hpmoc.io.ligo module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.partial.html">hpmoc.partial module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plot.html">hpmoc.plot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plotters.html">hpmoc.plotters module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.points.html">hpmoc.points module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.psf.html">hpmoc.psf module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">hpmoc.utils module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HEALPix Multi-Order Coordinate Library (HPMOC)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>hpmoc.utils module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hpmoc.utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-hpmoc.utils">
+<span id="hpmoc-utils-module"></span><h1>hpmoc.utils module<a class="headerlink" href="#module-hpmoc.utils" title="Permalink to this headline"></a></h1>
+<p>Utility functions used across healpix_skymap classes.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="hpmoc.utils.EmptyStream">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">EmptyStream</span></span><a class="headerlink" href="#hpmoc.utils.EmptyStream" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">OSError</span></code></p>
+<p>Raised when a file stream returns no further content.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hpmoc.utils.TmpGunzipFits">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">TmpGunzipFits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">IO</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.TmpGunzipFits" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A context manager that unzips a Gzip file to a temporary <code class="docutils literal notranslate"><span class="pre">.fits</span></code> file,
+returning a <code class="docutils literal notranslate"><span class="pre">NamedTemporaryFile</span></code> pointing to the tempfile, and deletes
+the tempfile when you’re done with it. Can only do binary reads, so mode
+cannot be specified. Pass it a file name or a gzip file object that’s
+already been opened in binary read (‘rb’) mode.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.utils.TmpGunzipFits.filename">
+<span class="sig-name descname"><span class="pre">filename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#hpmoc.utils.TmpGunzipFits.filename" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.utils.TmpGunzipFits.infile">
+<span class="sig-name descname"><span class="pre">infile</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">IO</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hpmoc.utils.TmpGunzipFits.infile" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.check_valid_nside">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">check_valid_nside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.check_valid_nside" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether <code class="docutils literal notranslate"><span class="pre">nside</span></code> is a valid HEALPix NSIDE value. Raises a
+ValueError if it is not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nside</strong> (<em>int</em><em> or </em><em>array</em>) – An integer or array of integers representing HEALPix NSIDE values.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If any of the values are not valid HEALPix NSIDE values.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Does nothing if you provide a valid NSIDE value (floats are accepted as
+long as their exact values are valid):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">check_valid_nside</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">check_valid_nside</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">check_valid_nside</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">check_valid_nside</span><span class="p">([</span><span class="mf">1024.</span><span class="p">,</span> <span class="mi">4096</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>A descriptive value error is raised if invalid values are provided:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">check_valid_nside</span><span class="p">([</span><span class="mf">4.1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught exception:&quot;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="go">Caught exception: Not a valid NSIDE value: [4.1, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">check_valid_nside</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught exception:&quot;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="go">Caught exception: Not a valid NSIDE value: [17]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.check_valid_nuniq">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">check_valid_nuniq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.check_valid_nuniq" title="Permalink to this definition"></a></dt>
+<dd><p>Checks that <code class="docutils literal notranslate"><span class="pre">indices</span></code> are valid NUNIQ indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">indices</span></code> are not valid NUNIQ indices, i.e. they are not integers
+    greater than 3.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.dangle_rad">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">dangle_rad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapdec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.dangle_rad" title="Permalink to this definition"></a></dt>
+<dd><p>Get an array of angular distances in radians between the point specified
+in <code class="docutils literal notranslate"><span class="pre">ra</span></code>, <code class="docutils literal notranslate"><span class="pre">dec</span></code> and the points specified in <code class="docutils literal notranslate"><span class="pre">mapra</span></code>, <code class="docutils literal notranslate"><span class="pre">mapdec</span></code>. All
+angles, including the return value, are specified in radians.</p>
+<p>sin(DEC1)*sin(DEC2) + cos(DEC1)*cos(DEC2)*cos(RA2-RA1)</p>
+<p>So we get the angle by taking the arccos of this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ra</strong> (<em>float</em>) – Right ascension of the single point [radians]</p></li>
+<li><p><strong>dec</strong> (<em>float</em>) – Declination of the single point [radians]</p></li>
+<li><p><strong>mapra</strong> (<em>array</em>) – Right ascensions whose angular distances to the single point will be
+calculated; must be same length as <code class="docutils literal notranslate"><span class="pre">mapdec</span></code>. [radians]</p></li>
+<li><p><strong>mapdec</strong> (<em>array</em>) – Declinations whose angular distances to the single point will be
+calculated; must be same length as <code class="docutils literal notranslate"><span class="pre">mapra</span></code>. [radians]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Δθ⃗</strong> – Angular distances between the single point provided and the arrays of
+points [radians].</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Simple examples of distances to north pole:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dangle_rad</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span>
+<span class="gp">... </span>           <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span><span class="o">/</span><span class="n">pi</span>
+<span class="go">array([0. , 1. , 0.5, 0.5, 0.5])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.density_from_table">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">density_from_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.density_from_table" title="Permalink to this definition"></a></dt>
+<dd><p>Read probability density from <code class="docutils literal notranslate"><span class="pre">table</span></code> at the specified <code class="docutils literal notranslate"><span class="pre">indices</span></code>.
+Will try to read PROBDENSITY, and if it fails, will try to convert PROB
+to a probability density by dividing by area-per-pixel. Probability
+can be provided in a density format (usually for MOC skymaps) or a
+probability-per-pixel format (fixed-res skymaps).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>astropy.table.Table</em>) – The table to read from. Must have either a <code class="docutils literal notranslate"><span class="pre">PROBDENSITY</span></code> or a
+<code class="docutils literal notranslate"><span class="pre">PROB</span></code> column.</p></li>
+<li><p><strong>indices</strong> (<em>array-like</em>) – Indices of the pixels (i.e. table rows) to read.</p></li>
+<li><p><strong>nside</strong> (<em>int</em><em> or </em><em>array-like</em>) – The HEALPix NSIDE parameter for the pixels. If each pixel has a
+different value, you can specify <code class="docutils literal notranslate"><span class="pre">nside</span></code> as an array of NSIDE
+values corresponding to the indices in <code class="docutils literal notranslate"><span class="pre">indices</span></code>.</p></li>
+<li><p><strong>degrees</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, return densities in inverse square degrees. Otherwise,
+return densities in inverse steradians.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>values</strong> – A view onto the probability density values corresponding to
+<code class="docutils literal notranslate"><span class="pre">indices</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">table</span></code> does not contain <code class="docutils literal notranslate"><span class="pre">PROBDENSITY</span></code> or <code class="docutils literal notranslate"><span class="pre">PROB</span></code> as columns or
+    if any <code class="docutils literal notranslate"><span class="pre">nside</span></code> values are not valid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.fill">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.fill" title="Permalink to this definition"></a></dt>
+<dd><p>Rasterize a HEALPix multi-order skymap into a fixed-res full-sky HEALPix
+nested skymap, filling in missing values with a <code class="docutils literal notranslate"><span class="pre">pad</span></code> values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u⃗</strong> (<em>array-like</em>) – NUNIQ pixel indices of the input skymap</p></li>
+<li><p><strong>x⃗</strong> (<em>array-like</em>) – Pixel values of the input skymap</p></li>
+<li><p><strong>nˢ</strong> (<em>int</em>) – NSIDE of the output skymap</p></li>
+<li><p><strong>pad</strong> (<em>int</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – Value to pad missing indices in the output skymap with. If not
+provided, use <code class="docutils literal notranslate"><span class="pre">healpy.UNSEEN</span></code>, which will render as blank space in
+<code class="docutils literal notranslate"><span class="pre">healpy.visufunc</span></code> plots.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#hpmoc.utils.reraster" title="hpmoc.utils.reraster"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reraster</span></code></a></dt><dd><p>Similar, but for outputs that are also UNIQ-indexed.</p>
+</dd>
+<dt><a class="reference internal" href="#hpmoc.utils.render" title="hpmoc.utils.render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">render</span></code></a></dt><dd><p>Similar, but for outputs with repreating UNIQ indices.</p>
+</dd>
+<dt><a class="reference internal" href="#hpmoc.utils.nest_reres" title="hpmoc.utils.nest_reres"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nest_reres</span></code></a></dt><dd><p>For changing the resolution of NEST indices.</p>
+</dd>
+</dl>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>x⃗ⁿᵉˢᵗ</strong> – Fixed-res full-sky version of the input skymap in NEST ordering with
+missing values filled by <code class="docutils literal notranslate"><span class="pre">pad</span></code>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.group_slices">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">group_slices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*u⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fi=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_empty=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_index=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_inverse=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.group_slices" title="Permalink to this definition"></a></dt>
+<dd><p>Group elements of <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> inputs using some sort of monotonic step function
+<code class="docutils literal notranslate"><span class="pre">f:</span> <span class="pre">u⃗.dtype</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code> codomain and a pseudo-inverse <code class="docutils literal notranslate"><span class="pre">fⁱ</span></code> mapping to the
+smallest element of the input domain giving that output value (both
+identity by default) and return a variety of views and slices into these
+groups. See <code class="docutils literal notranslate"><span class="pre">nside_slices</span></code> for documentation and an implementation that
+groups by HEALPix NSIDE order; this function is the same, but with <code class="docutils literal notranslate"><span class="pre">o⃗</span></code>
+replaced by the result of <code class="docutils literal notranslate"><span class="pre">f</span></code> on elements of <code class="docutils literal notranslate"><span class="pre">u⃗</span></code>.  You can use this
+function with the default grouping functions to group integers by value,
+e.g. for working with <code class="docutils literal notranslate"><span class="pre">δo⃗</span></code> arrays from <code class="docutils literal notranslate"><span class="pre">uniq_intersection</span></code>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.nside_slices" title="hpmoc.utils.nside_slices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nside_slices</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.handle_compressed_infile">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">handle_compressed_infile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.handle_compressed_infile" title="Permalink to this definition"></a></dt>
+<dd><p>Wrap <code class="docutils literal notranslate"><span class="pre">read_partial_skymap</span></code> so that it opens zipped fits files by
+temporarily decompressing them.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.interp_wcs">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">interp_wcs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wcs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">astropy.wcs.WCS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'nearest'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hpmoc.utils.interp_wcs" title="Permalink to this definition"></a></dt>
+<dd><p>Interpolate <code class="docutils literal notranslate"><span class="pre">data</span></code> with coordinates specified by <code class="docutils literal notranslate"><span class="pre">wcs</span></code> FITS
+world coordinate system into a HEALPix NUNIQ skymap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wcs</strong> (<em>astropy.wcs.WCS</em>) – The world coordinate system defining pixel locations. If loading
+a FITS file as an HDU called <code class="docutils literal notranslate"><span class="pre">hdu</span></code>, you can get this argument
+as <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS(hdu.header)</span></code>. <em>Note that you will need to
+manually include units for dimensionful quantities.</em></p></li>
+<li><p><strong>data</strong> (<em>array-like</em>) – The data corresponding to <code class="docutils literal notranslate"><span class="pre">WCS</span></code>. Available from an HDU as
+<code class="docutils literal notranslate"><span class="pre">hdu.data</span></code>.</p></li>
+<li><p><strong>interp</strong> (<em>str</em><em> or </em><em>(</em><em>int</em><em>, </em><em>func</em><em>)</em><em>, </em><em>optional</em>) – <p>The interpolation strategy to use. Can be a string specifying one
+of the following pre-defined strategies:</p>
+<ul>
+<li><p>”nearest” for nearest-neighbor</p></li>
+<li><p>”bilinear” for bicubic</p></li>
+</ul>
+<p>or else a tuple whose first element is the number of orders by
+which the pixels covering the <code class="docutils literal notranslate"><span class="pre">WCS</span></code> should have their resolution
+increased (“nearest” uses a value of 2, “bilinear” a value of 1;
+heuristically, a more sophisticated interpolation scheme can probably
+get away with 1), while the second element is a function taking the
+x, y coordinates of the pixels followed by the pixel values in <code class="docutils literal notranslate"><span class="pre">data</span></code>
+and returning the interpolated pixel values (which will form the return
+value <code class="docutils literal notranslate"><span class="pre">s</span></code> of this function).</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>u</strong> (<em>array</em>) – The corresponding NUNIQ HEALPix indices of the input skymap.</p></li>
+<li><p><strong>s</strong> (<em>array-like</em>) – The pixel-values of the input skymap interpolated at the locations of
+the pixels in <code class="docutils literal notranslate"><span class="pre">u</span></code>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.interp_wcs_nn" title="hpmoc.utils.interp_wcs_nn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interp_wcs_nn</span></code></a>, <a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.partial.PartialUniqSkymap</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.interp_wcs_nn">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">interp_wcs_nn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wcs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">astropy.wcs.WCS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hpmoc.utils.interp_wcs_nn" title="Permalink to this definition"></a></dt>
+<dd><p>Do a nearest-neighbor interpolation of <code class="docutils literal notranslate"><span class="pre">data</span></code> with coordinates
+specified by <code class="docutils literal notranslate"><span class="pre">wcs</span></code> FITS world coordinate system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wcs</strong> (<em>astropy.wcs.WCS</em>) – The world coordinate system defining pixel locations. If loading
+a FITS file as an HDU called <code class="docutils literal notranslate"><span class="pre">hdu</span></code>, you can get this argument
+as <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS(hdu.header)</span></code>. <em>Note that you will need to
+manually include units for dimensionful quantities.</em></p></li>
+<li><p><strong>data</strong> (<em>array-like</em>) – The data corresponding to <code class="docutils literal notranslate"><span class="pre">WCS</span></code>. Available from an HDU as
+<code class="docutils literal notranslate"><span class="pre">hdu.data</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>u</strong> (<em>array</em>) – The corresponding NUNIQ HEALPix indices of the input skymap.</p></li>
+<li><p><strong>s</strong> (<em>array-like</em>) – The pixel-values of the input skymap interpolated at the locations of
+the pixels in <code class="docutils literal notranslate"><span class="pre">u</span></code>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.interp_wcs" title="hpmoc.utils.interp_wcs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interp_wcs</span></code></a>, <a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.partial.PartialUniqSkymap</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.is_gz">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">is_gz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">IO</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.is_gz" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether <code class="docutils literal notranslate"><span class="pre">infile</span></code> is a GZip file, in which case it should be
+unzipped.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.max_uint_type">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">max_uint_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">largest</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.max_uint_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.min_int_dtype">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">min_int_dtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.min_int_dtype" title="Permalink to this definition"></a></dt>
+<dd><p>Find the smallest integer datatype that can represent a given range of
+values.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.monochrome_opacity_colormap">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">monochrome_opacity_colormap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.monochrome_opacity_colormap" title="Permalink to this definition"></a></dt>
+<dd><p>Get a monochrome <code class="docutils literal notranslate"><span class="pre">matplotlib.colors.LinearSegmentedColormap</span></code> with color
+defined by <code class="docutils literal notranslate"><span class="pre">rgba</span></code> (values between zero and one). Opacity will range from
+full transparency for the minimum value to the alpha value set in <code class="docutils literal notranslate"><span class="pre">rgba</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.nest2ang">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">nest2ang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N⃗s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.nest2ang" title="Permalink to this definition"></a></dt>
+<dd><p>Get the angles corresponding to these nested indices <code class="docutils literal notranslate"><span class="pre">n⃗</span></code> and NSIDE
+values <code class="docutils literal notranslate"><span class="pre">N⃗ˢ</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n⃗</strong> (<em>array-like</em>) – HEALPix NESTED indices of pixels of interest.</p></li>
+<li><p><strong>N⃗ˢ</strong> (<em>int</em><em> or </em><em>array-like</em>) – The NSIDE values corresponding to each pixel. Can be a scalar if all
+pixels are at the same NSIDE.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ra_dec</strong> – 2D array whose first row is the right-ascension and second row is
+the declination (in degrees) of each pixel. You can get each of these
+individually with <code class="docutils literal notranslate"><span class="pre">ra,</span> <span class="pre">dec</span> <span class="pre">=</span> <span class="pre">nest2ang(...)</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>astropy.units.Quantity</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.nest2dangle">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">nest2dangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.nest2dangle" title="Permalink to this definition"></a></dt>
+<dd><p>Get the angular distance between the pixels defined in <code class="docutils literal notranslate"><span class="pre">n⃗,</span> <span class="pre">nˢ</span></code> and the
+point located at <code class="docutils literal notranslate"><span class="pre">ra,</span> <span class="pre">dec</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n⃗</strong> (<em>array-like</em>) – HEALPix NEST indices</p></li>
+<li><p><strong>nˢ</strong> (<em>int</em>) – HEALPix NSIDE value</p></li>
+<li><p><strong>ra</strong> (<em>float</em><em> or </em><em>astropy.units.Quantity</em>) – Right ascension of the point; assumed degrees if no unit given.</p></li>
+<li><p><strong>dec</strong> (<em>float</em><em> or </em><em>astropy.units.Quantity</em>) – Declination of the point; assumed degrees if no unit given.</p></li>
+<li><p><strong>degrees</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, and assumed degrees if <code class="docutils literal notranslate"><span class="pre">ra</span></code> and/or <code class="docutils literal notranslate"><span class="pre">dec</span></code> are not
+<code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code> instances with angular unit defined. If
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, assume radians. Ignored if a unit is already specified.</p></li>
+<li><p><strong>in_place</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, store the result in <code class="docutils literal notranslate"><span class="pre">n⃗</span></code> to reduce memory usage.
+Requires <code class="docutils literal notranslate"><span class="pre">n⃗.dtype</span> <span class="pre">==</span> <span class="pre">np.float64</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Δθ⃗</strong> – Angular distance in radians between each pixel in <code class="docutils literal notranslate"><span class="pre">n⃗</span></code> and the point
+at <code class="docutils literal notranslate"><span class="pre">ra,</span> <span class="pre">dec</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>astropy.units.Quantity</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>The 12 base healpix pixels’ distances from north pole should all be equal
+to 90 minus their declinations:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hpmoc.healpy</span> <span class="kn">import</span> <span class="n">healpy</span> <span class="k">as</span> <span class="n">hp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Δθ⃗</span> <span class="o">=</span> <span class="n">nest2dangle</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Δθ⃗</span>
+<span class="go">&lt;Quantity [ 48.1896851,  48.1896851,  48.1896851,  48.1896851,  90.       ,</span>
+<span class="go">            90.       ,  90.       ,  90.       , 131.8103149, 131.8103149,</span>
+<span class="go">           131.8103149, 131.8103149] deg&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Δθ⃗</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="p">(</span><span class="mi">90</span> <span class="o">-</span> <span class="n">hp</span><span class="o">.</span><span class="n">pix2ang</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>                                       <span class="n">lonlat</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&lt;</span> <span class="mf">1e-13</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>You can run the same check for larger skymaps, too (though note that
+precision drops for very nearby pixels due to the O(x²) behavior of cos()
+for small angles and the fact that a dot-product and arccos are used to
+compute the result):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nside</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">nside</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">(</span>
+<span class="gp">... </span>        <span class="n">nest2dangle</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span> <span class="n">nside</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="gp">... </span>        <span class="o">-</span> <span class="p">(</span><span class="mi">90</span> <span class="o">-</span> <span class="n">hp</span><span class="o">.</span><span class="n">pix2ang</span><span class="p">(</span><span class="n">nside</span><span class="p">,</span> <span class="n">nest</span><span class="p">,</span> <span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lonlat</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">... </span>    <span class="p">),</span>
+<span class="gp">... </span>    <span class="mi">11</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">ptp</span><span class="p">()</span>
+<span class="go">0.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.nest2uniq">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">nest2uniq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.nest2uniq" title="Permalink to this definition"></a></dt>
+<dd><p>Return the NUNIQ pixel indices for nested <code class="docutils literal notranslate"><span class="pre">indices</span></code> with
+NSIDE=``nside``.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>indices</strong> (<em>array</em>) – Indices of HEALPix pixels in NEST ordering.</p></li>
+<li><p><strong>nside</strong> (<em>int</em>) – A valid NSIDE value not greater than any of the NSIDE values of the
+<code class="docutils literal notranslate"><span class="pre">indices</span></code>.</p></li>
+<li><p><strong>in_place</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, perform the conversion in-place and return the converted
+<code class="docutils literal notranslate"><span class="pre">indices</span></code> object.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>uniq</strong> – An array of HEALPix pixels in NEST ordering corresponding to the input
+<code class="docutils literal notranslate"><span class="pre">indices</span></code> and <code class="docutils literal notranslate"><span class="pre">nside</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">nside</span></code> is an invalid NSIDE value, i.e. not a power of 2.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nest2uniq</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">284</span><span class="p">,</span> <span class="mi">286</span><span class="p">,</span> <span class="mi">287</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span>   <span class="mi">8</span><span class="p">,</span>   <span class="mi">2</span><span class="p">,</span> <span class="mi">279</span><span class="p">,</span> <span class="mi">278</span><span class="p">,</span> <span class="mi">285</span><span class="p">]),</span> <span class="mi">8</span><span class="p">)</span>
+<span class="go">array([540, 542, 543, 266, 264, 258, 535, 534, 541])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.nest_reres">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">nest_reres</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.nest_reres" title="Permalink to this definition"></a></dt>
+<dd><p>Change the NSIDE of nest indices. If decreasing resolution,
+partially-filled pixels will be included but marked in <code class="docutils literal notranslate"><span class="pre">full</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nest</strong> (<em>array-like</em>) – HEALPix NEST indices.</p></li>
+<li><p><strong>nside_in</strong> (<em>int</em>) – The NSIDE of the provided HEALPix indices.</p></li>
+<li><p><strong>nside_out</strong> (<em>int</em>) – The NSIDE of the output indices.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>reres_nest</strong> (<em>array-like</em>) – The smallest set of HEALPix NEST indices at NSIDE = <code class="docutils literal notranslate"><span class="pre">nside_out</span></code>
+fully covering <code class="docutils literal notranslate"><span class="pre">nest</span></code>.</p></li>
+<li><p><strong>full</strong> (<em>bool or array</em>) – If resolution is not decreased, equals <code class="docutils literal notranslate"><span class="pre">True</span></code>. If resolution is
+decreased, a boolean array that is <code class="docutils literal notranslate"><span class="pre">True</span></code> for all indices in
+<code class="docutils literal notranslate"><span class="pre">reres_nest</span></code> whose subpixels are all included in <code class="docutils literal notranslate"><span class="pre">nest</span></code>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#hpmoc.utils.fill" title="hpmoc.utils.fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill</span></code></a></dt><dd><p>For converting skymap <em>values</em> (not indices) from <em>UNIQ</em> (not NEST) skymaps.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Double the resolution:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="p">,</span> <span class="n">full</span> <span class="o">=</span> <span class="n">nest_reres</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">full</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="go">[0 1 2 3 4 5 6 7]</span>
+</pre></div>
+</div>
+<p>No effect:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="p">,</span> <span class="n">full</span> <span class="o">=</span> <span class="n">nest_reres</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">full</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="go">[0 1]</span>
+</pre></div>
+</div>
+<p>Halve the resolution:
+&gt;&gt;&gt; n, full = nest_reres([0, 1], 2, 1)
+&gt;&gt;&gt; print(full)
+[False]
+&gt;&gt;&gt; print(n)
+[0]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.nside2pixarea">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">nside2pixarea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.nside2pixarea" title="Permalink to this definition"></a></dt>
+<dd><p>Get the area per-pixel at <code class="docutils literal notranslate"><span class="pre">nside</span></code>. <code class="docutils literal notranslate"><span class="pre">nside</span></code> can also be a HEALPix array
+here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nside</strong> (<em>int</em><em> or </em><em>array-like</em>) – The NSIDE value or values you would like areas for.</p></li>
+<li><p><strong>degrees</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, return areas in inverse square degrees. Otherwise, return
+areas in inverse steradians.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pixarea</strong> – The area-per-pixel in the specified units. If <code class="docutils literal notranslate"><span class="pre">nside</span></code> was a scalar,
+<code class="docutils literal notranslate"><span class="pre">pixarea</span></code> is given as a scalar; if it was an array, <code class="docutils literal notranslate"><span class="pre">pixarea</span></code> is
+returned as an array whose values correspond to those in <code class="docutils literal notranslate"><span class="pre">nside</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float or array-like</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If any <code class="docutils literal notranslate"><span class="pre">nside</span></code> values are not valid.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>At NSIDE = 1, we should get 1/12 of the sky, or about 1/steradian:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">allsky</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nside2pixarea</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">allsky</span> <span class="o">/</span> <span class="mi">12</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>This should work for a list of NSIDES as well.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nsides</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">areas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">allsky</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span> <span class="n">allsky</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span> <span class="n">allsky</span><span class="o">/</span><span class="mi">48</span><span class="p">,</span> <span class="n">allsky</span><span class="o">/</span><span class="mi">192</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">nside2pixarea</span><span class="p">(</span><span class="n">nsides</span><span class="p">)</span> <span class="o">==</span> <span class="n">areas</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.nside_quantile_indices">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">nside_quantile_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skymap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantiles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.nside_quantile_indices" title="Permalink to this definition"></a></dt>
+<dd><p>Get the indices and cumulative values of pixels falling between the given
+<code class="docutils literal notranslate"><span class="pre">quantiles</span></code> (expressed as a fraction of unity) for the skymap value
+<code class="docutils literal notranslate"><span class="pre">skymap</span></code>. Also known as confidence/credible region (CR) or percentiles
+(when using percentages rather than fractions of unity).</p>
+<p>Pixels will be sorted by value (density), but quantiles will be taken by
+total integrated value (i.e. density times area, i.e. in proportion to
+density over the square of NSIDE). This puts the highest density regions in
+the upper quantiles while still normalizing for area in a multi-resolution
+skymap.</p>
+<p>Note that this will work perfectly well for partial skymaps, though in that
+case (as one would expect) the quantiles will be taken with respect to the
+remaining pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nside</strong> (<em>int</em><em> or </em><em>array</em>) – NSIDE value (or values for a multi-order skymap) for the skymap.</p></li>
+<li><p><strong>skymap</strong> (<em>array</em>) – Skymap values. If <code class="docutils literal notranslate"><span class="pre">nside</span></code> is an array, values will correspond to
+those NSIDEs.</p></li>
+<li><p><strong>quantiles</strong> (<em>array</em>) – Quantiles from which to select pixels. Must be in ascending order with
+values in the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>. These will form endpoints for
+partitions of the <code class="docutils literal notranslate"><span class="pre">skymap</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">[0.1,</span> <span class="pre">0.9]</span></code> will omit the
+lowest and highest value pixels, giving the intermediate pixels
+accounting for 80% of the integrated skymap.
+Note that quantiles returned by this function are non-intersecting and
+half-open on the right (as with python indices), with the exception of
+<code class="docutils literal notranslate"><span class="pre">1</span></code> for the last pixel; for example, <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code> will include all
+pixels, <code class="docutils literal notranslate"><span class="pre">[0.5,</span> <span class="pre">1]</span></code> will include the highest density pixels accounting
+for 50% of the integrated skymap value, <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0.5,</span> <span class="pre">1]</span></code> will partition
+the skymap into non-intersecting sets of pixels accounting for the
+high- and low-density partitions of the skymap by integrated value,
+etc.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>indices</strong> (<em>generator</em>) – An iterator of arrays of indices suitable for selecting the values from
+<code class="docutils literal notranslate"><span class="pre">skymap</span></code> corresponing to the selected quantiles, sorted in order of
+increasing values of <code class="docutils literal notranslate"><span class="pre">skymap</span></code>. Use these to select the values from
+<code class="docutils literal notranslate"><span class="pre">skymap</span></code> corresponding to each of the partitions defined in
+<code class="docutils literal notranslate"><span class="pre">quantiles</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">quantiles=[0,</span> <span class="pre">0.5,</span> <span class="pre">1]</span></code> will return a
+generator yielding two arrays of indices for accessing the values in
+the <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0.5]</span></code> and <code class="docutils literal notranslate"><span class="pre">[0.5,</span> <span class="pre">1]</span></code> quantiles, respectively. For
+applications where you want to just mask <code class="docutils literal notranslate"><span class="pre">skymap</span></code> and preserve sort
+order, you will want to sort this returned quantity before using it.</p></li>
+<li><p><strong>levels</strong> (<em>astropy.units.Quantity or array</em>) – Values of the skymap at each quantile. Useful for e.g. contour
+plots (though <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap.plot</span></code> will handle this
+automatically).</p></li>
+<li><p><strong>norm</strong> (<em>array</em>) – The total integral of <code class="docutils literal notranslate"><span class="pre">skymap</span></code>. The integrated region in a partition
+defined by quantiles <code class="docutils literal notranslate"><span class="pre">[0.1,</span> <span class="pre">0.2]</span></code>, for example, will be
+<code class="docutils literal notranslate"><span class="pre">(0.2-0.1)*norm</span></code>.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">quantiles</span></code> has length less than 2; if its values are not in order
+    and contained in the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>; if <code class="docutils literal notranslate"><span class="pre">nside</span></code> and <code class="docutils literal notranslate"><span class="pre">skymap</span></code>
+    cannot be broadcast together; if any values in <code class="docutils literal notranslate"><span class="pre">skymap</span></code> are negative;
+    or if the total integrated skymap equals zero, in which case quantiles
+    are undefined.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Get the pixel indices for pixels between the 0.1 (10%) and 0.9 (90%)
+quantiles on a fixed-resolution full skymap:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">skymap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="n">nside_quantile_indices</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">skymap</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ii</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+<span class="go">[array([ 7,  8,  9, 10, 11,  0,  1])]</span>
+</pre></div>
+</div>
+<p>The levels will be the values of the array at the 0.1 and 0.9 quantiles</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
+<span class="go">[ 4 11]</span>
+</pre></div>
+</div>
+<p>The norm in this case is just the average pixel value times the total solid
+angle of the sky:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">skymap</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">norm</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-13</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Get the pixel indices for the same interval on a mixed resolution partial
+skymap (where the last six pixels contribute far less area despite having
+high density):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nside</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">6</span><span class="o">*</span><span class="p">[</span><span class="mi">64</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="o">*</span><span class="n">nside_quantile_indices</span><span class="p">(</span><span class="n">nside</span><span class="p">,</span> <span class="n">skymap</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">... </span> <span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([0, 1])</span>
+</pre></div>
+</div>
+<p>Equal lower and upper bounds give empty quantiles:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="o">*</span><span class="n">nside_quantile_indices</span><span class="p">(</span><span class="n">nside</span><span class="p">,</span> <span class="n">skymap</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">... </span> <span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="go">array([], dtype=int64)</span>
+</pre></div>
+</div>
+<p>Recover all indices (sorted by density):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="o">*</span><span class="n">nside_quantile_indices</span><span class="p">(</span><span class="n">nside</span><span class="p">,</span> <span class="n">skymap</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([ 3,  4,  5,  6,  7,  8,  9, 10, 11,  0,  1,  2])</span>
+</pre></div>
+</div>
+<p>Pick the 90% CR:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="o">*</span><span class="n">nside_quantile_indices</span><span class="p">(</span><span class="n">nside</span><span class="p">,</span> <span class="n">skymap</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([0, 1, 2])</span>
+</pre></div>
+</div>
+<p>Get the four top 20% quantiles:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">nside_quantile_indices</span><span class="p">(</span><span class="n">nside</span><span class="p">,</span> <span class="n">skymap</span><span class="p">,</span>
+<span class="gp">... </span>                                <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))[</span><span class="mi">0</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="go">[0]</span>
+<span class="go">[]</span>
+<span class="go">[1]</span>
+<span class="go">[2]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.nside_slices">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">nside_slices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">u⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_inverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.nside_slices" title="Permalink to this definition"></a></dt>
+<dd><p>Sort and slice up a list of NUNIQ pixel index arrays, returning the sorted
+arrays as well as slice information for chunking them by NSIDE (pixel
+resolution), accessing the original array data, and the NSIDE orders of
+each chunk.</p>
+<p>This is just a wrapper around <code class="docutils literal notranslate"><span class="pre">group_slices</span></code> using HEALPix NSIDE order as
+the grouping function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*u⃗</strong> – <code class="docutils literal notranslate"><span class="pre">np.array</span></code> instances containing NUNIQ HEALPix indices</p></li>
+<li><p><strong>array-like</strong> – <code class="docutils literal notranslate"><span class="pre">np.array</span></code> instances containing NUNIQ HEALPix indices</p></li>
+<li><p><strong>include_empty</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, also include NSIDE orders not included in the input
+indices. Affects all return values.</p></li>
+<li><p><strong>return_index</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to return <code class="docutils literal notranslate"><span class="pre">u⃗̇</span></code>. Only returned if <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>return_inverse</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to return <code class="docutils literal notranslate"><span class="pre">u⃗̇ˢ</span></code>. Only returned if <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>dtype</strong> (<em>int</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – If provided, cast the returned array to this data type. Useful for
+pre-allocating output arrays that only depend on spatial information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>u⃗ˢ</strong> (<em>List[array]</em>) – Sorted versions of each input array</p></li>
+<li><p><strong>s⃗</strong> (<em>List[List[slice]]</em>) – Slices into each <code class="docutils literal notranslate"><span class="pre">u⃗ˢ</span></code> chunked by NSIDE order</p></li>
+<li><p><strong>o⃗</strong> (<em>array</em>) – An array of HEALPix NSIDE orders included in the input indices</p></li>
+<li><p><strong>𝓁⃗</strong> (<em>List[array]</em>) – The lengths of each slice in <code class="docutils literal notranslate"><span class="pre">slice_starts</span></code></p></li>
+<li><p><strong>v⃗</strong> (<em>List[List[array]]</em>) – Lists of array views into each <code class="docutils literal notranslate"><span class="pre">u⃗ˢ</span></code> corresponding to the slices given
+in <code class="docutils literal notranslate"><span class="pre">slices</span></code></p></li>
+<li><p><strong>u⃗̇</strong> (<em>List[array], optional</em>) – Indices into the original array that give <code class="docutils literal notranslate"><span class="pre">u⃗ˢ</span></code></p></li>
+<li><p><strong>u⃗̇ˢ</strong> (<em>List[Array], optional</em>) – Indices into each <code class="docutils literal notranslate"><span class="pre">u⃗ˢ</span></code> that give the original arrays</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.group_slices" title="hpmoc.utils.group_slices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">group_slices</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u⃗1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">4100</span><span class="p">,</span> <span class="mi">1027</span><span class="p">,</span> <span class="mi">263168</span><span class="p">,</span> <span class="mi">263169</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">44096</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u⃗2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4096</span><span class="p">,</span> <span class="mi">4097</span><span class="p">,</span> <span class="mi">1025</span><span class="p">,</span> <span class="mi">16842752</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">11024</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">us</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">ius</span> <span class="o">=</span> <span class="n">nside_slices</span><span class="p">(</span><span class="n">u⃗1</span><span class="p">,</span> <span class="n">u⃗2</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">([</span><span class="n">uu</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">uu</span> <span class="ow">in</span> <span class="n">us</span><span class="p">])</span>
+<span class="go">[array([  1024,   1026,   1027,   4100,  44096, 263168, 263169]),</span>
+<span class="go"> array([    1025,     1026,     4096,     4097,    11024, 16842752])]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">[[slice(0, 3, None),</span>
+<span class="go">  slice(3, 4, None),</span>
+<span class="go">  slice(4, 5, None),</span>
+<span class="go">  slice(5, 7, None),</span>
+<span class="go">  slice(7, 7, None)],</span>
+<span class="go"> [slice(0, 2, None),</span>
+<span class="go">  slice(2, 5, None),</span>
+<span class="go">  slice(5, 5, None),</span>
+<span class="go">  slice(5, 5, None),</span>
+<span class="go">  slice(5, 6, None)]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([ 4,  5,  6,  8, 11])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ll</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+<span class="go">[array([3, 1, 1, 2, 0]), array([2, 3, 0, 0, 1])]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
+<span class="go">[1024 1026 1027]</span>
+<span class="go">[4100]</span>
+<span class="go">[44096]</span>
+<span class="go">[263168 263169]</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
+<span class="go">[1025 1026]</span>
+<span class="go">[ 4096  4097 11024]</span>
+<span class="go">[]</span>
+<span class="go">[]</span>
+<span class="go">[16842752]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">ii</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="n">ius</span><span class="p">]</span>
+<span class="go">[array([0, 5, 2, 1, 6, 3, 4]), array([2, 4, 0, 1, 5, 3])]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.outline_effect">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">outline_effect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.outline_effect" title="Permalink to this definition"></a></dt>
+<dd><p>Get a <code class="docutils literal notranslate"><span class="pre">matplotlib.patheffects.withStroke</span></code> effect that outlines text
+nicely to improve plot readability.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.read_partial_skymap">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">read_partial_skymap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">IO</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.read_partial_skymap" title="Permalink to this definition"></a></dt>
+<dd><p>Read in pixels from a FITS skymap (or a gzip-compressed FITS skymap) that
+lie in a specific sky region.  Attempts to minimize memory usage by
+memory-mapping pixels in the input file and only loading those specified in
+<code class="docutils literal notranslate"><span class="pre">u⃗</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>infile</strong> (<em>str</em><em> or </em><em>file</em>) – A FITS HEALPix skymap file path or file object opened in binary read
+mode ‘rb’ (optionally compressed; see note under <code class="docutils literal notranslate"><span class="pre">memmap</span></code>)</p></li>
+<li><p><strong>u⃗</strong> (<em>array-like</em>) – HEALPix pixel indices in NUNIQ ordering specifying the
+region of the skymap that should be loaded.</p></li>
+<li><p><strong>memmap</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use memory mapping when reading in files. This can VASTLY
+reduce memory required for high-resolution skymaps. If <code class="docutils literal notranslate"><span class="pre">infile</span></code> is
+gzip-compressed and <code class="docutils literal notranslate"><span class="pre">memmap</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, then <code class="docutils literal notranslate"><span class="pre">infile</span></code> will be
+decompressed to a temporary file and data will be read from it
+(necessary to constrain memory usage); for high-resolution skymaps,
+this can require the availability of several gigabytes of tempfile
+storage. You will need to make use of <code class="docutils literal notranslate"><span class="pre">TmpGunzipFits</span></code> when working
+with zipped files in order to be able to use <code class="docutils literal notranslate"><span class="pre">memmap=True</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>partial_skymap</strong> – A partial skymap table in <code class="docutils literal notranslate"><span class="pre">nested</span></code> ordering. Has two columns:
+<code class="docutils literal notranslate"><span class="pre">UNIQ</span></code> and <code class="docutils literal notranslate"><span class="pre">PROBDENSITY</span></code>.  If the resolution of the original
+HEALPix skymap file is lower than that of the u⃗, then any pixels
+overlapping with those in <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> will be used; this might
+result in a larger portion of the skymap being used than that
+specified in <code class="docutils literal notranslate"><span class="pre">u⃗</span></code>. The resolution of this skymap will be
+the resolution of the smallest pixel loaded from the input file (in
+the case of <code class="docutils literal notranslate"><span class="pre">ring</span></code> or <code class="docutils literal notranslate"><span class="pre">nested</span></code> ordering, this is just the
+resolution of the input skymap).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>astropy.table.Table</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.uniq_minimize" title="hpmoc.utils.uniq_minimize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uniq_minimize</span></code></a>, <a class="reference internal" href="#hpmoc.utils.TmpGunzipFits" title="hpmoc.utils.TmpGunzipFits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TmpGunzipFits</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.render">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u⃗o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ii⃗i⃗o</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.render" title="Permalink to this definition"></a></dt>
+<dd><p>Like <code class="docutils literal notranslate"><span class="pre">reraster</span></code>, but allows you to map to a partially-covered <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>
+skymap, e.g. for rendering a plot, thanks to a call to
+<code class="docutils literal notranslate"><span class="pre">np.unique(u⃗ᵒ,</span> <span class="pre">return_inverse=True)</span></code> wrapping the whole thing (to take
+care of scattering values to repeated pixels).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u⃗</strong> (<em>array</em>) – The indices of the skymap.</p></li>
+<li><p><strong>x⃗</strong> (<em>array</em>) – The values of the skymap.</p></li>
+<li><p><strong>u⃗ᵒ</strong> (<em>array</em><em> or </em><em>astropy.wcs.WCS</em>) – If <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> is an <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> world coordinate system, then
+<code class="docutils literal notranslate"><span class="pre">wcs2mask_and_uniq</span></code> will be used to get the indices. Non-valid pixels
+(i.e. pixels outside the projection area) will take on <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> values,
+while valid pixels will be rendered as usual.</p></li>
+<li><p><strong>pad</strong> (<em>float</em><em>, </em><em>optional</em>) – Pad value for missing pixels. If not provided, will raise an error if
+missing parts of the skymap fall in <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>. To render a <code class="docutils literal notranslate"><span class="pre">healpy</span></code>
+plot with missing pixels, pass <code class="docutils literal notranslate"><span class="pre">pad=healpy.UNSEEN</span></code>.</p></li>
+<li><p><strong>valid</strong> (<em>array</em><em>, </em><em>optional</em>) – If provided, results will be scattered into an array of the same shape
+as <code class="docutils literal notranslate"><span class="pre">valid</span></code>, filling the indices where <code class="docutils literal notranslate"><span class="pre">valid==True</span></code>. The number of
+<code class="docutils literal notranslate"><span class="pre">True</span></code> values in <code class="docutils literal notranslate"><span class="pre">valid</span></code> must therefore equal the length of <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>.
+This argument only makes sense if <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> is an array of NUNIQ indices;
+if it is a <code class="docutils literal notranslate"><span class="pre">WCS</span></code> instance and <code class="docutils literal notranslate"><span class="pre">valid</span></code> is provided, an error is
+raised. Use <code class="docutils literal notranslate"><span class="pre">valid</span></code> to produce plots or to reuse indices produced by
+<code class="docutils literal notranslate"><span class="pre">wcs2mask_and_uniq</span></code> in several <code class="docutils literal notranslate"><span class="pre">render</span></code> invocations. See note on
+how <code class="docutils literal notranslate"><span class="pre">mask_missing</span></code> affects the result.</p></li>
+<li><p><strong>mask_missing</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">mask_missing=True</span></code>, return a <code class="docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code>. Missing
+values are tolerated and are marked as <code class="docutils literal notranslate"><span class="pre">True</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">mask_missing</span></code>. They will be set to <code class="docutils literal notranslate"><span class="pre">pad</span> <span class="pre">or</span> <span class="pre">0</span></code> in the <code class="docutils literal notranslate"><span class="pre">data</span></code>
+field. If <code class="docutils literal notranslate"><span class="pre">valid</span></code> is also provided, then the output will still be a
+<code class="docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code>, but will be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> wherever
+<code class="docutils literal notranslate"><span class="pre">valid</span> <span class="pre">==</span> <span class="pre">False</span></code> in addition to wherever pixels are missing (and will
+still take on masked values of <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> in the invalid regions).</p></li>
+<li><p><strong>Iᵢ⃗ⁱ⃗ᵒ</strong> (<em>Tuple</em><em>[</em><em>array</em><em>, </em><em>array</em><em>, </em><em>array</em><em>]</em>) – Return tuple of <code class="docutils literal notranslate"><span class="pre">uniq_intersection</span></code>. Use this to save time in
+repeated invocations.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>s⃗ₒ</strong> – The pixel values at locations specified by u⃗ᵒ. If
+<code class="docutils literal notranslate"><span class="pre">mask_missing=True</span></code>, will be a <code class="docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code> set to
+<code class="docutils literal notranslate"><span class="pre">True</span></code> at the missing values in the <code class="docutils literal notranslate"><span class="pre">valid</span></code> field with missing
+<code class="docutils literal notranslate"><span class="pre">data</span></code> field values set to <code class="docutils literal notranslate"><span class="pre">pad</span> <span class="pre">or</span> <span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> is a <code class="docutils literal notranslate"><span class="pre">WCS</span></code> instance and <code class="docutils literal notranslate"><span class="pre">valid</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.reraster" title="hpmoc.utils.reraster"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reraster</span></code></a>, <a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.render" title="hpmoc.partial.PartialUniqSkymap.render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.partial.PartialUniqSkymap.render</span></code></a>, <a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple.render" title="hpmoc.points.PointsTuple.render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.points.PointsTuple.render</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.reraster">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">reraster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u⃗o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ii⃗i⃗o</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.reraster" title="Permalink to this definition"></a></dt>
+<dd><p>Rasterize skymap pixel values <code class="docutils literal notranslate"><span class="pre">x⃗</span></code> with NUNIQ indices <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> to match
+pixels <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>, discarding sky areas excluded by <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> and (optionally)
+padding missing values with <code class="docutils literal notranslate"><span class="pre">pad</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u⃗</strong> (<em>array-like</em>) – NUNIQ indices of the skymap.</p></li>
+<li><p><strong>x⃗</strong> (<em>array-like</em>) – Pixel values. Must be the same length as u⃗.</p></li>
+<li><p><strong>u⃗ᵒ</strong> (<em>array-like</em>) – NUNIQ indices of the output skymap.</p></li>
+<li><p><strong>pad</strong> (<em>float</em><em> or </em><em>int</em><em>, </em><em>optional</em>) – A pad value to use for pixels missing from the input skymap. Only used
+if <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> does not fully cover <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>. Use <code class="docutils literal notranslate"><span class="pre">healpy.UNSEEN</span></code> for this
+value if you want to mark pixels as not-observed for HEALPy plots etc.</p></li>
+<li><p><strong>mask_missing</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">mask_missing=True</span></code>, return a <code class="docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code>. Missing
+values are tolerated and are marked as <code class="docutils literal notranslate"><span class="pre">True</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">mask_missing</span></code>. They will be set to <code class="docutils literal notranslate"><span class="pre">pad</span> <span class="pre">or</span> <span class="pre">0</span></code> in the <code class="docutils literal notranslate"><span class="pre">data</span></code>
+field.</p></li>
+<li><p><strong>Iᵢ⃗ⁱ⃗ᵒ</strong> (<em>Tuple</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em><em>, </em><em>optional</em>) – If you’ve already computed <code class="docutils literal notranslate"><span class="pre">uniq_intersection(u⃗,</span> <span class="pre">u⃗ᵒ)</span></code>, you can pass
+it as this argument to avoid recomputing it. No checks will be made for
+correctness if provided.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x⃗ᵒ</strong> – Pixel values of the rasterized skymap corresponding to the indices
+given in <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>. <code class="docutils literal notranslate"><span class="pre">x⃗ᵒ</span></code> values are pixel-area-weighted averages of the
+input pixel values, even if some pixels in <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> are not fully covered
+by pixels from <code class="docutils literal notranslate"><span class="pre">u⃗</span></code>. Any parts of the sky defined in <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> that are
+not covered by <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> are omitted, so this function can also be used to
+mask a skymap in a single step. If <code class="docutils literal notranslate"><span class="pre">mask_missing=True</span></code>, is a
+<code class="docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">pad</span></code> is not provided but <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> does not cover all pixels in
+    <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.render" title="hpmoc.utils.render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">render</span></code></a>, <a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.reraster" title="hpmoc.partial.PartialUniqSkymap.reraster"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.partial.PartialUniqSkymap.reraster</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code></p>
+</div>
+<p class="rubric">Examples</p>
+<p>Create a small partial skymap with example pixel values:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u⃗</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">4100</span><span class="p">,</span> <span class="mi">1027</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">44096</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x⃗</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span>   <span class="mf">2.</span><span class="p">,</span>   <span class="mf">3.</span><span class="p">,</span>   <span class="mf">4.</span><span class="p">,</span>   <span class="mf">5.</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>We will rerasterize this skymap to these sky areas:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u⃗ᵒ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4096</span><span class="p">,</span> <span class="mi">4097</span><span class="p">,</span> <span class="mi">1025</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">11024</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reraster</span><span class="p">(</span><span class="n">u⃗</span><span class="p">,</span> <span class="n">x⃗</span><span class="p">,</span> <span class="n">u⃗ᵒ</span><span class="p">)</span>
+<span class="go">array([1., 1., 2., 4., 5.])</span>
+</pre></div>
+</div>
+<p>The third pixel in <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> is not present in <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>, so we will need to
+provide a default pad value for it when rasterizing in the other direction.
+Note that the first pixel of the result is the average of the first and
+second pixels in the input map, since both of these have equal area and
+overlap with the first pixel:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reraster</span><span class="p">(</span><span class="n">u⃗ᵒ</span><span class="p">,</span> <span class="n">x⃗</span><span class="p">,</span> <span class="n">u⃗</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+<span class="go">array([1.5, 3. , 0. , 4. , 5. ])</span>
+</pre></div>
+</div>
+<p>We can also simply mask that value by passing <code class="docutils literal notranslate"><span class="pre">mask_missing=True</span></code>, in
+which case the result will be a <code class="docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code> which is <code class="docutils literal notranslate"><span class="pre">True</span></code> for
+values which were missing (the missing/masked values themselves will be set
+to zero or <code class="docutils literal notranslate"><span class="pre">pad</span></code> if provided):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">reraster</span><span class="p">(</span><span class="n">u⃗ᵒ</span><span class="p">,</span> <span class="n">x⃗</span><span class="p">,</span> <span class="n">u⃗</span><span class="p">,</span> <span class="n">mask_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="go">[1.5 3.  0.  4.  5. ]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">mask</span><span class="p">)</span>
+<span class="go">[False False  True False False]</span>
+</pre></div>
+</div>
+<p>Note that the values are averages of input pixels; in cases where only one
+input pixel is sampled from, the value remains unchanged. This makes
+<code class="docutils literal notranslate"><span class="pre">reraster</span></code> good for working with densities and other intensive spatial
+values; extensive values should have their pixel areas divided out before
+being rasterized.</p>
+<p>If you’ve already got the <code class="docutils literal notranslate"><span class="pre">uniq_intersection</span></code> of <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> and <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> from a
+previous calculation, you can avoid recomputing it during rasterization by
+passing it as the <code class="docutils literal notranslate"><span class="pre">Iᵢ⃗ⁱ⃗ᵒ</span></code> argument, though beware it will not be checked
+for correctness:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reraster</span><span class="p">(</span><span class="n">u⃗</span><span class="p">,</span> <span class="n">x⃗</span><span class="p">,</span> <span class="n">u⃗ᵒ</span><span class="p">,</span> <span class="n">Iᵢ⃗ⁱ⃗ᵒ</span><span class="o">=</span><span class="n">uniq_intersection</span><span class="p">(</span><span class="n">u⃗</span><span class="p">,</span> <span class="n">u⃗ᵒ</span><span class="p">))</span>
+<span class="go">array([1., 1., 2., 4., 5.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.resol2nside">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">resol2nside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">res</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coarse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.resol2nside" title="Permalink to this definition"></a></dt>
+<dd><p>Get the HEALPix NSIDE value corresponding to a given resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>res</strong> (<em>float</em><em> or </em><em>array-like</em>) – The required resolution, measured as the angular width of a pixel.</p></li>
+<li><p><strong>coarse</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, pick a higher resolution than the one specified. If
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, pick a lower resolution (necessary since HEALPix resolutions
+increment in discrete steps).</p></li>
+<li><p><strong>degrees</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether <code class="docutils literal notranslate"><span class="pre">res</span></code> is specified in degrees. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, radians
+are assumed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.set_partial_skymap_metadata">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">set_partial_skymap_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caller</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.set_partial_skymap_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Write metadata to a partial skymap.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.sky_area">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">sky_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.sky_area" title="Permalink to this definition"></a></dt>
+<dd><p>Get the area of the entire sky as an <code class="docutils literal notranslate"><span class="pre">Astropy.units.Quantity</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.sky_area_deg">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">sky_area_deg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.sky_area_deg" title="Permalink to this definition"></a></dt>
+<dd><p>Get the area of the entire sky in square degrees.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq2dangle">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq2dangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq2dangle" title="Permalink to this definition"></a></dt>
+<dd><p>Like <code class="docutils literal notranslate"><span class="pre">nest2dangle</span></code>, but takes HEALPix NUNIQ indices as input <code class="docutils literal notranslate"><span class="pre">u⃗</span></code>.</p>
+<p class="rubric">Examples</p>
+<p>The 12 base healpix pixels’ distances from north pole should all be equal
+to 90 minus their declinations:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hpmoc.healpy</span> <span class="kn">import</span> <span class="n">healpy</span> <span class="k">as</span> <span class="n">hp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Δθ⃗</span> <span class="o">=</span> <span class="n">uniq2dangle</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Δθ⃗</span>
+<span class="go">&lt;Quantity [ 48.1896851,  48.1896851,  48.1896851,  48.1896851,  90.       ,</span>
+<span class="go">            90.       ,  90.       ,  90.       , 131.8103149, 131.8103149,</span>
+<span class="go">           131.8103149, 131.8103149] deg&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Δθ⃗</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="p">(</span><span class="mi">90</span> <span class="o">-</span> <span class="n">hp</span><span class="o">.</span><span class="n">pix2ang</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>                                   <span class="n">lonlat</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&lt;</span> <span class="mf">1e-13</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.nest2dangle" title="hpmoc.utils.nest2dangle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nest2dangle</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq2nest">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq2nest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq2nest" title="Permalink to this definition"></a></dt>
+<dd><p>Take a set of HEALPix NUNIQ-ordered indices at arbitrary resolution
+covering an arbitrary portion of the sky and convert them to
+non-overlapping pixels at a fixed NSIDE (resolution), returning the indices
+of the resulting skymap in NUNIQ or NEST ordering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u⃗</strong> (<em>array</em>) – Indices of HEALPix pixels in NUNIQ ordering.</p></li>
+<li><p><strong>nˢ</strong> (<em>int</em>) – HEALPix NSIDE value of the output map.</p></li>
+<li><p><strong>nest</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to return the fixed-resolution indices in NEST ordering. If
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, leave them in NUNIQ ordering (though they will still be at
+the fixed resolution specified as <code class="docutils literal notranslate"><span class="pre">nˢ</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>u⃗ᵒ</strong> – Indices covering the same sky region as <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> (possibly a
+larger region if resolution is reduced) at resolution <code class="docutils literal notranslate"><span class="pre">nˢ</span></code> in
+either NEST order (if <code class="docutils literal notranslate"><span class="pre">nest</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>) or NUNIQ order (if <code class="docutils literal notranslate"><span class="pre">nest</span></code>
+is <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">nˢ</span></code> is not a valid NSIDE value or <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> are not valid
+    NUNIQ indices, or if the requested resolution is too high too represent
+    with int64.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Let’s convert this NUNIQ sky region to an NSIDE=32 nested indices (this
+will split the first, third, and fourth pixels, which are coarser–and
+select the pixel containing the last pixel, which is smaller than–than the
+target pixel size):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u⃗</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">4100</span><span class="p">,</span> <span class="mi">1027</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">44096</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uniq2nest</span><span class="p">(</span><span class="n">u⃗</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([   0,    1,    2,    3,    4,    8,    9,   10,   11,   12,   13,</span>
+<span class="go">         14,   15, 6928])</span>
+</pre></div>
+</div>
+<p>Same pixel indices, but keep them in NUNIQ format:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">uniq2nest</span><span class="p">(</span><span class="n">u⃗</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">nest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([ 4096,  4097,  4098,  4099,  4100,  4104,  4105,  4106,  4107,</span>
+<span class="go">        4108,  4109,  4110,  4111, 11024])</span>
+</pre></div>
+</div>
+<p>Coarsen the pixels to NSIDE=16:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">uniq2nest</span><span class="p">(</span><span class="n">u⃗</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([   0,    1,    2,    3, 1732])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uniq2nest</span><span class="p">(</span><span class="n">u⃗</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([1024, 1025, 1026, 1027, 2756])</span>
+</pre></div>
+</div>
+<p>Increase resolution of all pixels to NSIDE=64:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">uniq2nest</span><span class="p">(</span><span class="n">u⃗</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="go">array([    0,     1,     2,     3,     4,     5,     6,     7,     8,</span>
+<span class="go">           9,    10,    11,    12,    13,    14,    15,    16,    17,</span>
+<span class="go">          18,    19,    32,    33,    34,    35,    36,    37,    38,</span>
+<span class="go">          39,    40,    41,    42,    43,    44,    45,    46,    47,</span>
+<span class="go">          48,    49,    50,    51,    52,    53,    54,    55,    56,</span>
+<span class="go">          57,    58,    59,    60,    61,    62,    63, 27712])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq2nest_and_nside">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq2nest_and_nside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq2nest_and_nside" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>indices</strong> (<em>array</em>) – A scalar or numpy array of NUNIQ indices</p></li>
+<li><p><strong>in_place</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, perform the conversion in-place and return the converted
+<code class="docutils literal notranslate"><span class="pre">indices</span></code> object along with the calculated <code class="docutils literal notranslate"><span class="pre">nside</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>nest_indices</strong> (<em>array</em>) – The indices in nest ordering at their respective resolutions</p></li>
+<li><p><strong>nside</strong> (<em>array</em>) – The resolution expressed as NSIDE of the indices given in
+<code class="docutils literal notranslate"><span class="pre">nest_indices</span></code></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nuniq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">540</span><span class="p">,</span> <span class="mi">542</span><span class="p">,</span> <span class="mi">543</span><span class="p">,</span> <span class="mi">266</span><span class="p">,</span> <span class="mi">264</span><span class="p">,</span> <span class="mi">258</span><span class="p">,</span> <span class="mi">535</span><span class="p">,</span> <span class="mi">534</span><span class="p">,</span> <span class="mi">541</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">([</span><span class="n">u</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">uniq2nest_and_nside</span><span class="p">(</span><span class="n">nuniq</span><span class="p">)])</span>
+<span class="go">[array([284, 286, 287,  10,   8,   2, 279, 278, 285]),</span>
+<span class="go"> array([8, 8, 8, 8, 8, 8, 8, 8, 8])]</span>
+</pre></div>
+</div>
+<p>Confirm that this is the inverse of nest2uniq:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">nest2uniq</span><span class="p">(</span><span class="o">*</span><span class="n">uniq2nest_and_nside</span><span class="p">(</span><span class="n">nuniq</span><span class="p">))</span> <span class="o">==</span> <span class="n">nuniq</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq2nside">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq2nside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq2nside" title="Permalink to this definition"></a></dt>
+<dd><p>Get the NSIDE value of the given NUNIQ-ordered indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">indices</span></code> are not valid NUNIQ indices, i.e. they are not integers
+    greater than 3.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq2order">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq2order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq2order" title="Permalink to this definition"></a></dt>
+<dd><p>Get the HEALPix order of the given NUNIQ-ordered indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">indices</span></code> are not valid NUNIQ indices, i.e. they are not integers
+    greater than 3.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq2xyf_nside">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq2xyf_nside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq2xyf_nside" title="Permalink to this definition"></a></dt>
+<dd><p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">uniq2xyf_nside</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">(0, 0, 4, 1)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.xyf_nside2uniq" title="hpmoc.utils.xyf_nside2uniq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xyf_nside2uniq</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq_coarsen">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq_coarsen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orders</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq_coarsen" title="Permalink to this definition"></a></dt>
+<dd><p>Coarsen the pixel indices in <code class="docutils literal notranslate"><span class="pre">u</span></code> to reduce storage and computation
+requirements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>array</em>) – UNIQ indices to coarsen.</p></li>
+<li><p><strong>orders</strong> (<em>int</em>) – How many times the resolution of the smallest pixels will be halved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>uc</strong> – Unique coarsened pixel values in ascending order. All pixels will have
+a HEALPix order capped at the maximum order present in <code class="docutils literal notranslate"><span class="pre">u</span></code> minus
+<code class="docutils literal notranslate"><span class="pre">orders</span></code>, unless this value is negative, in which case the output
+will only consist of base pixels. <em>If pixels in</em> <code class="docutils literal notranslate"><span class="pre">u</span></code> <em>overlap, it
+is possible that there will also be overlapping pixels in the output;
+no check is made for this.</em></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">orders</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Pixels 353, 354, and 355 lie within pixels 88, 22, and 5; pixels 80 and
+81 lie within pixels 20 and 5; pixel 21 lies within pixel 5.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">353</span><span class="p">,</span> <span class="mi">354</span><span class="p">,</span> <span class="mi">355</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Coarsening by zero will have no effect:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">uniq_coarsen</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="go">[  4  21  80  81 353 354 355]</span>
+</pre></div>
+</div>
+<p>Coarsening by one will only combine the very smallest pixels:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">uniq_coarsen</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">[ 4 21 80 81 88]</span>
+</pre></div>
+</div>
+<p>Coarsening by larger numbers will combine so many higher orders:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">uniq_coarsen</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">[ 4 20 21 22]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">uniq_coarsen</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="go">[4 5]</span>
+</pre></div>
+</div>
+<p>Coarsening by a value greater than the largest order will have no
+further effect, since the 12 base pixels cannot be combined:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">uniq_coarsen</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">353</span><span class="p">,</span> <span class="mi">354</span><span class="p">,</span> <span class="mi">355</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span>
+<span class="go">[4 5]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq_diadic">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq_diadic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ω</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u⃗i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x⃗i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coarse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq_diadic" title="Permalink to this definition"></a></dt>
+<dd><p>Apply a diadic function <code class="docutils literal notranslate"><span class="pre">Ω(x⃗ᶠ1,</span> <span class="pre">x⃗ᶠ2)</span> <span class="pre">-&gt;</span> <span class="pre">y⃗ᶠ</span></code> that operates on skymap pixel
+values of the same resolution to skymaps with arbitrary
+pixelization/resolution schemes and pixel orders, returning the indices and
+pixel values of the resulting skymap. Useful for binary operations between
+arbitrary partial skymaps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Ω</strong> (<em>Callable</em><em>[</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em><em>, </em><em>np.ndarray</em><em>]</em>) – A binary function operating on two sets of skymap pixel values
+corresponding elementwise to the same sky locations. <strong>Must be a
+skymap-resolution independent operation for the results to make
+sense.</strong></p></li>
+<li><p><strong>u⃗ⁱ</strong> (<em>Tuple</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em>) – NUNIQ indices of the two skymaps to be passed to <code class="docutils literal notranslate"><span class="pre">Ω</span></code>.</p></li>
+<li><p><strong>x⃗ⁱ</strong> (<em>List</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em>) – Pixel values (corresponding to the locations specified by <code class="docutils literal notranslate"><span class="pre">u⃗ⁱ</span></code>) of
+the skymaps to be passed to Ω. Must have same lengths as the arrays in
+<code class="docutils literal notranslate"><span class="pre">u⃗ⁱ</span></code>.</p></li>
+<li><p><strong>pad</strong> (<em>float</em><em> or </em><em>int</em><em>, </em><em>optional</em>) – A pad value to use for parts of the sky contained in <em>either</em> <code class="docutils literal notranslate"><span class="pre">u⃗ⁱ[0]</span></code>
+or <code class="docutils literal notranslate"><span class="pre">u⃗ⁱ[1]</span></code> but <em>not</em> in both (since <code class="docutils literal notranslate"><span class="pre">Ω</span></code> will be undefined in these
+regions). If not provided, the returned skymap will only contain the
+intersection of the sky areas defined in <code class="docutils literal notranslate"><span class="pre">u⃗ⁱ</span></code>.</p></li>
+<li><p><strong>coarse</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, for sky areas where <code class="docutils literal notranslate"><span class="pre">u⃗ⁱ[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">u⃗ⁱ[1]</span></code> have different
+resolutions, pick the lower resolution for the output map (using
+pixel-area-weighted averages to decimate the higher-res regions). This
+produces shorter output arrays. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, split coarse pixels into
+the higher resolution of those specified in <code class="docutils literal notranslate"><span class="pre">u⃗ⁱ[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">u⃗ⁱ[1]</span></code> for
+a given sky region; use this if you need to maintain resolution for
+subsequent calculations, but be aware that this may impact performance
+without improving accuracy, e.g. if you’re planning to integrate the
+result of this operation. This can also be useful if you need to cover
+the <em>exact</em> area defined by the input skymaps.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>u⃗ʸ</strong> (<em>np.ndarray</em>) – Sorted NUNIQ indices of the result of <code class="docutils literal notranslate"><span class="pre">Ω</span></code>. In general, will be
+different from <em>both</em> <code class="docutils literal notranslate"><span class="pre">u⃗ⁱ</span></code> inputs.</p></li>
+<li><p><strong>y⃗</strong> (<em>np.ndarray</em>) – Pixel values of the result of <code class="docutils literal notranslate"><span class="pre">Ω</span></code> corresponding to indices <code class="docutils literal notranslate"><span class="pre">u⃗ʸ</span></code>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Take the product of two heterogeneous multi-order skymaps:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">mul</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u⃗1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">4100</span><span class="p">,</span> <span class="mi">1027</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">44096</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x⃗1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span>   <span class="mf">2.</span><span class="p">,</span>   <span class="mf">3.</span><span class="p">,</span>   <span class="mf">4.</span><span class="p">,</span>   <span class="mf">5.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u⃗2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4096</span><span class="p">,</span> <span class="mi">4097</span><span class="p">,</span> <span class="mi">1025</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">11024</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x⃗2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span>   <span class="mf">10.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>   <span class="mf">100.</span><span class="p">,</span> <span class="mf">1000.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">uniq_diadic</span><span class="p">(</span><span class="n">mul</span><span class="p">,</span> <span class="p">(</span><span class="n">u⃗1</span><span class="p">,</span> <span class="n">u⃗2</span><span class="p">),</span> <span class="p">(</span><span class="n">x⃗1</span><span class="p">,</span> <span class="n">x⃗2</span><span class="p">)),</span> <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="go">(array([ 1024,  1025,  1026, 11024]),</span>
+<span class="go"> array([5.e+00, 2.e+00, 4.e+02, 5.e+03]))</span>
+</pre></div>
+</div>
+<p>Provide a default pad value for indices non-overlapping parts of the input
+skymaps:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">uniq_diadic</span><span class="p">(</span><span class="n">mul</span><span class="p">,</span> <span class="p">(</span><span class="n">u⃗1</span><span class="p">,</span> <span class="n">u⃗2</span><span class="p">),</span> <span class="p">(</span><span class="n">x⃗1</span><span class="p">,</span> <span class="n">x⃗2</span><span class="p">),</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="go">(array([ 1024,  1025,  1026,  1027, 11024]),</span>
+<span class="go"> array([5.e+00, 2.e+00, 4.e+02, 0.e+00, 5.e+03]))</span>
+</pre></div>
+</div>
+<p>Increase resolution as necessary (do not combine pixels):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">uniq_diadic</span><span class="p">(</span><span class="n">mul</span><span class="p">,</span> <span class="p">(</span><span class="n">u⃗1</span><span class="p">,</span> <span class="n">u⃗2</span><span class="p">),</span> <span class="p">(</span><span class="n">x⃗1</span><span class="p">,</span> <span class="n">x⃗2</span><span class="p">),</span> <span class="n">coarse</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="go">(array([ 1026,  4096,  4097,  4100, 44096]),</span>
+<span class="go"> array([4.e+02, 0.e+00, 1.e+01, 2.e+00, 5.e+03]))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq_intersection">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq_intersection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u⃗2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq_intersection" title="Permalink to this definition"></a></dt>
+<dd><p>Downselect the pixel indices given in <code class="docutils literal notranslate"><span class="pre">u⃗1</span></code> to the set that
+overlaps with pixels in <code class="docutils literal notranslate"><span class="pre">u⃗2</span></code> and return pairs of indices into
+both of the input index lists showing which pixel in <code class="docutils literal notranslate"><span class="pre">u⃗2</span></code> each
+downselected pixel from <code class="docutils literal notranslate"><span class="pre">u⃗1</span></code> overlaps with. Use this to get rid of
+pixels outside of a given region, or alternatively use it as part of a
+calculation involving two multi-resolution skymaps whose pixel sizes are
+non-identical. Written to perform efficiently on arbitrary inputs with
+O(MlogN+NlogM) performance (where M, N are the lengths of the input
+arrays).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u⃗1</strong> (<em>array</em>) – Indices of HEALPix pixels in NUNIQ ordering. Pixels corresponding to
+these indices <strong>MUST NOT OVERLAP</strong>.</p></li>
+<li><p><strong>u⃗2</strong> (<em>array</em>) – Indices of HEALPix pixels in NUNIQ ordering. Pixels corresponding to
+these indices <strong>MUST NOT OVERLAP</strong>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>u⃗̇1</strong> (<em>array</em>) – Indices <em>into</em> <code class="docutils literal notranslate"><span class="pre">u⃗1</span></code> that overlap with <code class="docutils literal notranslate"><span class="pre">u⃗2</span></code>.</p></li>
+<li><p><strong>u⃗̇2</strong> (<em>array</em>) – Corresponding indices <em>into</em> <code class="docutils literal notranslate"><span class="pre">u⃗2</span></code> that overlap with <code class="docutils literal notranslate"><span class="pre">u⃗1</span></code>.</p></li>
+<li><p><strong>δo⃗</strong> (<em>array</em>) – Corresponding differences in order between the indices, e.g. if the
+first entry of <code class="docutils literal notranslate"><span class="pre">u⃗̇1</span></code> has NSIDE 16 (order 4) and the
+corresponding entry of <code class="docutils literal notranslate"><span class="pre">u⃗̇2</span></code> has NSIDE 1024 (order 10), then the
+first entry of <code class="docutils literal notranslate"><span class="pre">δo⃗</span></code> will be (10 - 4) = 6.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If either <code class="docutils literal notranslate"><span class="pre">u⃗1</span></code> or <code class="docutils literal notranslate"><span class="pre">u⃗2</span></code> contain indices referring to
+    overlapping pixels (note that this may happen even if the inputs do not
+    contain repeating values since different pixel sizes can overlap).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Some pixels with NSIDE of 16, 32, and 64, respectively:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u⃗1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">4100</span><span class="p">,</span> <span class="mi">1027</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">44096</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Pixels at NSIDE = 32 that overlap with only the first and last pixels of
+<code class="docutils literal notranslate"><span class="pre">u⃗1</span></code>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u⃗2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4096</span><span class="p">,</span> <span class="mi">4097</span><span class="p">,</span> <span class="mi">1025</span><span class="p">,</span> <span class="mi">1026</span><span class="p">,</span> <span class="mi">11024</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>We should see correspondence between index 0 of <code class="docutils literal notranslate"><span class="pre">u⃗1</span></code> and indices 0,
+1 of <code class="docutils literal notranslate"><span class="pre">u⃗1</span></code>; and correspondence between index 2 of <code class="docutils literal notranslate"><span class="pre">u⃗1</span></code> and
+index 2 of <code class="docutils literal notranslate"><span class="pre">u⃗2</span></code>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">uniq_intersection</span><span class="p">(</span><span class="n">u⃗1</span><span class="p">,</span> <span class="n">u⃗2</span><span class="p">)),</span>
+<span class="gp">... </span>       <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="go">(array([4, 3, 0, 0, 1]),</span>
+<span class="go"> array([4, 3, 0, 1, 2]),</span>
+<span class="go"> array([-1,  0,  1,  1, -1]))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq_minimize">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq_minimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test=&lt;built-in</span> <span class="pre">function</span> <span class="pre">eq&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combine=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq_minimize" title="Permalink to this definition"></a></dt>
+<dd><p>Take a set of HEALPix NUNIQ indices <code class="docutils literal notranslate"><span class="pre">u⃗</span></code> (and, optionally, pixel values
+<code class="docutils literal notranslate"><span class="pre">x⃗</span></code>) and find the shortest equivalent multi-order pixelation by combining
+pixels. If <code class="docutils literal notranslate"><span class="pre">x⃗</span></code> is provided, only combine pixels whose values are equal.
+This can also be used if a canonical pixelization is needed for a given
+mask or skymap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>array-like</em>) – HEALPix NUNIQ indices of the skymap in question.</p></li>
+<li><p><strong>x</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Pixel values of the array. If included, sub-pixels will only be
+combined if their pixel values are equal accordint to <code class="docutils literal notranslate"><span class="pre">test</span></code> for all
+<code class="docutils literal notranslate"><span class="pre">x</span></code> values provided.</p></li>
+<li><p><strong>test</strong> (<em>func</em><em>, </em><em>optional</em>) – An equality test for determining whether adjacent pixels can be
+combined. Defaults to a standard equality check, <code class="docutils literal notranslate"><span class="pre">operator.eq</span></code>.
+Override this if you want, e.g., approximately equal floating point
+values to be combined, small values rounded to zero, etc.</p></li>
+<li><p><strong>combine</strong> (<em>func</em><em>, </em><em>optional</em>) – A function for combining pixels. Expects an argument <code class="docutils literal notranslate"><span class="pre">x</span></code>, of the form
+of one of the arrays passed in for <code class="docutils literal notranslate"><span class="pre">x</span></code>, as well as a boolean mask of
+pixels <code class="docutils literal notranslate"><span class="pre">i</span></code> which select the first pixel of each four to be combined.
+By default, simply selects this first pixel; you could alternatively
+provide a function which, e.g., averages the combined pixels.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>u⃗ᵐ</strong> (<em>numpy.ndarray</em>) – The shortest equivalent NUNIQ indexing that can describe <code class="docutils literal notranslate"><span class="pre">u</span></code>.</p></li>
+<li><p><strong>*x⃗ᵐ</strong> (<em>numpy.ndarray, optional</em>) – Corresponding pixel values in <code class="docutils literal notranslate"><span class="pre">x</span></code>, combined according to
+<code class="docutils literal notranslate"><span class="pre">combined</span></code>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Make a set of pixels corresponding to the first four base pixels as well as
+the first pixel at NSIDE = 2 lying in the fifth base pixel:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">nest2uniq</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span>
+<span class="gp">... </span>                    <span class="n">nest2uniq</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="mi">2</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="go">[ 4  5 24 25 26 27 28 29 30 31 32]</span>
+</pre></div>
+</div>
+<p>UNIQ indices 24-31 cover the same area as 6-7; <code class="docutils literal notranslate"><span class="pre">uniq_minimize</span></code> will
+detect this:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">um</span><span class="p">,</span> <span class="o">=</span> <span class="n">uniq_minimize</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">um</span><span class="p">)</span>
+<span class="go">[ 4  5  6  7 32]</span>
+</pre></div>
+</div>
+<p>This makes no difference against a constant skymap, with, e.g., values of
+<code class="docutils literal notranslate"><span class="pre">1</span></code> everywhere:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">um</span><span class="p">,</span> <span class="n">xm</span> <span class="o">=</span> <span class="n">uniq_minimize</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">um</span><span class="p">)</span>
+<span class="go">[ 4  5  6  7 32]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">xm</span><span class="p">)</span>
+<span class="go">[1 1 1 1 1]</span>
+</pre></div>
+</div>
+<p>If, however, the 4 pixels in the range 28-31 do <em>not</em> have equal values,
+they will not be combined with the default choice of <code class="docutils literal notranslate"><span class="pre">test</span></code>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">um</span><span class="p">,</span> <span class="n">xm</span> <span class="o">=</span> <span class="n">uniq_minimize</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">um</span><span class="p">)</span>
+<span class="go">[ 4  5  6 28 29 30 31 32]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">xm</span><span class="p">)</span>
+<span class="go">[1 2 3 4 5 6 7 8]</span>
+</pre></div>
+</div>
+<p>This can be very effective for combining pixels in skymaps made by
+algorithms like CWB,
+which often produce adjacent pixels with zero probability, or BAYESTAR,
+which is natively MOC but is often distributed at fixed resolution. For
+example, an NSIDE=128 pixel in a BAYESTAR skymap whose smallest pixel
+has NSIDE=1024 will be split into 64 NSIDE=1024 subpixels to bring the
+entire skymap to a single resolution without loss of precision; we can
+represent such a single pixel using its NUNIQ indices <code class="docutils literal notranslate"><span class="pre">u2</span></code> and a
+constant skymap value <code class="docutils literal notranslate"><span class="pre">x2</span></code>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4194304</span><span class="p">,</span> <span class="mi">4194368</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">um2</span><span class="p">,</span> <span class="n">xm2</span> <span class="o">=</span> <span class="n">uniq_minimize</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The pixel indices will be combined to give the NUNIQ index of the
+original pixel at NSIDE=128:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">um2</span><span class="p">)</span>
+<span class="go">[65536]</span>
+</pre></div>
+</div>
+<p>The pixel values will remain the same:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">xm2</span><span class="p">)</span>
+<span class="go">[1]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.uniq_sample">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">uniq_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uniq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skymap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantiles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.uniq_sample" title="Permalink to this definition"></a></dt>
+<dd><p>Do a probability-weighted random sample of locations in a skymap based on
+quantile. Follows <em>ascending</em> density order, just like
+<code class="docutils literal notranslate"><span class="pre">nside_quantile_indices</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uniq</strong> (<em>array-like</em>) – NUNIQ indices of the skymap to be sampled.</p></li>
+<li><p><strong>skymap</strong> (<em>array-like</em>) – Probability density at each of the pixels in <code class="docutils literal notranslate"><span class="pre">uniq</span></code>.</p></li>
+<li><p><strong>quantiles</strong> (<em>array-like</em>) – Values in the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code> specifying which quantile to select
+from the skymap. For example, <code class="docutils literal notranslate"><span class="pre">[0.5,</span> <span class="pre">0.9]</span></code> will select locations from
+within the pixels for which the integral of all
+higher-probability-density regions are 0.5 and 0.1, respectively.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>locations</strong> – Max-resolution (order = 30) NUNIQ indices drawn from the PDF defined by
+<code class="docutils literal notranslate"><span class="pre">uniq</span></code> and <code class="docutils literal notranslate"><span class="pre">skymap</span></code> at the specified <code class="docutils literal notranslate"><span class="pre">quantiles</span></code> assuming that
+each pixel in <code class="docutils literal notranslate"><span class="pre">skymap</span></code> has a uniform PDF within its borders. The
+difference between successive values in the density-ordered CDF of
+<code class="docutils literal notranslate"><span class="pre">skymap</span></code> will be used to select subpixels in NEST ordering from the
+pixel in <code class="docutils literal notranslate"><span class="pre">uniq</span></code> with the greatest CDF value lower than the
+corresponding quantile, allowing for reproducible results. The returned
+values have the same order as the input <code class="docutils literal notranslate"><span class="pre">quantiles</span></code>. You can use
+<code class="docutils literal notranslate"><span class="pre">healpy.pix2ang(*uniq2nest_and_nside(locations)[::-1],</span> <span class="pre">nest=True)</span></code> to
+recover the angles corresponding to the recovered locations.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.nside_quantile_indices" title="hpmoc.utils.nside_quantile_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nside_quantile_indices</span></code></a>, <a class="reference internal" href="#hpmoc.utils.uniq2nest_and_nside" title="hpmoc.utils.uniq2nest_and_nside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uniq2nest_and_nside</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">healpy.pix2ang</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.wcs2ang">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">wcs2ang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wcs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">astropy.wcs.WCS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonlat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.wcs2ang" title="Permalink to this definition"></a></dt>
+<dd><p>Convert an <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> world coordinate system’s pixels into ICRS
+coordinate angles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wcs</strong> (<em>astropy.wcs.WCS</em>) – The world coordinate system for whose pixels you want coordinate
+values.</p></li>
+<li><p><strong>lonlat</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, return right ascension/declination. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, return
+(phi, theta) angles.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>valid</strong> (<em>array</em>) – Boolean mask indicating which values from the <code class="docutils literal notranslate"><span class="pre">WCS</span></code> are valid. The
+rest can be padded with a fill value by the user (most likely
+<code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p></li>
+<li><p><strong>ra_or_theta</strong> (<em>astropy.units.Quantity</em>) – The right-ascension/longitude if <code class="docutils literal notranslate"><span class="pre">lonlat=True</span></code>, otherwise the
+zenith/theta angle.</p></li>
+<li><p><strong>dec_or_phi</strong> (<em>astropy.units.Quantity</em>) – The declination/latitude angle if <code class="docutils literal notranslate"><span class="pre">lonlat=True</span></code>, otherwise the
+azimuthal/phi angle.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.wcs2mask_and_uniq">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">wcs2mask_and_uniq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wcs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.wcs2mask_and_uniq" title="Permalink to this definition"></a></dt>
+<dd><p>Convert an <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> world coordinate system’s pixels into NUNIQ
+indices for HEALPix pixels of approximately the same size.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.wcs2nest">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">wcs2nest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wcs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.wcs2nest" title="Permalink to this definition"></a></dt>
+<dd><p>Get NEST pixels at <code class="docutils literal notranslate"><span class="pre">nside</span></code> resolution covering an <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code>
+instance’s pixels as well as their <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> pixel coordinates.
+All returned pixels and coordinates will be within the image boundaries
+and the indices will be non-repeating. If <code class="docutils literal notranslate"><span class="pre">order_delta</span></code> is provided, then
+the NEST resolution is doubled the number of times specified thereby. Can
+only pass one of <code class="docutils literal notranslate"><span class="pre">nside</span></code> or <code class="docutils literal notranslate"><span class="pre">order_delta</span></code> or else a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is
+raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>nside</strong> (<em>int</em>) – The NSIDE of the output indices.</p></li>
+<li><p><strong>nest</strong> (<em>NDArray[(Any,), int]</em>) – The HEALPix NEST indices.</p></li>
+<li><p><strong>x</strong> (<em>NDArray[(Any,), float]</em>) – The pixel-space x-coordinates of the points in <code class="docutils literal notranslate"><span class="pre">nest</span></code>.</p></li>
+<li><p><strong>y</strong> (<em>NDArray[(Any,), float]</em>) – The pixel-space y-coordinates of the points in <code class="docutils literal notranslate"><span class="pre">nest</span></code>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.wcs2resol">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">wcs2resol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wcs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.wcs2resol" title="Permalink to this definition"></a></dt>
+<dd><p>Get the resolution of an <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> coordinate system, i.e. the
+smallest inter-pixel distance, as an <code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code> with
+angular unit.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.utils.xyf_nside2uniq">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.utils.</span></span><span class="sig-name descname"><span class="pre">xyf_nside2uniq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.utils.xyf_nside2uniq" title="Permalink to this definition"></a></dt>
+<dd><p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">xyf_nside2uniq</span><span class="p">(</span><span class="o">*</span><span class="n">uniq2xyf_nside</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)))</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10000</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.utils.uniq2xyf_nside" title="hpmoc.utils.uniq2xyf_nside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uniq2xyf_nside</span></code></a></p>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hpmoc.psf.html" class="btn btn-neutral float-left" title="hpmoc.psf module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Stefan Trklja Countryman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

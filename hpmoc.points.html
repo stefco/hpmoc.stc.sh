@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hpmoc.points module &mdash; HEALPix Multi-Order Coordinate Library (HPMOC) 0.3.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="canonical" href="http://hpmoc.stc.shhpmoc.points.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hpmoc.psf module" href="hpmoc.psf.html" />
+    <link rel="prev" title="hpmoc.plotters module" href="hpmoc.plotters.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> HEALPix Multi-Order Coordinate Library (HPMOC)
+          </a>
+              <div class="version">
+                0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jup/plotting-examples.html">Plotting Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Basic-Plotting">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-and-Pseudocylindrical-projections">Cylindrical and Pseudocylindrical projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Mollweide-Projection">Mollweide Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Hammer-Aitoff-Projection">Hammer-Aitoff Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-equal-area">Cylindrical equal-area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Plate-Carée-Projection">Plate Carée Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Projections">Zenithal Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Slant-Orthographic-Projection">Slant Orthographic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Gnomonic-Projection">Gnomonic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equidistant-Projection">Zenithal Equidistant Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equal-Area-Projection">Zenithal Equal-Area Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Arbitrary-WCS-Projections">Arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> Projections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Rotations">Rotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#2-Angle-Rotations">2-Angle Rotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#3-Angle-Rotations">3-Angle Rotations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Cylindrical-and-Pseudocylindrical-Projections">Rotations in Cylindrical and Pseudocylindrical Projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Zenithal-Projections">Rotations in Zenithal Projections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Zoomed-Plots">Zoomed Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Fixed-Angular-Width">Fixed Angular Width</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Scatterplots">Scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Contours-around-Credible-Regions">Contours around Credible Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Multi-layered-plots">Multi-layered plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Grid-Plots">Grid Plots</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.html">hpmoc package</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.abstract.html">hpmoc.abstract module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.atlas.html">hpmoc.atlas package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.fits.html">hpmoc.fits module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy.html">hpmoc.healpy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy_utils.html">hpmoc.healpy_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.io.html">hpmoc.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.abstract.html">hpmoc.io.abstract module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.astroquery.html">hpmoc.io.astroquery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.gracedb.html">hpmoc.io.gracedb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.ligo.html">hpmoc.io.ligo module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.partial.html">hpmoc.partial module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plot.html">hpmoc.plot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plotters.html">hpmoc.plotters module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">hpmoc.points module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.psf.html">hpmoc.psf module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.utils.html">hpmoc.utils module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HEALPix Multi-Order Coordinate Library (HPMOC)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>hpmoc.points module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hpmoc.points.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-hpmoc.points">
+<span id="hpmoc-points-module"></span><h1>hpmoc.points module<a class="headerlink" href="#module-hpmoc.points" title="Permalink to this headline"></a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="hpmoc.points.NoDisks">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hpmoc.points.</span></span><span class="sig-name descname"><span class="pre">NoDisks</span></span><a class="headerlink" href="#hpmoc.points.NoDisks" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+<p>Indicates that there are no point sources with nonzero support (sigma).
+Catch this to avoid wasting an extra artist plotting non-existent disks.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hpmoc.points.</span></span><span class="sig-name descname"><span class="pre">PointsTuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rgba</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#hpmoc.points.Rgba" title="hpmoc.points.Rgba"><span class="pre">hpmoc.points.Rgba</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Rgba(red=0,</span> <span class="pre">green=1,</span> <span class="pre">blue=0,</span> <span class="pre">alpha=0.2)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.points.PointsTuple" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<p>A collection of points for scatterplots.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.cmap">
+<span class="sig-name descname"><span class="pre">cmap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.points.PointsTuple.cmap" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>cmap</strong> – A color map to be used as the <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument to <code class="docutils literal notranslate"><span class="pre">imshow</span></code>
+alongside the return value of <code class="docutils literal notranslate"><span class="pre">render</span></code>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>matplotlib.colors.LinearSegmentedColormap</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.dedup">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dedup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.points.PointsTuple.dedup" title="Permalink to this definition"></a></dt>
+<dd><p>Deduplicate a collection of <code class="docutils literal notranslate"><span class="pre">PointsTuple</span></code> instances, converting
+color tuples to <code class="docutils literal notranslate"><span class="pre">Rgba</span></code> and converting all input tuples to
+<code class="docutils literal notranslate"><span class="pre">PointsTuple</span></code> instances. Preserves ordering.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.label">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#hpmoc.points.PointsTuple.label" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.marker">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">marker</span></span><a class="headerlink" href="#hpmoc.points.PointsTuple.marker" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.meta_dict">
+<span class="sig-name descname"><span class="pre">meta_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#hpmoc.points.PointsTuple.meta_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Create a flattened meta dictionary, e.g. for a fits file, out of the
+provided <code class="docutils literal notranslate"><span class="pre">PointsTuple</span></code> instances.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.points.PointsTuple.meta_read" title="hpmoc.points.PointsTuple.meta_read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointsTuple.meta_read</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.meta_read">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">meta_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">__class__</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hpmoc.points.PointsTuple.meta_read" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.points">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">points</span></span><a class="headerlink" href="#hpmoc.points.PointsTuple.points" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.points.PointsTuple.render" title="Permalink to this definition"></a></dt>
+<dd><p>Similar to <code class="docutils literal notranslate"><span class="pre">hpmoc.PartialUniqSkymap.render</span></code>, but for support disks
+specified by the input points’ sigma parameters. Will raise
+<code class="docutils literal notranslate"><span class="pre">NoDisks</span></code> if all point source sigmas are undefined and/or zero.
+Use this with the <code class="docutils literal notranslate"><span class="pre">cmap</span></code> method and your <code class="docutils literal notranslate"><span class="pre">WCSAxes</span></code> instance’s
+<code class="docutils literal notranslate"><span class="pre">imshow</span></code> method to display these disks. You will need to call
+<code class="docutils literal notranslate"><span class="pre">WCSAxes.scatter</span></code> separately to display the point locations
+themselves using <code class="docutils literal notranslate"><span class="pre">self.marker</span></code>. You will also need to label the
+point names separately using <code class="docutils literal notranslate"><span class="pre">self.label_points</span></code>.</p>
+<p>All of this is done automatically if this instance is passed as a
+<code class="docutils literal notranslate"><span class="pre">scatter</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap.plot</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u⃗ᵒ</strong> (<em>array</em><em> or </em><em>astropy.wcs.WCS</em>) – The pixels to fill. If an array, treated as UNIQ indices
+(duplicates allowed); if WCS, treated as a set of pixels to render
+to.</p></li>
+<li><p><strong>extent</strong> (<em>float</em><em>, </em><em>optional</em>) – How many multiples of <code class="docutils literal notranslate"><span class="pre">sigma</span></code> to extend the disk out to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pixels</strong> – Pixel values at locations specified in <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>. If a <code class="docutils literal notranslate"><span class="pre">WCS</span></code>
+instance, then the pixels will be suitable for immediate display
+in a <code class="docutils literal notranslate"><span class="pre">WCSAxes</span></code> instance using <code class="docutils literal notranslate"><span class="pre">imshow</span></code>; otherwise, you might
+wish to use the nonzero values as a mask to select pixels in a
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> near the point sources in this instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#hpmoc.points.NoDisks" title="hpmoc.points.NoDisks"><strong>NoDisks</strong></a> – If all sigmas are zero or undefined. Use this to avoid an
+    extraneous call to <code class="docutils literal notranslate"><span class="pre">imshow</span></code>, or to catch missing sigmas.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.plot" title="hpmoc.partial.PartialUniqSkymap.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.partial.PartialUniqSkymap.plot</span></code></a>, <a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.render" title="hpmoc.partial.PartialUniqSkymap.render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.partial.PartialUniqSkymap.render</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">WCSAxes.scatter</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.rgba">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rgba</span></span><a class="headerlink" href="#hpmoc.points.PointsTuple.rgba" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.points.PointsTuple.scale_sigma">
+<span class="sig-name descname"><span class="pre">scale_sigma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.points.PointsTuple.scale_sigma" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new <code class="docutils literal notranslate"><span class="pre">PointsTuple</span></code> with sigma scaled for each point by
+<code class="docutils literal notranslate"><span class="pre">factor</span></code> (if sigma is defined). Optionally also change <code class="docutils literal notranslate"><span class="pre">rgba</span></code>,
+<code class="docutils literal notranslate"><span class="pre">marker</span></code>, or <code class="docutils literal notranslate"><span class="pre">label</span></code> (will be unchanged by default). A convenience
+method for plotting multiple sigmas around a point source.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hpmoc.points.Rgba">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hpmoc.points.</span></span><span class="sig-name descname"><span class="pre">Rgba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.points.Rgba" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<p>An RGBA color tuple. If <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is omitted, set to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.points.Rgba.alpha">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#hpmoc.points.Rgba.alpha" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.points.Rgba.blue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">blue</span></span><a class="headerlink" href="#hpmoc.points.Rgba.blue" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.points.Rgba.from_hex">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hexcolor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.points.Rgba.from_hex" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a color of the forms <code class="docutils literal notranslate"><span class="pre">rgb</span></code>, <code class="docutils literal notranslate"><span class="pre">rgba</span></code>, <code class="docutils literal notranslate"><span class="pre">rrggbb</span></code>,
+<code class="docutils literal notranslate"><span class="pre">rrggbbaa</span></code>, <code class="docutils literal notranslate"><span class="pre">#rgb</span></code>, <code class="docutils literal notranslate"><span class="pre">#rrggbb</span></code>, <code class="docutils literal notranslate"><span class="pre">#rgba</span></code>, or <code class="docutils literal notranslate"><span class="pre">#rrggbbaa</span></code> to a
+new <code class="docutils literal notranslate"><span class="pre">Rgba</span></code> instance. Alpha can be omitted, in which case it is set to
+1.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.points.Rgba.green">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">green</span></span><a class="headerlink" href="#hpmoc.points.Rgba.green" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.points.Rgba.red">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">red</span></span><a class="headerlink" href="#hpmoc.points.Rgba.red" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.points.Rgba.to_hex">
+<span class="sig-name descname"><span class="pre">to_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.points.Rgba.to_hex" title="Permalink to this definition"></a></dt>
+<dd><p>Get a hex string of the form <code class="docutils literal notranslate"><span class="pre">#rrggbbaa</span></code> for this <code class="docutils literal notranslate"><span class="pre">Rgba</span></code> tuple.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hpmoc.plotters.html" class="btn btn-neutral float-left" title="hpmoc.plotters module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hpmoc.psf.html" class="btn btn-neutral float-right" title="hpmoc.psf module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Stefan Trklja Countryman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

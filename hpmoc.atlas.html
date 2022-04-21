@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hpmoc.atlas package &mdash; HEALPix Multi-Order Coordinate Library (HPMOC) 0.3.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="canonical" href="http://hpmoc.stc.shhpmoc.atlas.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hpmoc.fits module" href="hpmoc.fits.html" />
+    <link rel="prev" title="hpmoc.abstract module" href="hpmoc.abstract.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> HEALPix Multi-Order Coordinate Library (HPMOC)
+          </a>
+              <div class="version">
+                0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jup/plotting-examples.html">Plotting Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Basic-Plotting">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-and-Pseudocylindrical-projections">Cylindrical and Pseudocylindrical projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Mollweide-Projection">Mollweide Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Hammer-Aitoff-Projection">Hammer-Aitoff Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-equal-area">Cylindrical equal-area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Plate-Carée-Projection">Plate Carée Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Projections">Zenithal Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Slant-Orthographic-Projection">Slant Orthographic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Gnomonic-Projection">Gnomonic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equidistant-Projection">Zenithal Equidistant Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equal-Area-Projection">Zenithal Equal-Area Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Arbitrary-WCS-Projections">Arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> Projections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Rotations">Rotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#2-Angle-Rotations">2-Angle Rotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#3-Angle-Rotations">3-Angle Rotations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Cylindrical-and-Pseudocylindrical-Projections">Rotations in Cylindrical and Pseudocylindrical Projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Zenithal-Projections">Rotations in Zenithal Projections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Zoomed-Plots">Zoomed Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Fixed-Angular-Width">Fixed Angular Width</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Scatterplots">Scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Contours-around-Credible-Regions">Contours around Credible Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Multi-layered-plots">Multi-layered plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Grid-Plots">Grid Plots</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.html">hpmoc package</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.abstract.html">hpmoc.abstract module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">hpmoc.atlas package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.fits.html">hpmoc.fits module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy.html">hpmoc.healpy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy_utils.html">hpmoc.healpy_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.io.html">hpmoc.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.abstract.html">hpmoc.io.abstract module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.astroquery.html">hpmoc.io.astroquery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.gracedb.html">hpmoc.io.gracedb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.ligo.html">hpmoc.io.ligo module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.partial.html">hpmoc.partial module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plot.html">hpmoc.plot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plotters.html">hpmoc.plotters module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.points.html">hpmoc.points module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.psf.html">hpmoc.psf module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.utils.html">hpmoc.utils module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HEALPix Multi-Order Coordinate Library (HPMOC)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>hpmoc.atlas package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hpmoc.atlas.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-hpmoc.atlas">
+<span id="hpmoc-atlas-package"></span><h1>hpmoc.atlas package<a class="headerlink" href="#module-hpmoc.atlas" title="Permalink to this headline"></a></h1>
+<p>Work with manifolds.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">Atlas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_limits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_limits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectors</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.atlas.Atlas" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.connectors">
+<span class="sig-name descname"><span class="pre">connectors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hpmoc.atlas.Atlas.connectors" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.corners">
+<span class="sig-name descname"><span class="pre">corners</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hpmoc.atlas.Atlas.corners" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.current_faces">
+<span class="sig-name descname"><span class="pre">current_faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span></em><a class="headerlink" href="#hpmoc.atlas.Atlas.current_faces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.current_sides">
+<span class="sig-name descname"><span class="pre">current_sides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span></em><a class="headerlink" href="#hpmoc.atlas.Atlas.current_sides" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.faces">
+<span class="sig-name descname"><span class="pre">faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span></em><a class="headerlink" href="#hpmoc.atlas.Atlas.faces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.ortho_translate">
+<span class="sig-name descname"><span class="pre">ortho_translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hpmoc.atlas.Atlas.ortho_translate" title="Permalink to this definition"></a></dt>
+<dd><p>Translate coordinates in a given direction within this <cite>Atlas</cite>. All
+inputs are expected to have the same shape. This translation can
+only be directly along coordinate axes (since these are well-defined
+for connected sides); use <cite>translate</cite> for diagonal movements.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>        1 ◄── DIRECTION
+        ▲
+  y     │
+  ▲ ┌───┬───┐
+  │ │0,Y│X,Y│
+0◄──├───┼───┤──►2
+  │ │0,0│X,0│
+  │ └───┴───┘
+  0─────│───►x ◄── COORD AXIS
+        ▼
+        3
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>NDArray</em><em>[</em><em>Int</em><em>]</em>) – x-coordinate of each point in its chart.</p></li>
+<li><p><strong>y</strong> (<em>NDArray</em><em>[</em><em>Int</em><em>]</em>) – y-coordinate of each point in its chart.</p></li>
+<li><p><strong>chart</strong> (<em>NDArray</em><em>[</em><em>Int</em><em>]</em>) – Chart number of each point.</p></li>
+<li><p><strong>direction</strong> (<em>NDArray</em><em>[</em><em>Int</em><em>]</em>) – Direction in which to move from each starting point (see diagram
+above).</p></li>
+<li><p><strong>distance</strong> (<em>NDArray</em><em>[</em><em>Int</em><em>]</em>) – Number of steps in coordinate grid by which to move.</p></li>
+<li><p><strong>in_place</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <cite>true</cite>, write results to input buffers (default: false).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>mask</strong> (<em>NDArray[Bool]</em>) – A boolean mask with the same shape as the inputs indicating which
+coordinates were successfully translated.</p></li>
+<li><p><strong>x_out, y_out, chart_out</strong> (<em>NDArray[Int]</em>) – The translated coordinates (flattened). Use <cite>mask</cite> as an index to
+recover original shape.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#hpmoc.atlas.Atlas.translate" title="hpmoc.atlas.Atlas.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Atlas.translate</span></code></a></dt><dd><p>Perform diagonal translations and extract distance information on results.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.sides">
+<span class="sig-name descname"><span class="pre">sides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span></em><a class="headerlink" href="#hpmoc.atlas.Atlas.sides" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.atlas.Atlas.translate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.valid_idx">
+<span class="sig-name descname"><span class="pre">valid_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">nptyping.types._ndarray.NDArray</span></span></span><a class="headerlink" href="#hpmoc.atlas.Atlas.valid_idx" title="Permalink to this definition"></a></dt>
+<dd><p>Check whether each index is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>NDArray</em><em>[</em><em>Int</em><em>]</em>) – x, y coordinates of each point.</p></li>
+<li><p><strong>y</strong> (<em>NDArray</em><em>[</em><em>Int</em><em>]</em>) – x, y coordinates of each point.</p></li>
+<li><p><strong>chart</strong> (<em>int</em><em> or </em><em>NDArray</em><em>[</em><em>Int</em><em>]</em>) – The chart to check (if scalar) or the chart corresponding to each
+x, y point to check.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mask</strong> – Whether each point is contained within its chart.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>NDArray[Bool]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.x_limits">
+<span class="sig-name descname"><span class="pre">x_limits</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[nptyping.types._ndarray.NDArray[(2,</span> <span class="pre">Ellipsis),</span> <span class="pre">nptyping.types._number.Int[int,</span> <span class="pre">numpy.signedinteger]]]</span></em><a class="headerlink" href="#hpmoc.atlas.Atlas.x_limits" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.atlas.Atlas.y_limits">
+<span class="sig-name descname"><span class="pre">y_limits</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[nptyping.types._ndarray.NDArray[(2,</span> <span class="pre">Ellipsis),</span> <span class="pre">nptyping.types._number.Int[int,</span> <span class="pre">numpy.signedinteger]]]</span></em><a class="headerlink" href="#hpmoc.atlas.Atlas.y_limits" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.atlas_dual">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">atlas_dual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faces</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.atlas.atlas_dual" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.close_loops">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">close_loops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.atlas.close_loops" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.dispatch">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_getter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#hpmoc.atlas.dispatch" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch a <cite>func</cite> based on some <cite>selector</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selector</strong> (<em>Union</em><em>[</em><em>NDArray</em><em>[</em><em>Int</em><em>]</em><em>, </em><em>int</em><em>]</em>) – Indices uniquely specifying the function to be dispatched. Can be a
+scalar if a single dispatched function is intended to be broadcast.</p></li>
+<li><p><strong>func_getter</strong> (<em>Callable</em>) – A scalar getter function which selects, using a scalar int from
+<cite>selector</cite>, a vector function taking <cite>*args</cite> as its arguments.</p></li>
+<li><p><strong>empty</strong> (<em>Callable</em>) – A function returning a type-correct default value in case empty
+arguments are passed.</p></li>
+<li><p><strong>*args</strong> (<em>Any</em>) – Arguments to the return value of <cite>func_getter</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – The results of calling the selected versions of <cite>func</cite> on the input
+<cite>args</cite>. Has the same return type as <cite>func</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.healpix_atlas">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">healpix_atlas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.atlas.healpix_atlas" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.healpix_base_atlas">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">healpix_base_atlas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.atlas.healpix_base_atlas" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.healpix_grid_limits">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">healpix_grid_limits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.atlas.healpix_grid_limits" title="Permalink to this definition"></a></dt>
+<dd><p>Get the chart grid limits for a HEALPix base pixel of size nside.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nside</strong> (<em>int</em>) – HEALPix nside.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.healpix_side_subpixel_luts">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">healpix_side_subpixel_luts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.atlas.healpix_side_subpixel_luts" title="Permalink to this definition"></a></dt>
+<dd><p>Get look-up-tables (LUTs) mapping from HEALPix sub-pixels (as given by the
+HEALPix NEST convention) to corners’ next-sides (as stored in the
+HEALPix dual-atlas given by <code class="docutils literal notranslate"><span class="pre">atlas_dual(healpix_base_atlas)</span></code>).</p>
+<p>Viewed from earth (inside the HEALPix sphere, XY axes swapped):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1    2◄───3
+│┌───┬───┐
+▼│1,0│1,1│
+3├───┼───┤1
+ │0,0│0,1│▲
+ └───┴───┘│
+0───►0    2
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>subpixel2side</strong> (<em>array</em>) – Pass NEST subpixel index in to get corner next-side (see arrows in
+diagram above).</p></li>
+<li><p><strong>side2subpixel</strong> (<em>array</em>) – Pass corner next-side index in to get NEST subpixel (opposite direction
+from arrows in diagram above).</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#hpmoc.atlas.healpix_base_atlas" title="hpmoc.atlas.healpix_base_atlas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">healpix_base_atlas</span></code></a></dt><dd><p>Get the HEALPix atlas.</p>
+</dd>
+<dt><a class="reference internal" href="#hpmoc.atlas.atlas_dual" title="hpmoc.atlas.atlas_dual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">atlas_dual</span></code></a></dt><dd><p>Calculate the dual of an atlas (corner nodes vs. face nodes) whose planar form is specified in the same manner as in <cite>healpix_base_atlas</cite>.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.idx_in_chart">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">idx_in_chart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_limits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray[(2,</span> <span class="pre">Ellipsis),</span> <span class="pre">nptyping.types._number.Int[int,</span> <span class="pre">numpy.signedinteger]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_limits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nptyping.types._ndarray.NDArray[(2,</span> <span class="pre">Ellipsis),</span> <span class="pre">nptyping.types._number.Int[int,</span> <span class="pre">numpy.signedinteger]]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">nptyping.types._ndarray.NDArray</span></span></span><a class="headerlink" href="#hpmoc.atlas.idx_in_chart" title="Permalink to this definition"></a></dt>
+<dd><p>See which indices are contained in a chart. This notion can be used to
+keep charts in an atlas evenly aligned at the borders to minimize overlap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array</em>) – x indices to check for membership.</p></li>
+<li><p><strong>y</strong> (<em>array</em>) – y indices to check for membership.</p></li>
+<li><p><strong>x_limits</strong> (<em>array</em>) – Min/max x values within the base y-values band (left/right walls)</p></li>
+<li><p><strong>y_limits</strong> (<em>array</em>) – Min/max y values within the base x-values band (top/bottom walls)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>inside</strong> – Whether each pixel in <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y</span></code> is in the boundaries, broadcast along
+the 3rd…Nth dimensions of <code class="docutils literal notranslate"><span class="pre">x_limits</span></code> and <code class="docutils literal notranslate"><span class="pre">y_limits</span></code> (in case
+multiple grids with the same x/y bands are being tested at once).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>NDArray[Bool]</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the input limits don’t intersect the x/y band corners or if input
+    array shapes do not match.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.next_side">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">next_side</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faces</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.atlas.next_side" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.atlas.square_matrix_connectors">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.atlas.</span></span><span class="sig-name descname"><span class="pre">square_matrix_connectors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">nptyping.types._ndarray.NDArray[(4,</span> <span class="pre">4,</span> <span class="pre">2,</span> <span class="pre">3),</span> <span class="pre">nptyping.types._number.Int]</span></span></span><a class="headerlink" href="#hpmoc.atlas.square_matrix_connectors" title="Permalink to this definition"></a></dt>
+<dd><p>Matrices for connecting identically-sized square charts to each other.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>connectors</strong> – Coordinate connection matrices. First 2 indices correspond to input
+side followed by output side (relative to output chart). Last 2 indices
+define augmented transformation matrices, with
+<cite>connectors[i, j, :, :2]</cite> defining the xy rotation matrix A and
+<cite>connectors[i, j, :, 2]</cite> defining the constant offset B⃗, so that the
+coordinate transformation leaving through side <cite>i</cite> and entering the
+next chart through side <cite>j</cite> is given by <cite>Ax⃗  + B⃗</cite>. Handedness of each
+chart is assumed to be the same. B⃗ is initially set to a factor which
+must be multiplied by the grid size.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>NDArray[(4, 4, 2, 3), Int64]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hpmoc.abstract.html" class="btn btn-neutral float-left" title="hpmoc.abstract module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hpmoc.fits.html" class="btn btn-neutral float-right" title="hpmoc.fits module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Stefan Trklja Countryman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

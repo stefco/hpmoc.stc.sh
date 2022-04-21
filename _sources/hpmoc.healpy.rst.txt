@@ -1,0 +1,7 @@
+hpmoc.healpy module
+===================
+
+.. automodule:: hpmoc.healpy
+   :members:
+   :undoc-members:
+   :show-inheritance:

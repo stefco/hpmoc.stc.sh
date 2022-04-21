@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hpmoc.plotters module &mdash; HEALPix Multi-Order Coordinate Library (HPMOC) 0.3.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="canonical" href="http://hpmoc.stc.shhpmoc.plotters.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hpmoc.points module" href="hpmoc.points.html" />
+    <link rel="prev" title="hpmoc.plot module" href="hpmoc.plot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> HEALPix Multi-Order Coordinate Library (HPMOC)
+          </a>
+              <div class="version">
+                0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jup/plotting-examples.html">Plotting Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Basic-Plotting">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-and-Pseudocylindrical-projections">Cylindrical and Pseudocylindrical projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Mollweide-Projection">Mollweide Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Hammer-Aitoff-Projection">Hammer-Aitoff Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-equal-area">Cylindrical equal-area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Plate-Carée-Projection">Plate Carée Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Projections">Zenithal Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Slant-Orthographic-Projection">Slant Orthographic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Gnomonic-Projection">Gnomonic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equidistant-Projection">Zenithal Equidistant Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equal-Area-Projection">Zenithal Equal-Area Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Arbitrary-WCS-Projections">Arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> Projections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Rotations">Rotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#2-Angle-Rotations">2-Angle Rotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#3-Angle-Rotations">3-Angle Rotations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Cylindrical-and-Pseudocylindrical-Projections">Rotations in Cylindrical and Pseudocylindrical Projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Zenithal-Projections">Rotations in Zenithal Projections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Zoomed-Plots">Zoomed Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Fixed-Angular-Width">Fixed Angular Width</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Scatterplots">Scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Contours-around-Credible-Regions">Contours around Credible Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Multi-layered-plots">Multi-layered plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Grid-Plots">Grid Plots</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.html">hpmoc package</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.abstract.html">hpmoc.abstract module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.atlas.html">hpmoc.atlas package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.fits.html">hpmoc.fits module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy.html">hpmoc.healpy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy_utils.html">hpmoc.healpy_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.io.html">hpmoc.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.abstract.html">hpmoc.io.abstract module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.astroquery.html">hpmoc.io.astroquery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.gracedb.html">hpmoc.io.gracedb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.ligo.html">hpmoc.io.ligo module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.partial.html">hpmoc.partial module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plot.html">hpmoc.plot module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">hpmoc.plotters module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.points.html">hpmoc.points module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.psf.html">hpmoc.psf module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.utils.html">hpmoc.utils module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HEALPix Multi-Order Coordinate Library (HPMOC)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>hpmoc.plotters module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hpmoc.plotters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-hpmoc.plotters">
+<span id="hpmoc-plotters-module"></span><h1>hpmoc.plotters module<a class="headerlink" href="#module-hpmoc.plotters" title="Permalink to this headline"></a></h1>
+<p>More complex plotting commands for joint events in more human-readable formats,
+e.g. the GW skymap plots from O2 with their overlaid crosses marking neutrino
+positions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.add_disks">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">add_disks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">disks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rgba</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">θφm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.add_disks" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>disks<span class="classifier">Iterable[Tuple[float, float, float]]</span></dt><dd><p>A list of <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec,</span> <span class="pre">σ)</span></code> tuples where <code class="docutils literal notranslate"><span class="pre">ra</span></code> is the right ascension,
+<code class="docutils literal notranslate"><span class="pre">dec</span></code> the declination, and <code class="docutils literal notranslate"><span class="pre">σ</span></code> the radius of the disk to be
+plotted.</p>
+</dd>
+<dt>rgba<span class="classifier">Tuple[float, float, float, float]</span></dt><dd><p>A tuple of red, green, blue, and alpha values between 0 and 1 to use
+for the disk color. If the disks overlap, the alpha value will
+gradually increase to reflect their overlap.</p>
+</dd>
+<dt>ax<span class="classifier">healpy.projaxes.SphericalProjAxes, optional</span></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">healpy</span></code> axes instance on which to plot <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>. Uses current axes
+if not provided, i.e. <code class="docutils literal notranslate"><span class="pre">plt.gca()</span></code>.</p>
+</dd>
+<dt>sigma<span class="classifier">float, optional</span></dt><dd><p>The size of the error region in terms of disk σ.</p>
+</dd>
+<dt>degrees<span class="classifier">bool, optional</span></dt><dd><p>Whether the <code class="docutils literal notranslate"><span class="pre">disks</span></code> angles are defined in <code class="docutils literal notranslate"><span class="pre">degrees</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code>,
+radians are assumed instead.</p>
+</dd>
+<dt>zorder<span class="classifier">float, optional</span></dt><dd><p>The z-order of the image. Make it higher to place it over
+previously-plotted images.</p>
+</dd>
+<dt>shape<span class="classifier">Tuple[int, int], optional</span></dt><dd><p>The shape of the projected image returned by one of the
+<code class="docutils literal notranslate"><span class="pre">healpy.visufunc</span></code> plotters when <code class="docutils literal notranslate"><span class="pre">return_projected_map=True</span></code>, i.e.
+the result of a call to <code class="docutils literal notranslate"><span class="pre">ax.projmap</span></code>. This determines the pixel
+locations.</p>
+</dd>
+<dt>θϕm<span class="classifier">Tuple[array, array, array]</span></dt><dd><p>The return result of <code class="docutils literal notranslate"><span class="pre">get_ax_angles</span></code>. If you are making multiple
+plots, it might be slightly faster to reuse this value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.add_scatterplot">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">add_scatterplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_ascensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">declinations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'$\\bigodot$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'green'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.add_scatterplot" title="Permalink to this definition"></a></dt>
+<dd><p>Add a scatterplot to the current HEALpy axis. Useful for plotting
+neutrinos etc.; remaining <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> are passed to
+<code class="docutils literal notranslate"><span class="pre">healpy.projscatter</span></code>. Returns the current figure.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.azeqview">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">azeqview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s⃗</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(180,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.azeqview" title="Permalink to this definition"></a></dt>
+<dd><p>Make a <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.azeqview</span></code> plot using LLAMA default
+styling with point sources optionally plotted on the sky.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s⃗</strong> (<em>array-like</em><em> or </em><em>astropy.units.Quantity</em>) – The full HEALPix skymap in NEST or RING ordering to plot.</p></li>
+<li><p><strong>*scatter</strong> (<a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a>) – Point-sources to add as a scatterplot over <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>. Each
+collection of points consists of a tuple of the form
+<code class="docutils literal notranslate"><span class="pre">(points,</span> <span class="pre">rgba,</span> <span class="pre">marker,</span> <span class="pre">name)</span></code>, where each tuple is meant to
+represent a specific type of point-source; for example, if
+plotting both neutrino and catalog point sources, you’d provide
+a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> for each. <code class="docutils literal notranslate"><span class="pre">points</span></code> is a list of point source
+tuples of the form <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec)</span></code> or <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec,</span> <span class="pre">σ)</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">ra</span></code> is right ascension, <code class="docutils literal notranslate"><span class="pre">dec</span></code> declination, and <code class="docutils literal notranslate"><span class="pre">σ</span></code>,
+optionally, the radial size of the point-source, all expressed
+<strong>in degrees</strong>.  For each point where <code class="docutils literal notranslate"><span class="pre">σ</span></code> is specified, a
+translucent disk of radius sigma in the color specified by RGBA
+tuple <code class="docutils literal notranslate"><span class="pre">rgba</span></code>, where each value is in the range <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>,
+will be plotted over the skymap. The central location of each
+point source will be indicated by a marker, specified
+(optionally using LaTeX) for a collection of points as the
+string <code class="docutils literal notranslate"><span class="pre">marker</span></code>. The name of this collection of sources is
+given as the string <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em> or </em><em>astropy.units.Unit</em><em>, </em><em>optional</em>) – The unit of the skymap values. If <code class="docutils literal notranslate"><span class="pre">s⃗</span></code> is an
+<code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code> instance and <code class="docutils literal notranslate"><span class="pre">unit</span></code> is not
+provided, it will be read from <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>.</p></li>
+<li><p><strong>cmap</strong> (<em>matplotlib.colors.Colormap</em>) – The colormap for the plotted skymap. If not defined, the
+default LLAMA colormap returned by <code class="docutils literal notranslate"><span class="pre">default_cmap</span></code> is used.</p></li>
+<li><p><strong>rot</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The rotation to apply to the skymap; define the central
+longitude, central latitude, and rotation about center. The
+default LIGO skymap orientation is used by default, <em>unless</em> a
+single point is specified in <code class="docutils literal notranslate"><span class="pre">*scatter</span></code>; in this case, the
+plot is centered at that point by default.</p></li>
+<li><p><strong>sigmas</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Plot error region disks for point sources of size <code class="docutils literal notranslate"><span class="pre">sigmas</span></code>.
+Provide a single sigma or a list of sigmas for multiple layers
+of disks, or omit error region disks from the plot by setting
+to an empty list.</p></li>
+<li><p><strong>graticule</strong> (<em>Callable</em><em>, </em><em>optional</em>) – A function called on a figure for rendering a graticule on the
+given figures.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword args to pass to <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.azeqview</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – The axes instance that was plotted to.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">healpy.visufunc.azeqview</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.cartview">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">cartview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s⃗</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(180,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.cartview" title="Permalink to this definition"></a></dt>
+<dd><p>Make a <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.cartview</span></code> plot using LLAMA default
+styling with point sources optionally plotted on the sky.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s⃗</strong> (<em>array-like</em><em> or </em><em>astropy.units.Quantity</em>) – The full HEALPix skymap in NEST or RING ordering to plot.</p></li>
+<li><p><strong>*scatter</strong> (<a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a>) – Point-sources to add as a scatterplot over <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>. Each
+collection of points consists of a tuple of the form
+<code class="docutils literal notranslate"><span class="pre">(points,</span> <span class="pre">rgba,</span> <span class="pre">marker,</span> <span class="pre">name)</span></code>, where each tuple is meant to
+represent a specific type of point-source; for example, if
+plotting both neutrino and catalog point sources, you’d provide
+a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> for each. <code class="docutils literal notranslate"><span class="pre">points</span></code> is a list of point source
+tuples of the form <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec)</span></code> or <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec,</span> <span class="pre">σ)</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">ra</span></code> is right ascension, <code class="docutils literal notranslate"><span class="pre">dec</span></code> declination, and <code class="docutils literal notranslate"><span class="pre">σ</span></code>,
+optionally, the radial size of the point-source, all expressed
+<strong>in degrees</strong>.  For each point where <code class="docutils literal notranslate"><span class="pre">σ</span></code> is specified, a
+translucent disk of radius sigma in the color specified by RGBA
+tuple <code class="docutils literal notranslate"><span class="pre">rgba</span></code>, where each value is in the range <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>,
+will be plotted over the skymap. The central location of each
+point source will be indicated by a marker, specified
+(optionally using LaTeX) for a collection of points as the
+string <code class="docutils literal notranslate"><span class="pre">marker</span></code>. The name of this collection of sources is
+given as the string <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em> or </em><em>astropy.units.Unit</em><em>, </em><em>optional</em>) – The unit of the skymap values. If <code class="docutils literal notranslate"><span class="pre">s⃗</span></code> is an
+<code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code> instance and <code class="docutils literal notranslate"><span class="pre">unit</span></code> is not
+provided, it will be read from <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>.</p></li>
+<li><p><strong>cmap</strong> (<em>matplotlib.colors.Colormap</em>) – The colormap for the plotted skymap. If not defined, the
+default LLAMA colormap returned by <code class="docutils literal notranslate"><span class="pre">default_cmap</span></code> is used.</p></li>
+<li><p><strong>rot</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The rotation to apply to the skymap; define the central
+longitude, central latitude, and rotation about center. The
+default LIGO skymap orientation is used by default, <em>unless</em> a
+single point is specified in <code class="docutils literal notranslate"><span class="pre">*scatter</span></code>; in this case, the
+plot is centered at that point by default.</p></li>
+<li><p><strong>sigmas</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Plot error region disks for point sources of size <code class="docutils literal notranslate"><span class="pre">sigmas</span></code>.
+Provide a single sigma or a list of sigmas for multiple layers
+of disks, or omit error region disks from the plot by setting
+to an empty list.</p></li>
+<li><p><strong>graticule</strong> (<em>Callable</em><em>, </em><em>optional</em>) – A function called on a figure for rendering a graticule on the
+given figures.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword args to pass to <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.cartview</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – The axes instance that was plotted to.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">healpy.visufunc.cartview</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.default_cmap">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">default_cmap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.default_cmap" title="Permalink to this definition"></a></dt>
+<dd><p>Get the matplotlib colormap.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.get_ax_angles">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">get_ax_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonlat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.get_ax_angles" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.get_ax_nside">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">get_ax_nside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.get_ax_nside" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.get_hp_ax_img_shape">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">get_hp_ax_img_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.get_hp_ax_img_shape" title="Permalink to this definition"></a></dt>
+<dd><p>Get the shape of a <code class="docutils literal notranslate"><span class="pre">healpy.projaxes.SphericalProjAxes</span></code> instance’s
+plotted images.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.gnomview">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">gnomview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s⃗</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(180,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.gnomview" title="Permalink to this definition"></a></dt>
+<dd><p>Make a <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.gnomview</span></code> plot using LLAMA default
+styling with point sources optionally plotted on the sky.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s⃗</strong> (<em>array-like</em><em> or </em><em>astropy.units.Quantity</em>) – The full HEALPix skymap in NEST or RING ordering to plot.</p></li>
+<li><p><strong>*scatter</strong> (<a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a>) – Point-sources to add as a scatterplot over <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>. Each
+collection of points consists of a tuple of the form
+<code class="docutils literal notranslate"><span class="pre">(points,</span> <span class="pre">rgba,</span> <span class="pre">marker,</span> <span class="pre">name)</span></code>, where each tuple is meant to
+represent a specific type of point-source; for example, if
+plotting both neutrino and catalog point sources, you’d provide
+a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> for each. <code class="docutils literal notranslate"><span class="pre">points</span></code> is a list of point source
+tuples of the form <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec)</span></code> or <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec,</span> <span class="pre">σ)</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">ra</span></code> is right ascension, <code class="docutils literal notranslate"><span class="pre">dec</span></code> declination, and <code class="docutils literal notranslate"><span class="pre">σ</span></code>,
+optionally, the radial size of the point-source, all expressed
+<strong>in degrees</strong>.  For each point where <code class="docutils literal notranslate"><span class="pre">σ</span></code> is specified, a
+translucent disk of radius sigma in the color specified by RGBA
+tuple <code class="docutils literal notranslate"><span class="pre">rgba</span></code>, where each value is in the range <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>,
+will be plotted over the skymap. The central location of each
+point source will be indicated by a marker, specified
+(optionally using LaTeX) for a collection of points as the
+string <code class="docutils literal notranslate"><span class="pre">marker</span></code>. The name of this collection of sources is
+given as the string <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em> or </em><em>astropy.units.Unit</em><em>, </em><em>optional</em>) – The unit of the skymap values. If <code class="docutils literal notranslate"><span class="pre">s⃗</span></code> is an
+<code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code> instance and <code class="docutils literal notranslate"><span class="pre">unit</span></code> is not
+provided, it will be read from <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>.</p></li>
+<li><p><strong>cmap</strong> (<em>matplotlib.colors.Colormap</em>) – The colormap for the plotted skymap. If not defined, the
+default LLAMA colormap returned by <code class="docutils literal notranslate"><span class="pre">default_cmap</span></code> is used.</p></li>
+<li><p><strong>rot</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The rotation to apply to the skymap; define the central
+longitude, central latitude, and rotation about center. The
+default LIGO skymap orientation is used by default, <em>unless</em> a
+single point is specified in <code class="docutils literal notranslate"><span class="pre">*scatter</span></code>; in this case, the
+plot is centered at that point by default.</p></li>
+<li><p><strong>sigmas</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Plot error region disks for point sources of size <code class="docutils literal notranslate"><span class="pre">sigmas</span></code>.
+Provide a single sigma or a list of sigmas for multiple layers
+of disks, or omit error region disks from the plot by setting
+to an empty list.</p></li>
+<li><p><strong>graticule</strong> (<em>Callable</em><em>, </em><em>optional</em>) – A function called on a figure for rendering a graticule on the
+given figures.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword args to pass to <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.gnomview</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – The axes instance that was plotted to.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">healpy.visufunc.gnomview</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.graticule">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">graticule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.graticule" title="Permalink to this definition"></a></dt>
+<dd><p>Add labels and a graticule to the given axes <code class="docutils literal notranslate"><span class="pre">ax</span></code> (with placement
+tailored to the plot type and window). Pass this to <code class="docutils literal notranslate"><span class="pre">visufunc</span></code>
+plotter functions.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.label_graticule">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">label_graticule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ras</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">δr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">δd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ra_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.label_graticule" title="Permalink to this definition"></a></dt>
+<dd><p>Add text labels to a graticule.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.layer_plot">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">layer_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">θφm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.layer_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Show a new plot on top of an existing <code class="docutils literal notranslate"><span class="pre">healpy</span></code> axes instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s⃗</strong> (<a class="reference internal" href="hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap"><em>PartialUniqSkymap</em></a><em> or </em><em>array</em>) – The skymap to plot. If a <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> is given, assume it is a full
+skymap.</p></li>
+<li><p><strong>ax</strong> (<em>healpy.projaxes.SphericalProjAxes</em><em>, </em><em>optional</em>) – The <code class="docutils literal notranslate"><span class="pre">healpy</span></code> axes instance on which to plot <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>. Uses current axes
+if not provided, i.e. <code class="docutils literal notranslate"><span class="pre">plt.gca()</span></code>.</p></li>
+<li><p><strong>vmin</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum value of the colormap.</p></li>
+<li><p><strong>vmax</strong> (<em>float</em><em>, </em><em>optional</em>) – Maximum value of the colormap.</p></li>
+<li><p><strong>cmap</strong> (<em>str</em><em>, </em><em>optional</em>) – <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> colormap to use.</p></li>
+<li><p><strong>zorder</strong> (<em>float</em><em>, </em><em>optional</em>) – The z-order of the image. Make it higher to place it over
+previously-plotted images.</p></li>
+<li><p><strong>shape</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>, </em><em>optional</em>) – The shape of the projected image returned by one of the
+<code class="docutils literal notranslate"><span class="pre">healpy.visufunc</span></code> plotters when <code class="docutils literal notranslate"><span class="pre">return_projected_map=True</span></code>, i.e.
+the result of a call to <code class="docutils literal notranslate"><span class="pre">ax.projmap</span></code>. This determines the pixel
+locations.</p></li>
+<li><p><strong>nest</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether <code class="docutils literal notranslate"><span class="pre">s⃗</span></code> has NEST HEALPix pixel ordering. This argument is ignored
+if <code class="docutils literal notranslate"><span class="pre">s⃗</span></code> is a <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> (implied <code class="docutils literal notranslate"><span class="pre">UNIQ</span></code> ordering).</p></li>
+<li><p><strong>θϕm</strong> (<em>Tuple</em><em>[</em><em>array</em><em>, </em><em>array</em><em>, </em><em>array</em><em>]</em>) – The return result of <code class="docutils literal notranslate"><span class="pre">get_ax_angles</span></code>. If you are making multiple
+plots, it might be slightly faster to reuse this value.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.mollview">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">mollview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s⃗</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(180,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.mollview" title="Permalink to this definition"></a></dt>
+<dd><p>Make a <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.mollview</span></code> plot using LLAMA default
+styling with point sources optionally plotted on the sky.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s⃗</strong> (<em>array-like</em><em> or </em><em>astropy.units.Quantity</em>) – The full HEALPix skymap in NEST or RING ordering to plot.</p></li>
+<li><p><strong>*scatter</strong> (<a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a>) – Point-sources to add as a scatterplot over <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>. Each
+collection of points consists of a tuple of the form
+<code class="docutils literal notranslate"><span class="pre">(points,</span> <span class="pre">rgba,</span> <span class="pre">marker,</span> <span class="pre">name)</span></code>, where each tuple is meant to
+represent a specific type of point-source; for example, if
+plotting both neutrino and catalog point sources, you’d provide
+a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> for each. <code class="docutils literal notranslate"><span class="pre">points</span></code> is a list of point source
+tuples of the form <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec)</span></code> or <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec,</span> <span class="pre">σ)</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">ra</span></code> is right ascension, <code class="docutils literal notranslate"><span class="pre">dec</span></code> declination, and <code class="docutils literal notranslate"><span class="pre">σ</span></code>,
+optionally, the radial size of the point-source, all expressed
+<strong>in degrees</strong>.  For each point where <code class="docutils literal notranslate"><span class="pre">σ</span></code> is specified, a
+translucent disk of radius sigma in the color specified by RGBA
+tuple <code class="docutils literal notranslate"><span class="pre">rgba</span></code>, where each value is in the range <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>,
+will be plotted over the skymap. The central location of each
+point source will be indicated by a marker, specified
+(optionally using LaTeX) for a collection of points as the
+string <code class="docutils literal notranslate"><span class="pre">marker</span></code>. The name of this collection of sources is
+given as the string <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em> or </em><em>astropy.units.Unit</em><em>, </em><em>optional</em>) – The unit of the skymap values. If <code class="docutils literal notranslate"><span class="pre">s⃗</span></code> is an
+<code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code> instance and <code class="docutils literal notranslate"><span class="pre">unit</span></code> is not
+provided, it will be read from <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>.</p></li>
+<li><p><strong>cmap</strong> (<em>matplotlib.colors.Colormap</em>) – The colormap for the plotted skymap. If not defined, the
+default LLAMA colormap returned by <code class="docutils literal notranslate"><span class="pre">default_cmap</span></code> is used.</p></li>
+<li><p><strong>rot</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The rotation to apply to the skymap; define the central
+longitude, central latitude, and rotation about center. The
+default LIGO skymap orientation is used by default, <em>unless</em> a
+single point is specified in <code class="docutils literal notranslate"><span class="pre">*scatter</span></code>; in this case, the
+plot is centered at that point by default.</p></li>
+<li><p><strong>sigmas</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Plot error region disks for point sources of size <code class="docutils literal notranslate"><span class="pre">sigmas</span></code>.
+Provide a single sigma or a list of sigmas for multiple layers
+of disks, or omit error region disks from the plot by setting
+to an empty list.</p></li>
+<li><p><strong>graticule</strong> (<em>Callable</em><em>, </em><em>optional</em>) – A function called on a figure for rendering a graticule on the
+given figures.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword args to pass to <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.mollview</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – The axes instance that was plotted to.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">healpy.visufunc.mollview</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.multiplot">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">multiplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*s⃗l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform:</span> <span class="pre">Optional[Callable]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotters:</span> <span class="pre">List[Union[Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str]]</span> <span class="pre">=</span> <span class="pre">(&lt;function</span> <span class="pre">mollview&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatters:</span> <span class="pre">Optional[List[List[hpmoc.points.PointsTuple]]]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot_height:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suptitle:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widths:</span> <span class="pre">Optional[List[float]]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hspace:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wspace:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.04</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot_kwargs:</span> <span class="pre">Optional[List[Optional[List[dict]]]]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.multiplot" title="Permalink to this definition"></a></dt>
+<dd><p>Make a grid plot of multiple skymaps (optionally with scatterplots for
+each).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*s⃗ₗ</strong> (<em>List</em><em>[</em><em>np.ndarray</em><em>]</em>) – A list of skymaps to plot. Can either be a single-resolution full-sky
+HEALPix array or another format, though in the latter case a suitable
+<code class="docutils literal notranslate"><span class="pre">transform</span></code> function must be provided.</p></li>
+<li><p><strong>transform</strong> (<em>Callable</em><em>, </em><em>optional</em>) – A function taking a
+single element of <code class="docutils literal notranslate"><span class="pre">s⃗ₗ</span></code> and transforming it into a single-resolution
+full-sky HEALPix array. Only necessary if the elements of <code class="docutils literal notranslate"><span class="pre">s⃗ₗ</span></code> are
+not already in such a format. <code class="docutils literal notranslate"><span class="pre">transform</span></code> is called on each
+skymap directly before plotting, making it an effective way to manage
+memory usage when plotting compressed skymap formats.</p></li>
+<li><p><strong>plotters</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>Callable</em><em>, </em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – A list of plotters from this module to use for each plot. If multiple
+plotters are specified, they will be plotted alongside each other; if
+this makes the figure too wide, change the number of columns in the
+grid with <code class="docutils literal notranslate"><span class="pre">ncols</span></code>. Plotters contained in this module can also be
+specified using their function names.</p></li>
+<li><p><strong>scatters</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a><em>]</em><em>]</em><em>, </em><em>optional</em>) – Scatterplots to use, one list for each skymap containing the sets of
+points to plot for that skymap. See plotter dosctrings for <code class="docutils literal notranslate"><span class="pre">scatter</span></code>,
+e.g. the <code class="docutils literal notranslate"><span class="pre">mollview</span></code> docstring for the format of each scatterplot
+specifier. Scatterplots for a given skymap will be added to each
+plotter.</p></li>
+<li><p><strong>subplot_height</strong> (<em>float</em><em>, </em><em>optional</em>) – The height of each subplot (in inches). Width is automatically
+determined. Overall figure height will be this times <code class="docutils literal notranslate"><span class="pre">ncols</span></code>.</p></li>
+<li><p><strong>suptitle</strong> (<em>str</em><em>, </em><em>optional</em>) – If provided, add a title for the entire <code class="docutils literal notranslate"><span class="pre">multiplot</span></code> at the top. You
+can manually call <code class="docutils literal notranslate"><span class="pre">suptitle</span></code> on the returned figure if you need to
+customize beyond the default title styling.</p></li>
+<li><p><strong>dpi</strong> (<em>float</em><em>, </em><em>optional</em>) – DPI of the output figure. Modify this to change the figure’s
+resolution.</p></li>
+<li><p><strong>ncols</strong> (<em>int</em><em>, </em><em>optional</em>) – How many columns of <em>skymaps</em> to include in the grid. <strong>NB: All
+subplots for a single skymap are counted as a single column</strong> (in
+contrast to <code class="docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code>, which counts each subplot
+in a single column). The number of rows is determined automatically
+from the number of skymaps provided combined with <code class="docutils literal notranslate"><span class="pre">ncols</span></code>.</p></li>
+<li><p><strong>widths</strong> (<em>List</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Ratios of widths of the plots in <code class="docutils literal notranslate"><span class="pre">plotters</span></code> as a multiple of
+<code class="docutils literal notranslate"><span class="pre">subplot_height</span></code>. Must have the same length as <code class="docutils literal notranslate"><span class="pre">plotters</span></code>.</p></li>
+<li><p><strong>hspace</strong> (<em>float</em><em>, </em><em>optional</em>) – How much vertical space (height) to reserve between subplots.</p></li>
+<li><p><strong>wspace</strong> (<em>float</em><em>, </em><em>optional</em>) – How much horizontal space (width) to reserve between subplots.</p></li>
+<li><p><strong>subplot_kwargs</strong> (<em>List</em><em>[</em><em>Optional</em><em>[</em><em>List</em><em>[</em><em>dict</em><em>]</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Lists of keyword argument dictionaries that will be used for each
+subplot. The first index specifies the plotter, and the second index
+specifies the skymap from <code class="docutils literal notranslate"><span class="pre">s⃗ₗ</span></code>. This behavior allows you to easily
+specify lists of keyword arguments for specific plotters (since often)
+only one of the <code class="docutils literal notranslate"><span class="pre">plotters</span></code> requires skymap-specific parameters).
+<strong>NB: These subplot-specific keyword arguments take precedence over</strong>
+<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> <strong>for their respective subplots.</strong></p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments applied to all plotters. <strong>NB:</strong> <code class="docutils literal notranslate"><span class="pre">hold=True</span></code> <strong>is
+set for all subplots by default since a new figure is always created.</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – A new <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> figure containing the specified subplots.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.figure.Figure</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">scatters</span></code> is provided and is ill-formatted or not of the same
+    length as <code class="docutils literal notranslate"><span class="pre">s⃗ₗ</span></code>; if <code class="docutils literal notranslate"><span class="pre">widths</span></code> is included and is not of the
+    same length as <code class="docutils literal notranslate"><span class="pre">plotters</span></code>; if <code class="docutils literal notranslate"><span class="pre">subplot_kwargs</span></code> is included
+    and is not of the same length as <code class="docutils literal notranslate"><span class="pre">plotters</span></code>, or if its elements
+    are neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor lists of the same length as <code class="docutils literal notranslate"><span class="pre">s⃗ₗ</span></code>; or if one
+    of the <code class="docutils literal notranslate"><span class="pre">plotters</span></code> is specified as a string but cannot be found in
+    this module.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.plotters.mollview" title="hpmoc.plotters.mollview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mollview</span></code></a>, <a class="reference internal" href="#hpmoc.plotters.orthview" title="hpmoc.plotters.orthview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orthview</span></code></a>, <a class="reference internal" href="#hpmoc.plotters.gnomview" title="hpmoc.plotters.gnomview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gnomview</span></code></a>, <a class="reference internal" href="#hpmoc.plotters.cartview" title="hpmoc.plotters.cartview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cartview</span></code></a>, <a class="reference internal" href="#hpmoc.plotters.azeqview" title="hpmoc.plotters.azeqview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">azeqview</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.orthview">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">orthview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s⃗</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(180,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.orthview" title="Permalink to this definition"></a></dt>
+<dd><p>Make a <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.orthview</span></code> plot using LLAMA default
+styling with point sources optionally plotted on the sky.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s⃗</strong> (<em>array-like</em><em> or </em><em>astropy.units.Quantity</em>) – The full HEALPix skymap in NEST or RING ordering to plot.</p></li>
+<li><p><strong>*scatter</strong> (<a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a>) – Point-sources to add as a scatterplot over <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>. Each
+collection of points consists of a tuple of the form
+<code class="docutils literal notranslate"><span class="pre">(points,</span> <span class="pre">rgba,</span> <span class="pre">marker,</span> <span class="pre">name)</span></code>, where each tuple is meant to
+represent a specific type of point-source; for example, if
+plotting both neutrino and catalog point sources, you’d provide
+a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> for each. <code class="docutils literal notranslate"><span class="pre">points</span></code> is a list of point source
+tuples of the form <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec)</span></code> or <code class="docutils literal notranslate"><span class="pre">(ra,</span> <span class="pre">dec,</span> <span class="pre">σ)</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">ra</span></code> is right ascension, <code class="docutils literal notranslate"><span class="pre">dec</span></code> declination, and <code class="docutils literal notranslate"><span class="pre">σ</span></code>,
+optionally, the radial size of the point-source, all expressed
+<strong>in degrees</strong>.  For each point where <code class="docutils literal notranslate"><span class="pre">σ</span></code> is specified, a
+translucent disk of radius sigma in the color specified by RGBA
+tuple <code class="docutils literal notranslate"><span class="pre">rgba</span></code>, where each value is in the range <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>,
+will be plotted over the skymap. The central location of each
+point source will be indicated by a marker, specified
+(optionally using LaTeX) for a collection of points as the
+string <code class="docutils literal notranslate"><span class="pre">marker</span></code>. The name of this collection of sources is
+given as the string <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em> or </em><em>astropy.units.Unit</em><em>, </em><em>optional</em>) – The unit of the skymap values. If <code class="docutils literal notranslate"><span class="pre">s⃗</span></code> is an
+<code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code> instance and <code class="docutils literal notranslate"><span class="pre">unit</span></code> is not
+provided, it will be read from <code class="docutils literal notranslate"><span class="pre">s⃗</span></code>.</p></li>
+<li><p><strong>cmap</strong> (<em>matplotlib.colors.Colormap</em>) – The colormap for the plotted skymap. If not defined, the
+default LLAMA colormap returned by <code class="docutils literal notranslate"><span class="pre">default_cmap</span></code> is used.</p></li>
+<li><p><strong>rot</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The rotation to apply to the skymap; define the central
+longitude, central latitude, and rotation about center. The
+default LIGO skymap orientation is used by default, <em>unless</em> a
+single point is specified in <code class="docutils literal notranslate"><span class="pre">*scatter</span></code>; in this case, the
+plot is centered at that point by default.</p></li>
+<li><p><strong>sigmas</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Plot error region disks for point sources of size <code class="docutils literal notranslate"><span class="pre">sigmas</span></code>.
+Provide a single sigma or a list of sigmas for multiple layers
+of disks, or omit error region disks from the plot by setting
+to an empty list.</p></li>
+<li><p><strong>graticule</strong> (<em>Callable</em><em>, </em><em>optional</em>) – A function called on a figure for rendering a graticule on the
+given figures.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword args to pass to <code class="docutils literal notranslate"><span class="pre">healpy.visufunc.orthview</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – The axes instance that was plotted to.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">healpy.visufunc.orthview</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.unmask_partial_image">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">unmask_partial_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">partial_image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.unmask_partial_image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.visufunc">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">visufunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">default_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.visufunc" title="Permalink to this definition"></a></dt>
+<dd><p>A decorator that adds LLAMA styling and overlaid scatterplots to
+<code class="docutils literal notranslate"><span class="pre">healpy.visufunc</span></code> plotting functions. Automatically calls the
+<code class="docutils literal notranslate"><span class="pre">hp.visufunc</span></code> function of the same name as <code class="docutils literal notranslate"><span class="pre">func</span></code>, leaving the wrapped
+function body to do apply post-plot styling defaults specific to that
+plotter. The current figure is passed to the wrapped function as the
+keyword argument <code class="docutils literal notranslate"><span class="pre">fig</span></code>.</p>
+<p>If only a single point source is specified in <code class="docutils literal notranslate"><span class="pre">*scatter</span></code>, then the
+wrapped plotter will use the location of that point as the default <code class="docutils literal notranslate"><span class="pre">rot</span></code>
+value. If <code class="docutils literal notranslate"><span class="pre">xsize</span></code> is also provided to the decorator, then
+<code class="docutils literal notranslate"><span class="pre">reso</span></code> will also take a default value that fits the sky area contained
+in <code class="docutils literal notranslate"><span class="pre">2*max(sigmas)</span></code>.</p>
+<p>Provide additional <code class="docutils literal notranslate"><span class="pre">**default_kwargs</span></code> to add to the wrapper if needed.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.plotters.visufunc_defaults">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.plotters.</span></span><span class="sig-name descname"><span class="pre">visufunc_defaults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s⃗</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_kwargs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*scatter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigmas=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graticule=&lt;function</span> <span class="pre">graticule&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.plotters.visufunc_defaults" title="Permalink to this definition"></a></dt>
+<dd><p>Get default arguments for <code class="docutils literal notranslate"><span class="pre">visufunc</span></code> wrapped functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s⃗</strong> – Skymap to plot.</p></li>
+<li><p><strong>default_kwargs</strong> – Default keyword arguments from <code class="docutils literal notranslate"><span class="pre">&#64;visufunc</span></code> wrapper.</p></li>
+<li><p><strong>sigmas</strong> – Error regions of point sources to plot.</p></li>
+<li><p><strong>*scatter</strong> – Scatterplot points.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Input arguments updated to defaults. All keyword arguments are folded
+into <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>s⃗, scatter, kwargs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hpmoc.plot.html" class="btn btn-neutral float-left" title="hpmoc.plot module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hpmoc.points.html" class="btn btn-neutral float-right" title="hpmoc.points module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Stefan Trklja Countryman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

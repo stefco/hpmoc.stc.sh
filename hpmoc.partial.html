@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hpmoc.partial module &mdash; HEALPix Multi-Order Coordinate Library (HPMOC) 0.3.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="canonical" href="http://hpmoc.stc.shhpmoc.partial.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hpmoc.plot module" href="hpmoc.plot.html" />
+    <link rel="prev" title="hpmoc.io.ligo module" href="hpmoc.io.ligo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> HEALPix Multi-Order Coordinate Library (HPMOC)
+          </a>
+              <div class="version">
+                0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jup/plotting-examples.html">Plotting Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Basic-Plotting">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-and-Pseudocylindrical-projections">Cylindrical and Pseudocylindrical projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Mollweide-Projection">Mollweide Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Hammer-Aitoff-Projection">Hammer-Aitoff Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Cylindrical-equal-area">Cylindrical equal-area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Plate-Carée-Projection">Plate Carée Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Projections">Zenithal Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Slant-Orthographic-Projection">Slant Orthographic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Gnomonic-Projection">Gnomonic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equidistant-Projection">Zenithal Equidistant Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Zenithal-Equal-Area-Projection">Zenithal Equal-Area Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Arbitrary-WCS-Projections">Arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> Projections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Rotations">Rotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#2-Angle-Rotations">2-Angle Rotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#3-Angle-Rotations">3-Angle Rotations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Cylindrical-and-Pseudocylindrical-Projections">Rotations in Cylindrical and Pseudocylindrical Projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="jup/plotting-examples.html#Rotations-in-Zenithal-Projections">Rotations in Zenithal Projections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Zoomed-Plots">Zoomed Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jup/plotting-examples.html#Fixed-Angular-Width">Fixed Angular Width</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Scatterplots">Scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Contours-around-Credible-Regions">Contours around Credible Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Multi-layered-plots">Multi-layered plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jup/plotting-examples.html#Grid-Plots">Grid Plots</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.html">hpmoc package</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.abstract.html">hpmoc.abstract module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.atlas.html">hpmoc.atlas package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.fits.html">hpmoc.fits module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy.html">hpmoc.healpy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.healpy_utils.html">hpmoc.healpy_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.io.html">hpmoc.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.abstract.html">hpmoc.io.abstract module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.astroquery.html">hpmoc.io.astroquery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.gracedb.html">hpmoc.io.gracedb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpmoc.io.ligo.html">hpmoc.io.ligo module</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">hpmoc.partial module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plot.html">hpmoc.plot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.plotters.html">hpmoc.plotters module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.points.html">hpmoc.points module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.psf.html">hpmoc.psf module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpmoc.utils.html">hpmoc.utils module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HEALPix Multi-Order Coordinate Library (HPMOC)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>hpmoc.partial module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hpmoc.partial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-hpmoc.partial">
+<span id="hpmoc-partial-module"></span><h1>hpmoc.partial module<a class="headerlink" href="#module-hpmoc.partial" title="Permalink to this headline"></a></h1>
+<p>A partial HEALPix skymap class supporting multi-resolution HEALPix skymaps in
+NUNIQ ordering.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hpmoc.partial.</span></span><span class="sig-name descname"><span class="pre">PartialUniqSkymap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nearest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="hpmoc.abstract.html#hpmoc.abstract.AbstractPartialUniqSkymap" title="hpmoc.abstract.AbstractPartialUniqSkymap"><code class="xref py py-class docutils literal notranslate"><span class="pre">hpmoc.abstract.AbstractPartialUniqSkymap</span></code></a></p>
+<p>A HEALPix skymap object residing in memory with NUNIQ ordering. Only
+a subset of the full sky. You can index into a <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> with
+NUNIQ indices to get a skymap with the same shape (optionally padding
+missing values with a second index argument). You can also use index
+notation to set pixel values at the specified NUNIQ index locations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.ang_dist">
+<span class="sig-name descname"><span class="pre">ang_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.ang_dist" title="Permalink to this definition"></a></dt>
+<dd><p>Get distances from each pixel in this skymap to the point at
+right-ascension <code class="docutils literal notranslate"><span class="pre">ra</span></code> and declination <code class="docutils literal notranslate"><span class="pre">dec</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ra</strong> (<em>array-like</em><em> or </em><em>astropy.units.Quantity</em>) – Right-ascension of the point</p></li>
+<li><p><strong>dec</strong> (<em>array-like</em><em> or </em><em>astropy.units.Quantity</em>) – Declination of the point</p></li>
+<li><p><strong>degrees</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">ra</span></code> and <code class="docutils literal notranslate"><span class="pre">dec</span></code> are <code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code> instances,
+they will be automatically converted. If they are unitless scalars,
+they will be interpreted as degrees if <code class="docutils literal notranslate"><span class="pre">degrees=True</span></code>, radians
+otherwise.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ang_dist</strong> – The distances of each pixel in this skymap to the point at <code class="docutils literal notranslate"><span class="pre">ra</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dec</span></code> in degrees.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>astropy.units.Quantity</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>We should find that the distance from any pixel to the North pole is
+equal to 90 minus the declination (within some small error):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy.units</span> <span class="kn">import</span> <span class="n">deg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">skymap</span> <span class="o">=</span> <span class="n">PartialUniqSkymap</span><span class="p">(</span><span class="o">*</span><span class="p">([</span><span class="mi">4</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)]</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span><span class="p">,</span> <span class="n">dec</span> <span class="o">=</span> <span class="n">skymap</span><span class="o">.</span><span class="n">coords</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dec</span>
+<span class="go">&lt;Quantity [ 41.8103149,  41.8103149,  41.8103149,  41.8103149,   0.       ,</span>
+<span class="go">             0.       ,   0.       ,   0.       , -41.8103149, -41.8103149,</span>
+<span class="go">           -41.8103149, -41.8103149] deg&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Δθ⃗</span> <span class="o">=</span> <span class="n">skymap</span><span class="o">.</span><span class="n">ang_dist</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Δθ⃗</span>
+<span class="go">&lt;Quantity [0.84106867, 0.84106867, 0.84106867, 0.84106867, 1.57079633,</span>
+<span class="go">           1.57079633, 1.57079633, 1.57079633, 2.30052398, 2.30052398,</span>
+<span class="go">           2.30052398, 2.30052398] rad&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Δθ⃗</span><span class="o">+</span><span class="n">dec</span><span class="o">-</span><span class="mi">90</span><span class="o">*</span><span class="n">deg</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="o">&lt;</span><span class="mf">1e-13</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Likewise, the distance from any pixel to the South pole should be
+equal to 90 plus the declination:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">skymap</span><span class="o">.</span><span class="n">ang_dist</span><span class="p">(</span><span class="mi">359</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">)</span><span class="o">-</span><span class="n">dec</span><span class="o">-</span><span class="mi">90</span><span class="o">*</span><span class="n">deg</span><span class="p">,</span>
+<span class="gp">... </span>              <span class="mi">14</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">__class__</span></span></span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Map a function to this skymap’s pixels and return a new skymap whose
+values are the returned values of <code class="docutils literal notranslate"><span class="pre">func</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">func(self.s)</span></code>
+must therefore return values corresponding to the same pixels as the
+input skymap. Use this to, for example, get the logarithm of this
+skymap as <code class="docutils literal notranslate"><span class="pre">self.apply(np.log)</span></code>. If <code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">==</span> <span class="pre">True</span></code>, make a copy of
+the NUNIQ indices <code class="docutils literal notranslate"><span class="pre">self.u</span></code>; otherwise, share them with the new
+skymap. To operate directly on the skymap value (even if it is stored
+as an <code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code>), use <code class="docutils literal notranslate"><span class="pre">quantity</span> <span class="pre">=</span> <span class="pre">True</span></code>. Note that
+this will strip units from the result.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.area">
+<span class="sig-name descname"><span class="pre">area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.area" title="Permalink to this definition"></a></dt>
+<dd><p>Area per-pixel for pixels in this skymap in <code class="docutils literal notranslate"><span class="pre">astropy.unit.sr</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.astype">
+<span class="sig-name descname"><span class="pre">astype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.astype" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> with the data-type of <code class="docutils literal notranslate"><span class="pre">s</span></code> set to
+<code class="docutils literal notranslate"><span class="pre">dtype</span></code>. If <code class="docutils literal notranslate"><span class="pre">copy=True</span></code>, always make sure both <code class="docutils literal notranslate"><span class="pre">u</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code> are
+copies of the original data in the new array. Otherwise, re-use <code class="docutils literal notranslate"><span class="pre">u</span></code>
+and (if possible given the provided <code class="docutils literal notranslate"><span class="pre">dtype</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>) <code class="docutils literal notranslate"><span class="pre">s</span></code>.
+<code class="docutils literal notranslate"><span class="pre">copy</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> are passed on to <code class="docutils literal notranslate"><span class="pre">s.astype</span></code> to make the
+conversion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.azeqview">
+<span class="sig-name descname"><span class="pre">azeqview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.azeqview" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.cartview">
+<span class="sig-name descname"><span class="pre">cartview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.cartview" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.compress">
+<span class="sig-name descname"><span class="pre">compress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">utype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.compress" title="Permalink to this definition"></a></dt>
+<dd><p>Eliminate redundant pixels with <code class="docutils literal notranslate"><span class="pre">utils.uniq_minimize</span></code> and store
+indices <code class="docutils literal notranslate"><span class="pre">u</span></code> in the smallest integer size that represents all values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stype</strong> (<em>type</em><em>, </em><em>optional</em>) – If provided, store <code class="docutils literal notranslate"><span class="pre">s</span></code> as this type. Defaults to <code class="docutils literal notranslate"><span class="pre">s.dtype</span></code>.</p></li>
+<li><p><strong>utype</strong> (<em>type</em><em>, </em><em>optional</em>) – If provided, store <code class="docutils literal notranslate"><span class="pre">u</span></code> as this type. Defaults to the smallest
+<code class="docutils literal notranslate"><span class="pre">int</span></code> type required to store all values of <code class="docutils literal notranslate"><span class="pre">u</span></code>.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments to pass to <code class="docutils literal notranslate"><span class="pre">hpmoc.utils.uniq_minimize</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>compressed</strong> – A compressed version of this skymap.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap">PartialUniqSkymap</a></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hpmoc.utils.html#hpmoc.utils.uniq_minimize" title="hpmoc.utils.uniq_minimize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.utils.uniq_minimize</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.coords" title="Permalink to this definition"></a></dt>
+<dd><p>Get the sky coordinates (right-ascension and declination, ICRS)
+corresponding to each pixel in the skymap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>ra_dec</strong> – 2D array whose first row is the right-ascension and second row is
+the declination (in degrees) of each pixel. You can get each of
+these individually with <code class="docutils literal notranslate"><span class="pre">ra,</span> <span class="pre">dec</span> <span class="pre">=</span> <span class="pre">self.coords()</span></code>.
+<code class="docutils literal notranslate"><span class="pre">self.coords()[:,</span> <span class="pre">i]</span></code> corresponds to RA, Dec for <code class="docutils literal notranslate"><span class="pre">self.s[i]</span></code>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>astropy.units.Quantity</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.copy" title="Permalink to this definition"></a></dt>
+<dd><p>Return a copy of this instance with separate copies of its data. The
+copy can be edited without affecting the original.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_skymap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.fill" title="Permalink to this definition"></a></dt>
+<dd><p>Return a full-sky <em>nested</em> HEALPix skymap at NSIDE resolution
+<code class="docutils literal notranslate"><span class="pre">nside</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nside</strong> (<em>int</em>) – HEALPix NSIDE value of the output map. If not provided, use the
+highest NSIDE value in this skymap’s <code class="docutils literal notranslate"><span class="pre">nside</span></code> values to preserve
+detail.</p></li>
+<li><p><strong>pad</strong> (<em>float</em><em>, </em><em>optional</em>) – Fill in missing values with <code class="docutils literal notranslate"><span class="pre">pad</span></code> (if not provided, use
+<code class="docutils literal notranslate"><span class="pre">healpy.UNSEEN</span></code>). Preserves <code class="docutils literal notranslate"><span class="pre">astropy.units.Unit</span></code> of this
+skymap’s pixel values (if <code class="docutils literal notranslate"><span class="pre">s</span></code> is an <code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code>).</p></li>
+<li><p><strong>as_skymap</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, return a <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instance with the new
+pixelization (instead of a bare array with implicit indexing).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>s</strong> – The filled-in skymap, either as an array if <code class="docutils literal notranslate"><span class="pre">as_skymap</span> <span class="pre">==</span> <span class="pre">False</span></code>
+or as a new <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array or <a class="reference internal" href="#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap">PartialUniqSkymap</a></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#hpmoc.partial.PartialUniqSkymap.fixed" title="hpmoc.partial.PartialUniqSkymap.fixed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PartialUniqSkymap.fixed</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.fixed">
+<span class="sig-name descname"><span class="pre">fixed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.fixed" title="Permalink to this definition"></a></dt>
+<dd><p>Re-raster to a fixed NSIDE. Like <code class="docutils literal notranslate"><span class="pre">fill</span></code> but for partial skymaps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nside</strong> (<em>int</em>) – HEALPix NSIDE value of the output map. If not provided, use the
+highest NSIDE value in this skymap’s <code class="docutils literal notranslate"><span class="pre">nside</span></code> values to preserve
+detail.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.gnomview">
+<span class="sig-name descname"><span class="pre">gnomview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.gnomview" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.gridplot">
+<span class="sig-name descname"><span class="pre">gridplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">skymaps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">hpmoc.PartialUniqSkymap</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.wcs.WCS</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">matplotlib.gridspec.GridSpec</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">astropy.visualization.wcsaxes.WCSAxes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.gridplot" title="Permalink to this definition"></a></dt>
+<dd><p>Plot this skymap and any others in <code class="docutils literal notranslate"><span class="pre">skymaps</span></code>. A thin wrapper around
+<code class="docutils literal notranslate"><span class="pre">hpmoc.plot.gridplot</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*skymaps</strong> (<a class="reference internal" href="#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap"><em>PartialUniqSkymap</em></a><em> or </em><em>map-like</em>) – Skymaps to pass to <code class="docutils literal notranslate"><span class="pre">gridplot</span></code>. Can be anything accepted by
+<code class="docutils literal notranslate"><span class="pre">hpmoc.plot.plot</span></code>, which <code class="docutils literal notranslate"><span class="pre">hpmoc.plot.gridplot</span></code> will use to
+display them.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments for <code class="docutils literal notranslate"><span class="pre">hpmoc.plot.gridplot</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hpmoc.plot.html#hpmoc.plot.gridplot" title="hpmoc.plot.gridplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.plot.gridplot</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.intersection">
+<span class="sig-name descname"><span class="pre">intersection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.intersection" title="Permalink to this definition"></a></dt>
+<dd><p>See <code class="docutils literal notranslate"><span class="pre">utils.uniq_intersection</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.max" title="Permalink to this definition"></a></dt>
+<dd><p>Maximum skymap value = <code class="docutils literal notranslate"><span class="pre">self.s.max()</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.min" title="Permalink to this definition"></a></dt>
+<dd><p>Minimum skymap value = <code class="docutils literal notranslate"><span class="pre">self.s.min()</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.mollview">
+<span class="sig-name descname"><span class="pre">mollview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.mollview" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.multiplot">
+<span class="sig-name descname"><span class="pre">multiplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.multiplot" title="Permalink to this definition"></a></dt>
+<dd><p>Call <code class="docutils literal notranslate"><span class="pre">plotters.multiplot</span></code> with the default <code class="docutils literal notranslate"><span class="pre">transform</span></code>
+suitable for a <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*skymapsₗ</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap"><em>PartialUniqSkymap</em></a><em>, </em><em>array</em><em>]</em><em>]</em>) – Skymaps to plot. Can be <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instances or
+full-sky single-resolution skymaps.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments passed to <code class="docutils literal notranslate"><span class="pre">plotters.multiplot</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – A new <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> figure containing the specified subplots.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.figure.Figure</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot.multiplot</span></code>, <a class="reference internal" href="#hpmoc.partial.PartialUniqSkymap.plot" title="hpmoc.partial.PartialUniqSkymap.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PartialUniqSkymap.plot</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">plot.plot</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.nside">
+<span class="sig-name descname"><span class="pre">nside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">as_skymap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.nside" title="Permalink to this definition"></a></dt>
+<dd><p>Pixel NSIDE values. If <code class="docutils literal notranslate"><span class="pre">as_skymap=True</span></code>, return as a
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instance (with <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> passed to init).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.orders">
+<span class="sig-name descname"><span class="pre">orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">as_skymap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.orders" title="Permalink to this definition"></a></dt>
+<dd><p>HEALPix order values. If <code class="docutils literal notranslate"><span class="pre">as_skymap=True</span></code>, return as a
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instance (with <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> passed to init).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.orthview">
+<span class="sig-name descname"><span class="pre">orthview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.orthview" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">scatter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><span class="pre">hpmoc.points.PointsTuple</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">astropy.visualization.wcsaxes.WCSAxes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.visualization.wcsaxes.WCSAxesSubplot</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plot this skymap. A thin wrapper around <code class="docutils literal notranslate"><span class="pre">hpmoc.plot.plot</span></code> that
+automatically includes scatter plots for this instance’s
+<code class="docutils literal notranslate"><span class="pre">point_sources</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scatter</strong> (<a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><em>PointsTuple</em></a>) – Additional point sources to plot (in addition to those stored
+in <code class="docutils literal notranslate"><span class="pre">self.point_sources</span></code>).</p></li>
+<li><p><strong>kwargs</strong> – Keywork arguments to be passed to <code class="docutils literal notranslate"><span class="pre">hpmoc.plot.plot</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The axes that were just plotted to.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>WCSAxes or WCSAxesSubplot</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hpmoc.plot.html#hpmoc.plot.plot" title="hpmoc.plot.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.plot.plot</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.point_sources">
+<span class="sig-name descname"><span class="pre">point_sources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="hpmoc.points.html#hpmoc.points.PointsTuple" title="hpmoc.points.PointsTuple"><span class="pre">hpmoc.points.PointsTuple</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.point_sources" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.quantiles">
+<span class="sig-name descname"><span class="pre">quantiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantiles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterator</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.quantiles" title="Permalink to this definition"></a></dt>
+<dd><p>Get an iterator of downselected skymaps partitioned by <code class="docutils literal notranslate"><span class="pre">quantiles</span></code>.
+For example, get the smallest sky area containing 90% of the
+probability (or whatever other intensive quantity this skymap
+represents) with <code class="docutils literal notranslate"><span class="pre">quantiles=[0.1,</span> <span class="pre">1]</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>quantiles</strong> (<em>Iterable</em><em>[</em><em>float</em><em>]</em>) – Quantiles from which to select pixels. Must be in ascending order
+with values in the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>. These will form endpoints
+for partitions of the <code class="docutils literal notranslate"><span class="pre">skymap</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">[0.1,</span> <span class="pre">0.9]</span></code> will
+omit the lowest and highest value pixels, giving the intermediate
+pixels accounting for 80% of the integrated skymap.  Note that
+quantiles returned by this function are non-intersecting and
+half-open on the right (as with python indices), with the exception
+of <code class="docutils literal notranslate"><span class="pre">1</span></code> for the last pixel; for example, <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code> will include
+all pixels, <code class="docutils literal notranslate"><span class="pre">[0.5,</span> <span class="pre">1]</span></code> will include the highest density pixels
+accounting for 50% of the integrated skymap value, <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0.5,</span> <span class="pre">1]</span></code>
+will partition the skymap into non-intersecting sets of pixels
+accounting for the high- and low-density partitions of the skymap
+by integrated value, etc.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>partitions</strong> (<em>Iterator[PartialUniqSkymap]</em>) – A generator containing non-overlapping skymaps falling into the
+specified <code class="docutils literal notranslate"><span class="pre">quantiles</span></code>. Will have length one less than the number
+of quantiles, which form the boundaries of the partitions. Always
+an iterable, even if only two quantiles are provided; you can
+unpack a single value with, e.g., <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">=</span> <span class="pre">m.quantiles(...)</span></code>.</p></li>
+<li><p><strong>levels</strong> (<em>astropy.units.Quantity or array</em>) – Values of the skymap at each quantile. Useful for e.g. contour
+plots (though <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap.plot</span></code> will handle this
+automatically).</p></li>
+<li><p><strong>norm</strong> (<em>astropy.units.Quantity or float</em>) – The integrated value of the skymap. Useful for calculating the
+integral of each quantile.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">quantiles</span></code> has length less than 2; if its values are not in
+    order and contained in the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>; if <code class="docutils literal notranslate"><span class="pre">nside</span></code> and
+    <code class="docutils literal notranslate"><span class="pre">skymap</span></code> cannot be broadcast together; if any values in
+    <code class="docutils literal notranslate"><span class="pre">skymap</span></code> are negative; or if the total integrated skymap equals
+    zero, in which case quantiles are undefined.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hpmoc.utils.html#hpmoc.utils.nside_quantile_indices" title="hpmoc.utils.nside_quantile_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hpmoc.utils.nside_quantile_indices</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.read" title="Permalink to this definition"></a></dt>
+<dd><p>Read a <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> from file using
+<code class="docutils literal notranslate"><span class="pre">astropy.table.Table.read</span></code>. See <code class="docutils literal notranslate"><span class="pre">IoRegistry</span></code> attributes for
+details. When called as a bound method or passed a
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> as the first argument, uses that skymap as a
+mask for the bound skymap and only loads those pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> (<a class="reference internal" href="#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap"><em>PartialUniqSkymap</em></a><em>, </em><em>optional</em>) – Only read pixels overlapping with this mask.</p></li>
+<li><p><strong>file</strong> (<em>file</em><em> or </em><em>str</em>) – The file object or filename to read from.</p></li>
+<li><p><strong>*args</strong> – Arguments to pass on to <code class="docutils literal notranslate"><span class="pre">IoRegistry</span></code>.</p></li>
+<li><p><strong>strategy</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the <code class="docutils literal notranslate"><span class="pre">IoRegistry</span></code> strategy to use for reads/writes.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments to pass on to a specific <code class="docutils literal notranslate"><span class="pre">IoStrategy</span></code>. See
+<code class="docutils literal notranslate"><span class="pre">IoRegistry</span></code> properties for details.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>m</strong> – A new <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instance with the specified data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hpmoc.partial.PartialUniqSkymap" title="hpmoc.partial.PartialUniqSkymap">PartialUniqSkymap</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>For multi-skymap fits files, you can load the full set of skymaps with
+<code class="docutils literal notranslate"><span class="pre">hdul</span> <span class="pre">=</span> <span class="pre">astropy.io.fits.open(fitsfile)</span></code> and then load the skymap of
+interest with <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap.read(hdul[i])</span></code>. With fits files, you
+can memory-map the resulting skymap to save memory (at the expense of
+speed) by adding <code class="docutils literal notranslate"><span class="pre">memmap=True</span></code> as a keyword argument.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.table.Table.read</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.table.Table.read.help</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.io.fits.open</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">IoRegistry</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">IoRegistry.basic</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.render" title="Permalink to this definition"></a></dt>
+<dd><p>Like <code class="docutils literal notranslate"><span class="pre">reraster</span></code>, but <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> does not need to be unique. Use this to
+e.g. render a skymap to a plot. Unlike <code class="docutils literal notranslate"><span class="pre">reraster</span></code>, will not return a
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code>; instead, simply returns the pixel values
+corresponding to <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> can also be an <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> world coordinate system, in
+which case the returned array will contain the pixel values of this
+skymap in that coordinate system (with regions outside of the
+projection set to <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u⃗ᵒ</strong> (<em>array</em><em> or </em><em>astropy.wcs.WCS</em>) – The pixels to fill. If an array, treated as UNIQ indices
+(duplicates allowed); if WCS, treated as a set of pixels to render
+to.</p></li>
+<li><p><strong>pad</strong> (<em>float</em><em>, </em><em>optional</em>) – A pad value to use for pixels not contained in the maps. Defaults
+to <code class="docutils literal notranslate"><span class="pre">None</span></code>, which will raise an error if suitable values cannot
+be found for every valid pixel in <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> (this does not apply to
+values outside a <code class="docutils literal notranslate"><span class="pre">WCS</span></code> projection, which will take on <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>
+values).</p></li>
+<li><p><strong>valid</strong> (<em>array</em><em>, </em><em>optional</em>) – If provided, results will be scattered into an array of the same
+shape as <code class="docutils literal notranslate"><span class="pre">valid</span></code>, filling the indices where <code class="docutils literal notranslate"><span class="pre">valid==True</span></code>. The
+number of <code class="docutils literal notranslate"><span class="pre">True</span></code> values in <code class="docutils literal notranslate"><span class="pre">valid</span></code> must therefore equal the
+length of <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>. This argument only makes sense if <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> is an
+array of NUNIQ indices; if it is a <code class="docutils literal notranslate"><span class="pre">WCS</span></code> instance and <code class="docutils literal notranslate"><span class="pre">valid</span></code>
+is provided, an error is raised. Use <code class="docutils literal notranslate"><span class="pre">valid</span></code> to produce plots or
+to reuse indices produced by <code class="docutils literal notranslate"><span class="pre">wcs2mask_and_uniq</span></code> in several
+<code class="docutils literal notranslate"><span class="pre">render</span></code> invocations.  See note on how <code class="docutils literal notranslate"><span class="pre">mask_missing</span></code> affects
+the result.</p></li>
+<li><p><strong>mask_missing</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">mask_missing=True</span></code>, return a <code class="docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code>.
+Missing values are tolerated and are marked as <code class="docutils literal notranslate"><span class="pre">True</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">mask_missing</span></code>. They will be set to <code class="docutils literal notranslate"><span class="pre">pad</span> <span class="pre">or</span> <span class="pre">0</span></code> in the <code class="docutils literal notranslate"><span class="pre">data</span></code>
+field. If <code class="docutils literal notranslate"><span class="pre">valid</span></code> is also provided, then the output will still be
+a <code class="docutils literal notranslate"><span class="pre">np.ma.core.MaskedArray</span></code>, but will be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> wherever
+<code class="docutils literal notranslate"><span class="pre">valid</span> <span class="pre">==</span> <span class="pre">False</span></code> in addition to wherever pixels are missing (and
+will still take on masked values of <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> in the invalid
+regions).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pixels</strong> – Pixel values at locations specified in <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>. If <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> is a
+<code class="docutils literal notranslate"><span class="pre">WCS</span></code> instance, then values outside of the projection will be
+set to <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.reraster">
+<span class="sig-name descname"><span class="pre">reraster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u⃗o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.reraster" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instance with the same pixel values
+rerasterized to match the output NUNIQ indices <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>. Fill in missing
+values in the output skymap with <code class="docutils literal notranslate"><span class="pre">pad</span></code>. If <code class="docutils literal notranslate"><span class="pre">pad</span></code> is not provided
+and this skymap does not cover the full region defined in <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code>,
+raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>. Preserves <code class="docutils literal notranslate"><span class="pre">astropy.units.Unit</span></code> of this
+skymap’s pixel values (if <code class="docutils literal notranslate"><span class="pre">s</span></code> is an <code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code>). If
+<code class="docutils literal notranslate"><span class="pre">copy</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, use <code class="docutils literal notranslate"><span class="pre">u⃗ᵒ</span></code> as the indices of the new skymap;
+otherwise, use a copy.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.s">
+<span class="sig-name descname"><span class="pre">s</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">astropy.units.Quantity</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.s" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.sort" title="Permalink to this definition"></a></dt>
+<dd><p>Sort this skymap by UNIQ indices <code class="docutils literal notranslate"><span class="pre">u</span></code> (sorting <code class="docutils literal notranslate"><span class="pre">s</span></code> as well, of
+course). If <code class="docutils literal notranslate"><span class="pre">copy=True</span></code>, copy <code class="docutils literal notranslate"><span class="pre">u</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code> and return a new
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code>; otherwise, sort them in-place and return this
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.to">
+<span class="sig-name descname"><span class="pre">to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.to" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the units of this skymap’s pixels (if they are stored as
+an <code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code> instance).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – Passed on to <code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity.to</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Passed on to <code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity.to</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If <code class="docutils literal notranslate"><span class="pre">self.s</span></code> is not a <code class="docutils literal notranslate"><span class="pre">Quantity</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.to_table">
+<span class="sig-name descname"><span class="pre">to_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UNIQ'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.to_table" title="Permalink to this definition"></a></dt>
+<dd><p>Return a new <code class="docutils literal notranslate"><span class="pre">astropy.table.Table</span></code> whose <code class="docutils literal notranslate"><span class="pre">UNIQ</span></code> column is the NUNIQ
+indices <code class="docutils literal notranslate"><span class="pre">self.u</span></code> and <code class="docutils literal notranslate"><span class="pre">PIXELS</span></code> (or <code class="docutils literal notranslate"><span class="pre">self.name</span></code>, if set) column is
+the skymap pixel values <code class="docutils literal notranslate"><span class="pre">s</span></code>. Optionally override the pixel value
+column name and/or the NUNIQ column name with the <code class="docutils literal notranslate"><span class="pre">name</span></code> and
+<code class="docutils literal notranslate"><span class="pre">uname</span></code> arguments respectively.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.u">
+<span class="sig-name descname"><span class="pre">u</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">nptyping.types._ndarray.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">typing.Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.u" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.unit">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unit</span></span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.unit" title="Permalink to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">self.s.unit</span></code>, if defined; otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.unzip_atlas">
+<span class="sig-name descname"><span class="pre">unzip_atlas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.unzip_atlas" title="Permalink to this definition"></a></dt>
+<dd><p>Return 12 sub-skymaps corresponding to the HEALPix base pixels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.unzip_orders">
+<span class="sig-name descname"><span class="pre">unzip_orders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.unzip_orders" title="Permalink to this definition"></a></dt>
+<dd><p>Return a list of <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instances corresponding to the
+parts of this sky imaged and each HEALPix order. Length equals the
+maximum order of this skymap. Empty terms indicate that this skymap
+does not have pixels of the corresponding HEALPix order.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.value" title="Permalink to this definition"></a></dt>
+<dd><p>Get a dimensionless view of this skymap (no effect if <code class="docutils literal notranslate"><span class="pre">s</span></code> is not an
+<code class="docutils literal notranslate"><span class="pre">astropy.units.Quantity</span></code>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hpmoc.partial.PartialUniqSkymap.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">IO</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.PartialUniqSkymap.write" title="Permalink to this definition"></a></dt>
+<dd><p>Write a <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instance to file using the specified
+<code class="docutils literal notranslate"><span class="pre">IoStrategy</span></code>. See <code class="docutils literal notranslate"><span class="pre">IoRegistry</span></code> attributes for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>file</em><em> or </em><em>str</em>) – The file object or filename to write to.</p></li>
+<li><p><strong>*args</strong> – Arguments to pass on to <code class="docutils literal notranslate"><span class="pre">IoRegistry</span></code>.</p></li>
+<li><p><strong>strategy</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the <code class="docutils literal notranslate"><span class="pre">IoRegistry</span></code> strategy to use for reads/writes.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments to pass on to a specific <code class="docutils literal notranslate"><span class="pre">IoStrategy</span></code>. See
+<code class="docutils literal notranslate"><span class="pre">IoRegistry</span></code> properties for details.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.table.Table.write</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.table.Table.write.help</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.io.fits.open</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">IoRegistry</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">IoRegistry.basic</span></code></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.partial.bool_to_uint8">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.partial.</span></span><span class="sig-name descname"><span class="pre">bool_to_uint8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.bool_to_uint8" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a boolean value to <code class="docutils literal notranslate"><span class="pre">np.uint8</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hpmoc.partial.diadic_dunder">
+<span class="sig-prename descclassname"><span class="pre">hpmoc.partial.</span></span><span class="sig-name descname"><span class="pre">diadic_dunder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coarse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hpmoc.partial.diadic_dunder" title="Permalink to this definition"></a></dt>
+<dd><p>Implement diadic dunder methods like <code class="docutils literal notranslate"><span class="pre">__add__</span></code>, <code class="docutils literal notranslate"><span class="pre">__radd__</span></code>, etc. for
+scalar, array, and <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> arguments using <code class="docutils literal notranslate"><span class="pre">uniq_diadic</span></code>.
+<code class="docutils literal notranslate"><span class="pre">pad</span></code> and <code class="docutils literal notranslate"><span class="pre">coarse</span></code> are passed to <code class="docutils literal notranslate"><span class="pre">uniq_diadic</span></code> when
+performing operations between <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instances.
+If provided, run <code class="docutils literal notranslate"><span class="pre">post</span></code> on the result array before creating a new
+<code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code> instance out of it (for example, to cast booleans to
+integers).</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hpmoc.io.ligo.html" class="btn btn-neutral float-left" title="hpmoc.io.ligo module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hpmoc.plot.html" class="btn btn-neutral float-right" title="hpmoc.plot module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Stefan Trklja Countryman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

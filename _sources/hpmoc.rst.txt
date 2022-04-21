@@ -1,0 +1,7 @@
+hpmoc package
+=============
+
+.. automodule:: hpmoc
+   :members:
+   :undoc-members:
+   :show-inheritance:

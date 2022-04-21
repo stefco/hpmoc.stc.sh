@@ -1,0 +1,20 @@
+hpmoc.io package
+================
+
+.. automodule:: hpmoc.io
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. only:: html
+
+   **Submodules**
+
+
+.. toctree::
+   :maxdepth: 4
+
+   hpmoc.io.abstract
+   hpmoc.io.astroquery
+   hpmoc.io.gracedb
+   hpmoc.io.ligo

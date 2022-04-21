@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plotting Examples &mdash; HEALPix Multi-Order Coordinate Library (HPMOC) 0.3.5 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="canonical" href="http://hpmoc.stc.shjup/plotting-examples.html"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hpmoc package" href="../hpmoc.html" />
+    <link rel="prev" title="Welcome to HEALPix Multi-Order Coordinate Library (HPMOC)’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> HEALPix Multi-Order Coordinate Library (HPMOC)
+          </a>
+              <div class="version">
+                0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plotting Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Basic-Plotting">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Cylindrical-and-Pseudocylindrical-projections">Cylindrical and Pseudocylindrical projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Mollweide-Projection">Mollweide Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Hammer-Aitoff-Projection">Hammer-Aitoff Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Cylindrical-equal-area">Cylindrical equal-area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Plate-Carée-Projection">Plate Carée Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Zenithal-Projections">Zenithal Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Slant-Orthographic-Projection">Slant Orthographic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Gnomonic-Projection">Gnomonic Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Zenithal-Equidistant-Projection">Zenithal Equidistant Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Zenithal-Equal-Area-Projection">Zenithal Equal-Area Projection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Arbitrary-WCS-Projections">Arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> Projections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Rotations">Rotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#2-Angle-Rotations">2-Angle Rotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#3-Angle-Rotations">3-Angle Rotations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Rotations-in-Cylindrical-and-Pseudocylindrical-Projections">Rotations in Cylindrical and Pseudocylindrical Projections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Rotations-in-Zenithal-Projections">Rotations in Zenithal Projections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Zoomed-Plots">Zoomed Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Fixed-Angular-Width">Fixed Angular Width</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Scatterplots">Scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Contours-around-Credible-Regions">Contours around Credible Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Multi-layered-plots">Multi-layered plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Grid-Plots">Grid Plots</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.html">hpmoc package</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.abstract.html">hpmoc.abstract module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.atlas.html">hpmoc.atlas package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.fits.html">hpmoc.fits module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.healpy.html">hpmoc.healpy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.healpy_utils.html">hpmoc.healpy_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.io.html">hpmoc.io package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hpmoc.io.abstract.html">hpmoc.io.abstract module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hpmoc.io.astroquery.html">hpmoc.io.astroquery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hpmoc.io.gracedb.html">hpmoc.io.gracedb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hpmoc.io.ligo.html">hpmoc.io.ligo module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.partial.html">hpmoc.partial module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.plot.html">hpmoc.plot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.plotters.html">hpmoc.plotters module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.points.html">hpmoc.points module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.psf.html">hpmoc.psf module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpmoc.utils.html">hpmoc.utils module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">HEALPix Multi-Order Coordinate Library (HPMOC)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Plotting Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/jup/plotting-examples.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Plotting-Examples">
+<h1>Plotting Examples<a class="headerlink" href="#Plotting-Examples" title="Permalink to this headline"></a></h1>
+<p>One of the core features of HPMOC is its robust and convenient suite of plotting tools. This page includes several examples showcasing how to use HPMOC for sophisticated plots. An emphasis is made on showing how to navigate different tools and projections, and how to quickly iterate to get a perfect plot for your purposes.</p>
+<p>HPMOC uses the <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> implementation of FITS projections for plotting. Details of the projection definitions and their associated FITS header keywords are given in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002A&amp;A...395.1077C">Calabretta and Greisen (2002)</a>.</p>
+<div class="section" id="Setup">
+<h2>Setup<a class="headerlink" href="#Setup" title="Permalink to this headline"></a></h2>
+<p>We’ll start by importing packages and picking some skymap files of various types from the test skymaps included in the HPMOC source repository. The loading and plotting instructions in this document work with any skymaps produced by any of the major <a class="reference external" href="https://www.ligo.org/">LIGO</a> pipelines (in particular, anything downloaded from <a class="reference external" href="https://gracedb.ligo.org/">GraceDB</a> should work).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">hpmoc</span> <span class="kn">import</span> <span class="n">PartialUniqSkymap</span>
+<span class="kn">from</span> <span class="nn">hpmoc.plot</span> <span class="kn">import</span> <span class="n">get_wcs</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">gridplot</span>
+
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">/</span><span class="s2">&quot;tests&quot;</span><span class="o">/</span><span class="s2">&quot;data&quot;</span>
+
+<span class="n">NUNIQ_FITS</span> <span class="o">=</span> <span class="n">DATA</span><span class="o">/</span><span class="s1">&#39;S200105ae.fits&#39;</span>
+<span class="n">NUNIQ_FITS_GZ</span> <span class="o">=</span> <span class="n">DATA</span><span class="o">/</span><span class="s1">&#39;S200105ae.fits.gz&#39;</span>
+<span class="n">BAYESTAR_NEST_FITS_GZ_1024</span> <span class="o">=</span> <span class="n">DATA</span><span class="o">/</span><span class="s1">&#39;S200316bj-1-Preliminary.fits.gz&#39;</span>
+<span class="n">CWB_NEST_FITS_GZ_128</span> <span class="o">=</span> <span class="n">DATA</span><span class="o">/</span><span class="s1">&#39;S200114f-3-Initial.fits.gz&#39;</span>
+<span class="n">CWB_RING_FITS_GZ_128</span> <span class="o">=</span> <span class="n">DATA</span><span class="o">/</span><span class="s1">&#39;S200129m-3-Initial.fits.gz&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Basic-Plotting">
+<h2>Basic Plotting<a class="headerlink" href="#Basic-Plotting" title="Permalink to this headline"></a></h2>
+<p>We can easily load and display a skymap using the default plot settings, which produce a Mollweide plot, using <a class="reference internal" href="../hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.plot"><span class="std std-ref">hpmoc.partial.PartialUniqSkymap.plot</span></a> (a thin wrapper around <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.plot"><span class="std std-ref">hpmoc.plot.plot</span></a>):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">PartialUniqSkymap</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">NUNIQ_FITS</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;ligo&#39;</span><span class="p">)</span>
+<span class="c1"># Replace the above line with the following (the GraceDB URL of the same skymap)</span>
+<span class="c1"># if you don&#39;t have the test files handy:</span>
+<span class="c1"># m = PartialUniqSkymap.read(graceid, &#39;bayestar.multiorder.fits,0&#39;,</span>
+<span class="c1">#                            strategy=&#39;gracedb&#39;)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x11a40df90&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_3_1.png" src="../_images/jup_plotting-examples_3_1.png" />
+</div>
+</div>
+<p>We can modify various properties; for example, we can double the default pixel height (vertical resolution) of the rendered image by doubling the <code class="docutils literal notranslate"><span class="pre">height</span></code>; the pixel <code class="docutils literal notranslate"><span class="pre">width</span></code> will not change, and so the aspect ratio will change:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x121034590&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_5_1.png" src="../_images/jup_plotting-examples_5_1.png" />
+</div>
+</div>
+<p>We can also change the size of the figure itself, either by creating a new <code class="docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code> and passing it as the <code class="docutils literal notranslate"><span class="pre">fig</span></code> argument, or by simply passing the same keywords we would use for <code class="docutils literal notranslate"><span class="pre">Figure</span></code> as the <code class="docutils literal notranslate"><span class="pre">fig</span></code> argument to <code class="docutils literal notranslate"><span class="pre">plot</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)},</span> <span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">720</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1206c1910&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_7_1.png" src="../_images/jup_plotting-examples_7_1.png" />
+</div>
+</div>
+<p>We can also add color bars with the <code class="docutils literal notranslate"><span class="pre">cbar</span></code> argument:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1208c4c90&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_9_1.png" src="../_images/jup_plotting-examples_9_1.png" />
+</div>
+</div>
+<p>We can plot all-sky fixed HEALPix order skymaps with implicit pixel indices by passing the data arrays to <code class="docutils literal notranslate"><span class="pre">plot</span></code> as well. We can do this by instantiating a <a class="reference internal" href="../hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap"><span class="std std-ref">PartialUniqSkymap</span></a> using the pixels and ordering:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">CWB_RING_FITS_GZ_128</span><span class="p">)</span>
+<span class="n">PartialUniqSkymap</span><span class="p">(</span><span class="n">t1</span><span class="p">[</span><span class="s1">&#39;PROB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">t1</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;ORDERING&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">compress</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x12589ab10&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_11_1.png" src="../_images/jup_plotting-examples_11_1.png" />
+</div>
+</div>
+<p>or by passing the arguments as a tuple to <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.plot"><span class="std std-ref">hpmoc.plot.plot</span></a>, which does the same thing behind the scenes for us:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t2</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">CWB_NEST_FITS_GZ_128</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">((</span><span class="n">t2</span><span class="p">[</span><span class="s1">&#39;PROB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">t2</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;ORDERING&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x120e17790&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_13_1.png" src="../_images/jup_plotting-examples_13_1.png" />
+</div>
+</div>
+<p>As you can see, this worked on both a RING-ordered and a NESTED-ordered skymap:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;ORDERING&#39;</span><span class="p">],</span> <span class="n">t2</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;ORDERING&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+RING NESTED
+</pre></div></div>
+</div>
+<p>One advantage of loading into <a class="reference internal" href="../hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap"><span class="std std-ref">PartialUniqSkymap</span></a> first is that we can call the <a class="reference internal" href="../hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.compress"><span class="std std-ref">compress</span></a> method to eliminate redundant pixels first. This will not have a tremendous effect if we are doing a one-off plot, but it can lead to multiple orders of magnitude of performance increase (particularly with BAYESTAR skymaps) if we are going to work with the skymaps repeatedly. If you
+load a skymap with <a class="reference internal" href="../hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.read"><span class="std std-ref">PartialUniqSkymap.read</span></a>, as we did <a class="reference external" href="#Basic-Plotting">earlier</a>, all of this is handled for you; the skymap is even read in small chunks to avoid ever using much of a memory footprint. It also takes care of the slight differences between LIGO pipelines’ skymap formats for you. Nonetheless, if you come across a HEALPix skymap that’s not already supported, you can still load and plot it in HPMOC.</p>
+<p>There are many other arguments available to tweak the look and feel of the plot; see some of the specific examples below as well as the full documentation in <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.plot"><span class="std std-ref">hpmoc.plot.plot</span></a>.</p>
+</div>
+<div class="section" id="Projections">
+<h2>Projections<a class="headerlink" href="#Projections" title="Permalink to this headline"></a></h2>
+<p>There are, however, many other projections available. The ones with built-in HPMOC support are discussed in this section.</p>
+<div class="section" id="Cylindrical-and-Pseudocylindrical-projections">
+<h3>Cylindrical and Pseudocylindrical projections<a class="headerlink" href="#Cylindrical-and-Pseudocylindrical-projections" title="Permalink to this headline"></a></h3>
+<div class="section" id="Mollweide-Projection">
+<h4>Mollweide Projection<a class="headerlink" href="#Mollweide-Projection" title="Permalink to this headline"></a></h4>
+<p>The Mollweide (MOL) projection is an example of a <em>pseudocylindrical</em> projection. We can explicitly select the Mollweide projection by passing <code class="docutils literal notranslate"><span class="pre">&quot;Mollweide&quot;</span></code>, or its FITS projection code, <code class="docutils literal notranslate"><span class="pre">&quot;MOL&quot;</span></code> (or any of the aliases specified in <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.get_wcs"><span class="std std-ref">hpmoc.plot.get_wcs</span></a>), as the <code class="docutils literal notranslate"><span class="pre">projection</span></code> argument to <code class="docutils literal notranslate"><span class="pre">plot</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Mollview&#39;</span><span class="p">)</span>  <span class="c1"># same as projection=&#39;MOL&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x12751a190&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_18_1.png" src="../_images/jup_plotting-examples_18_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Hammer-Aitoff-Projection">
+<h4>Hammer-Aitoff Projection<a class="headerlink" href="#Hammer-Aitoff-Projection" title="Permalink to this headline"></a></h4>
+<p>Other useful pseudocylindrical projections include the Hammer-Aitoff projection (AIT)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;AIT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x12092b150&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_20_1.png" src="../_images/jup_plotting-examples_20_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Cylindrical-equal-area">
+<h4>Cylindrical equal-area<a class="headerlink" href="#Cylindrical-equal-area" title="Permalink to this headline"></a></h4>
+<p>the cylindrical equal-area projection, which preserves areas</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;CEA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x127552d10&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_22_1.png" src="../_images/jup_plotting-examples_22_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Plate-Carée-Projection">
+<h4>Plate Carée Projection<a class="headerlink" href="#Plate-Carée-Projection" title="Permalink to this headline"></a></h4>
+<p>and the (Cylindrical) plate carée (CAR), AKA Cartesian, projection, which maps latitude and longitude coordinates one-to-one.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;CAR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1261a7110&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_24_1.png" src="../_images/jup_plotting-examples_24_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Zenithal-Projections">
+<h3>Zenithal Projections<a class="headerlink" href="#Zenithal-Projections" title="Permalink to this headline"></a></h3>
+<p>Zenithal projections are radially symmetric in their distortion and tend to be better suited to plotting zoomed images.</p>
+<div class="section" id="Slant-Orthographic-Projection">
+<h4>Slant Orthographic Projection<a class="headerlink" href="#Slant-Orthographic-Projection" title="Permalink to this headline"></a></h4>
+<p>One exception is the slant orthographic (SIN) projection, which (with default settings) looks like a globe viewed from a great distance with the image plotted on its surface:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;SIN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x126c964d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_26_2.png" src="../_images/jup_plotting-examples_26_2.png" />
+</div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">WCSAxes</span></code> don’t handle the tick labels well for slant orthographic projections; you will get warnings and missing or strangely-positioned tick labels, as in the plots on this page, when plotting this projection. You <strong>can</strong> fix the labels manually by playing with <code class="docutils literal notranslate"><span class="pre">ax.coord</span></code>, but the easiest solution is to increase the plot resolution (at the expense of plotting speed), as is done in all of the remaining SIN skymaps in this document using the <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code> parameters:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;SIN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1268333d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_28_2.png" src="../_images/jup_plotting-examples_28_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Gnomonic-Projection">
+<h4>Gnomonic Projection<a class="headerlink" href="#Gnomonic-Projection" title="Permalink to this headline"></a></h4>
+<p>The gnomonic (TAN) projection is most often uzed for zoomed views of a specific region of the sky. Its default zoom level in HPMOC is chosen to be the same as that used by <code class="docutils literal notranslate"><span class="pre">healpy.gnomview</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;TAN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x125a66d90&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_30_1.png" src="../_images/jup_plotting-examples_30_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Zenithal-Equidistant-Projection">
+<h4>Zenithal Equidistant Projection<a class="headerlink" href="#Zenithal-Equidistant-Projection" title="Permalink to this headline"></a></h4>
+<p>The zenithal equidistant (ARC) projection is similarly suitable for this purpose, though by default it produces an all-sky view</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;ARC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x126990910&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_32_1.png" src="../_images/jup_plotting-examples_32_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Zenithal-Equal-Area-Projection">
+<h4>Zenithal Equal-Area Projection<a class="headerlink" href="#Zenithal-Equal-Area-Projection" title="Permalink to this headline"></a></h4>
+<p>as does the zenithal equal-area (ZEA) projection:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;ZEA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x125a5cf90&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_34_1.png" src="../_images/jup_plotting-examples_34_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Arbitrary-WCS-Projections">
+<h3>Arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> Projections<a class="headerlink" href="#Arbitrary-WCS-Projections" title="Permalink to this headline"></a></h3>
+<p>These are likely to be the most useful projections for most purposes. However, any valid <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> instance capable of being plotted on an <code class="docutils literal notranslate"><span class="pre">astropy.visualization.wcsaxes.WCSAxes</span></code> can be passed as the projection argument. This is, in fact, how <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.plot"><span class="std std-ref">hpmoc.plot.plot</span></a> works behind the scenes; you can separate this step out explicitly by calling <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.get_wcs"><span class="std std-ref">hpmoc.plot.get_wcs</span></a> to construct a <code class="docutils literal notranslate"><span class="pre">WCS</span></code> instance</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">get_wcs</span><span class="p">(</span><span class="s1">&#39;MOL&#39;</span><span class="p">)</span>
+<span class="n">w</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+WCS Keywords
+
+Number of WCS axes: 2
+CTYPE : &#39;RA---MOL&#39;  &#39;DEC--MOL&#39;
+CRVAL : 180.0  0.0
+CRPIX : 180.5  90.5
+PC1_1 PC1_2  : 1.0  0.0
+PC2_1 PC2_2  : 0.0  1.0
+CDELT : -0.9003163161571062  0.9003163161571062
+NAXIS : 360.0  180
+</pre></div></div>
+</div>
+<p>which can be used as the <code class="docutils literal notranslate"><span class="pre">projection</span></code> argument. Note that <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.plot"><span class="std std-ref">hpmoc.plot.plot</span></a> will not automatically select the frame around the plot when passed a <code class="docutils literal notranslate"><span class="pre">WCS</span></code> instance as the projection, so we need to explicitly specify an elliptical frame:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">frame_class</span><span class="o">=</span><span class="s1">&#39;elliptical&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1267531d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_38_1.png" src="../_images/jup_plotting-examples_38_1.png" />
+</div>
+</div>
+<p>Being able to use arbitrary <code class="docutils literal notranslate"><span class="pre">WCS</span></code> instances as the projection makes it easy to overplot HEALPix skymaps on the same axes as images from the many observatories that store data using FITS.</p>
+<p>Regardless of how a projection is specified, a <code class="docutils literal notranslate"><span class="pre">WCSAxes</span></code> instance will always be returned, and its <code class="docutils literal notranslate"><span class="pre">wcs</span></code> field will hold the resulting projection:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">wcs</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+WCS Keywords
+
+Number of WCS axes: 2
+CTYPE : &#39;RA---MOL&#39;  &#39;DEC--MOL&#39;
+CRVAL : 180.0  0.0
+CRPIX : 180.5  90.5
+PC1_1 PC1_2  : 1.0  0.0
+PC2_1 PC2_2  : 0.0  1.0
+CDELT : -0.9003163161571062  0.9003163161571062
+NAXIS : 360.0  180
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_40_1.png" src="../_images/jup_plotting-examples_40_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Rotations">
+<h2>Rotations<a class="headerlink" href="#Rotations" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">hpmoc.plot.plot</span></code> puts a right ascension of 180 degrees at the center of the skymap (the default used by the LIGO collaboration for their skymaps). We can rotate the skymap to have a different center with the <code class="docutils literal notranslate"><span class="pre">rot</span></code> argument, which specifies the three Euler angles (rotating about the <code class="docutils literal notranslate"><span class="pre">ZXZ</span></code> reference axes) for rotating the skymap.</p>
+<div class="section" id="2-Angle-Rotations">
+<h3>2-Angle Rotations<a class="headerlink" href="#2-Angle-Rotations" title="Permalink to this headline"></a></h3>
+<p>In practice, one usually simply wants to specify the coordinates at the center of the image. HPMOC handles this automatically for all built-in projections when provided only the right ascension and declination of the central point for the <code class="docutils literal notranslate"><span class="pre">rot</span></code> argument. For example, we can center a high-probability region at RA=60, dec=-15 by passing those as the <code class="docutils literal notranslate"><span class="pre">rot</span></code> argument:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1267c07d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_42_1.png" src="../_images/jup_plotting-examples_42_1.png" />
+</div>
+</div>
+<p>Again, this works for any built-in projection and is usually what you want to do. The final angle corresponding to the FITS WCS <code class="docutils literal notranslate"><span class="pre">LONPOLE</span></code> keyword is calculated automatically so that the rotation is well-defined and the vertical direction at the center of the image points towards the north pole.</p>
+</div>
+<div class="section" id="3-Angle-Rotations">
+<h3>3-Angle Rotations<a class="headerlink" href="#3-Angle-Rotations" title="Permalink to this headline"></a></h3>
+<p>Sometimes, however, this isn’t enough. You may need to specify a custom <code class="docutils literal notranslate"><span class="pre">WCS</span></code> for which HPMOC cannot automatically calculate <code class="docutils literal notranslate"><span class="pre">LONPOLE</span></code>, or you may want to apply an additional rotation to your plot. This section briefly discusses how <code class="docutils literal notranslate"><span class="pre">rot</span></code> is translated into FITS WCS keywords and how their interpretation varies accross different categories of projection.</p>
+<p>The details of how rotations are set vary by projection; in particular, the valid angle combinations are not always intuitive. One can figure out the valid angles by referencing the projection definitions in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002A&amp;A...395.1077C">Calabretta and Greisen (2002)</a>, though in practice a little bit of trial an error usually suffices to figure out the correct choices. The three components of the <code class="docutils literal notranslate"><span class="pre">rot</span></code> argument tuple are used directly as the
+<code class="docutils literal notranslate"><span class="pre">CDELT1,</span> <span class="pre">CDELT2,</span> <span class="pre">LONPOLE</span></code> FITS header fields (explained in that document) for specifying a WCS.</p>
+<p><em>HPMOC uses these coordinate definitions, non-intuitive properties and all, in the belief that cross-compatibility (with FITS in general and ``astropy.wcs.WCS`` in particular) outweigh the slight learning curve; that the unintuitive behaviors can be quickly learned with a little bit of documentation; and that the exceptional cases where ``LONPOLE`` need be specified are too rare to justify additional code complexity.</em></p>
+<p>The effect of the <code class="docutils literal notranslate"><span class="pre">rot</span></code> arguments is mostly within a certain category of projections; we will therefore discuss rotations in (pseudo)cylindrical and zenithal projections with separate examples.</p>
+<div class="section" id="Rotations-in-Cylindrical-and-Pseudocylindrical-Projections">
+<h4>Rotations in Cylindrical and Pseudocylindrical Projections<a class="headerlink" href="#Rotations-in-Cylindrical-and-Pseudocylindrical-Projections" title="Permalink to this headline"></a></h4>
+<p><em>In this section we will consider the Mollweide projection, though the conclusions should mostly apply to the other</em> <a class="reference external" href="#Cylindrical-and-Pseudocylindrical-projections">(pseudo)cylindrical projections</a> <em>(Hammer-Aitoff and plate carée) as well.</em></p>
+<p>We can center the skymap on a right-ascension of 60 degrees as follows:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1274b2510&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_44_1.png" src="../_images/jup_plotting-examples_44_1.png" />
+</div>
+</div>
+<p>In the Mollweide projection, we can center the plot on a point with positive declination by providing it as the second angle in <code class="docutils literal notranslate"><span class="pre">rot</span></code>. For example, we can center the plot on RA = 60, DEC = 15 as follows:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x126452690&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_46_1.png" src="../_images/jup_plotting-examples_46_1.png" />
+</div>
+</div>
+<p>We will get an error if we try to set the second Euler angle to -15 degrees, however, as we might want to do in this case to center the skymap on the region of highest probability. This can be fixed by setting the final angle to 180.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">180</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1267b0ad0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_48_1.png" src="../_images/jup_plotting-examples_48_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Rotations-in-Zenithal-Projections">
+<h4>Rotations in Zenithal Projections<a class="headerlink" href="#Rotations-in-Zenithal-Projections" title="Permalink to this headline"></a></h4>
+<p><em>In this section we will consider the slant orthographic projection, though the conclusions should mostly apply to the other</em> <a class="reference external" href="#Zenithal-projections">zenithal projections</a> <em>(gnomonic, zenithal equidistant, zenithal equal-area) as well.</em></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rot</span></code> argument works more straightforwardly in zenithal projections, with a caveat. We can specify any right ascension and declination, e.g. a positive declination</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;SIN&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1270fa810&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_50_2.png" src="../_images/jup_plotting-examples_50_2.png" />
+</div>
+</div>
+<p>or negative one</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;SIN&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x12737db90&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_52_2.png" src="../_images/jup_plotting-examples_52_2.png" />
+</div>
+</div>
+<p>but, by default, the image will be rotated. Fortunately, the final <code class="docutils literal notranslate"><span class="pre">rot</span></code> tuple (corresponding to FITS <code class="docutils literal notranslate"><span class="pre">LONPOLE</span></code>) simply rotates about the central reference axis, and the image can be oriented right-side-up by setting it to 180 (the default <code class="docutils literal notranslate"><span class="pre">LONPOLE</span></code> value HPMOC uses for zenithal projections):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;SIN&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">180</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x127ee2d50&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_54_2.png" src="../_images/jup_plotting-examples_54_2.png" />
+</div>
+</div>
+<p><em>Again,</em> <a class="reference external" href="#2-Angle-Rotations">2-angle rotations</a> <em>do this automatically;</em> we can therefore make this same plot with</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;SIN&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x128182450&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/grid_paths.py:73: RuntimeWarning: invalid value encountered in greater
+  discontinuous = step[1:] &gt; DISCONT_FACTOR * step[:-1]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_56_2.png" src="../_images/jup_plotting-examples_56_2.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Zoomed-Plots">
+<h2>Zoomed Plots<a class="headerlink" href="#Zoomed-Plots" title="Permalink to this headline"></a></h2>
+<p>It’s possible to zoom in on an area of interest by modifying the <code class="docutils literal notranslate"><span class="pre">hdelta</span></code> and <code class="docutils literal notranslate"><span class="pre">vdelta</span></code> parameters, which override the angular widths of the reference pixels. If we’re zooming in on an area of interest, however, we’d be better served using a zenithal projection, e.g. the gnomonic projection (equivalent to that used by <code class="docutils literal notranslate"><span class="pre">healpy.gnomview</span></code>). We can choose a different projection from one of those specified in <code class="docutils literal notranslate"><span class="pre">`hpmoc.plot</span></code> &lt;../hpmoc.plot.rst#hpmoc.plot.plot&gt;`__, specifying it by name (or one
+of its aliases), saving us the trouble of setting up a custom world coordinate system (<code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code>) instance. A gnomonic plot, centered at the default location with default pixel sizes (<code class="docutils literal notranslate"><span class="pre">hdelta</span></code> and <code class="docutils literal notranslate"><span class="pre">vdelta</span></code> automatically calculated), looks like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;TAN&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1206138d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_58_1.png" src="../_images/jup_plotting-examples_58_1.png" />
+</div>
+</div>
+<p>At this zoom level, we can clearly see the individual HEALPix pixels, but it’s hard to see the larger structure of the central probability region. We can zoom out by tweaking <code class="docutils literal notranslate"><span class="pre">vdelta</span></code> and <code class="docutils literal notranslate"><span class="pre">hdelta</span></code>, which in practice is easiest to do by trial and error until your plot looks how you’d like it to:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;TAN&#39;</span><span class="p">,</span> <span class="n">vdelta</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">hdelta</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x128a7b910&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_60_1.png" src="../_images/jup_plotting-examples_60_1.png" />
+</div>
+</div>
+<div class="section" id="Fixed-Angular-Width">
+<h3>Fixed Angular Width<a class="headerlink" href="#Fixed-Angular-Width" title="Permalink to this headline"></a></h3>
+<p>You can also figure out <em>exactly</em> what <code class="docutils literal notranslate"><span class="pre">hdelta</span></code> and <code class="docutils literal notranslate"><span class="pre">vdelta</span></code> mean by, again, referencing <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2002A&amp;A...395.1077C">Calabretta and Greisen (2002)</a> and looking up the relevant projection’s interpretation of <code class="docutils literal notranslate"><span class="pre">CDELT1</span></code> and <code class="docutils literal notranslate"><span class="pre">CDELT</span></code> (the width and height, respectively, of the reference pixel in a given projection, which, it should be noted, does <em>not</em> correspond to the angular width of that pixel in most cases).</p>
+<p>This is usually not worth the trouble, but can sometimes be useful, particularly when automating plotting, though in this case the problem can sometimes most easily be solved by choosing an appropriate projection; for example, if you want a circular window of radius 5 degrees, you can easily plot it using the zenithal equidistant projection:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hpmoc.plot</span> <span class="kn">import</span> <span class="n">ARC_CDELT_BASE</span>
+
+<span class="n">radius_deg</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">ARC_CDELT_BASE</span> <span class="o">*</span> <span class="nb">min</span><span class="p">(</span><span class="n">radius_deg</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span> <span class="o">/</span> <span class="mi">180</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;ARC&#39;</span><span class="p">,</span> <span class="n">hdelta</span><span class="o">=</span><span class="n">delta</span><span class="p">,</span> <span class="n">vdelta</span><span class="o">=</span><span class="n">delta</span><span class="p">,</span>
+       <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">),</span> <span class="n">frame_class</span><span class="o">=</span><span class="s1">&#39;elliptical&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x12840b890&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_62_1.png" src="../_images/jup_plotting-examples_62_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Scatterplots">
+<h2>Scatterplots<a class="headerlink" href="#Scatterplots" title="Permalink to this headline"></a></h2>
+<p>You can plot point sources, including their error regions, by passing collections of points (as <a class="reference internal" href="../hpmoc.points.html#hpmoc.points.PointsTuple"><span class="std std-ref">hpmoc.points.PointsTuple</span></a> instances) to <code class="docutils literal notranslate"><span class="pre">plot</span></code>. You can specify each point source using its right ascension, declination (both in degrees), (optional) error region size (in degrees), and (optional) label, i.e. the name of that source (unnamed sources will be labeled with their index within the <code class="docutils literal notranslate"><span class="pre">PointsTuple</span></code>):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hpmoc.points</span> <span class="kn">import</span> <span class="n">PointsTuple</span><span class="p">,</span> <span class="n">Rgba</span>
+
+<span class="n">pts1</span> <span class="o">=</span> <span class="n">PointsTuple</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mf">271.</span><span class="p">,</span> <span class="mf">31.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="s1">&#39;One&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">355.</span><span class="p">,</span> <span class="o">-</span><span class="mf">44.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">15.</span><span class="p">,</span> <span class="o">-</span><span class="mf">62.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">16.</span><span class="p">,</span> <span class="o">-</span><span class="mf">60.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">10.</span><span class="p">,</span> <span class="o">-</span><span class="mf">30.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x128dc1150&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_64_1.png" src="../_images/jup_plotting-examples_64_1.png" />
+</div>
+</div>
+<p>The font is a little small for the point source labels; we can fix this by passing keyword arguments for <code class="docutils literal notranslate"><span class="pre">WCSAxes.text</span></code> as the <code class="docutils literal notranslate"><span class="pre">scatter_labels</span></code> argument:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts1</span><span class="p">,</span> <span class="n">scatter_labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1287d2410&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_66_1.png" src="../_images/jup_plotting-examples_66_1.png" />
+</div>
+</div>
+<p>We can also increase the DPI of the figure to increase legibility:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts1</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dpi&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x128bf8450&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_68_1.png" src="../_images/jup_plotting-examples_68_1.png" />
+</div>
+</div>
+<p>You can plot multiple sets of points, which can be distinguished by color, marker, and legend label (M1 location from <a class="reference external" href="http://www.astropixels.com/messier/messiercat.html">here</a>):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.units</span> <span class="kn">import</span> <span class="n">Unit</span>
+
+<span class="n">pts2</span> <span class="o">=</span> <span class="n">PointsTuple</span><span class="p">(</span>
+    <span class="n">points</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="mf">179.</span><span class="p">,</span> <span class="mf">16.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">62</span><span class="p">,</span> <span class="o">-</span><span class="mi">14</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="s1">&#39;Candidate&#39;</span><span class="p">),</span>
+        <span class="p">(</span>
+            <span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;hourangle&#39;</span><span class="p">)</span><span class="o">+</span><span class="mf">34.5</span><span class="o">*</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;arcmin&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="p">(</span><span class="mi">22</span><span class="o">*</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="o">*</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;arcmin&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;arcmin&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="s1">&#39;M1&#39;</span>
+        <span class="p">)</span>
+    <span class="p">],</span>
+    <span class="n">rgba</span><span class="o">=</span><span class="n">Rgba</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;More points&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts1</span><span class="p">,</span> <span class="n">pts2</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dpi&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x128d38c10&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_70_1.png" src="../_images/jup_plotting-examples_70_1.png" />
+</div>
+</div>
+<p>You can also bundle point sources with a related skymap by appending them to the <a class="reference internal" href="../hpmoc.partial.html#hpmoc.partial.PartialUniqSkymap.point_sources"><span class="std std-ref">point_sources</span></a> field of a <code class="docutils literal notranslate"><span class="pre">PartialUniqSkymap</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">point_sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">pts1</span><span class="p">,</span> <span class="n">pts2</span><span class="p">]</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dpi&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x127a88e50&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_72_1.png" src="../_images/jup_plotting-examples_72_1.png" />
+</div>
+</div>
+<p>Again, we can <a class="reference external" href="#Rotations">rotate</a> and <a class="reference external" href="#Zoomed-Plots">zoom in</a> on a region of interest; our point sources will now be plotted automatically (since they are contained in the <code class="docutils literal notranslate"><span class="pre">point_sources</span></code> field):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dpi&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">},</span> <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">vdelta</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">hdelta</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;TAN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x127e21290&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_74_1.png" src="../_images/jup_plotting-examples_74_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Contours-around-Credible-Regions">
+<h2>Contours around Credible Regions<a class="headerlink" href="#Contours-around-Credible-Regions" title="Permalink to this headline"></a></h2>
+<p>We can also add contours around credible/containment regions of the plot. For example, to get the smallest region containing 90% of the GW probability, run</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dpi&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="o">.</span><span class="mi">9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x1299a9350&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_76_1.png" src="../_images/jup_plotting-examples_76_1.png" />
+</div>
+</div>
+<p>Or, with our zoomed plot:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dpi&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">},</span> <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">vdelta</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">hdelta</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;TAN&#39;</span><span class="p">,</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x129ec0cd0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_78_1.png" src="../_images/jup_plotting-examples_78_1.png" />
+</div>
+</div>
+<p>We can easily add the 50% contour as well:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dpi&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">},</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x12a204fd0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_80_1.png" src="../_images/jup_plotting-examples_80_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dpi&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">},</span> <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">vdelta</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">hdelta</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;TAN&#39;</span><span class="p">,</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x12a9fc890&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_81_1.png" src="../_images/jup_plotting-examples_81_1.png" />
+</div>
+</div>
+<p>Our example “Candidate” event is clearly within both contours.</p>
+</div>
+<div class="section" id="Multi-layered-plots">
+<h2>Multi-layered plots<a class="headerlink" href="#Multi-layered-plots" title="Permalink to this headline"></a></h2>
+<p>Sometimes it is desirable to overlay several images. For example, we can visualize both the skymap itself and the size of its pixels by plotting them as a semi-transparent overlay using the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> keyword and the same axis as the original skymap. We can include colorbars for both and pick colormaps which are visually distinguishable. We also tweak the figure size and <code class="docutils literal notranslate"><span class="pre">cbar</span></code> keyword arguments to improve the layout of the final result:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)},</span> <span class="n">cbar</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">},</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bone_r&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">orders</span><span class="p">(</span><span class="n">as_skymap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;S200105ae&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;S200105ae&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_83_1.png" src="../_images/jup_plotting-examples_83_1.png" />
+</div>
+</div>
+<p>We can also get rid of the point sources again, since they are visually distracting, and increase the opacity of the pixel sizes (<code class="docutils literal notranslate"><span class="pre">ORDER</span></code>) to emphasize that layer:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">point_sources</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)},</span> <span class="n">cbar</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">},</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bone_r&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">orders</span><span class="p">(</span><span class="n">as_skymap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;S200105ae&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;S200105ae&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_85_1.png" src="../_images/jup_plotting-examples_85_1.png" />
+</div>
+</div>
+<p>If we wanted to emphasize the pixel size completely, we could plot it alone and then simply plot some contours from the original skymap over it. We can entirely hide an image (but not the contours or associated point sources) by setting <code class="docutils literal notranslate"><span class="pre">cmap=None</span></code> and label and color our contours with the <code class="docutils literal notranslate"><span class="pre">cr_format</span></code> and <code class="docutils literal notranslate"><span class="pre">cr_kwargs</span></code> arguments:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">orders</span><span class="p">(</span><span class="n">as_skymap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;CAR&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dpi&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">},</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">],</span>
+       <span class="n">cr_format</span><span class="o">=</span><span class="k">lambda</span> <span class="n">l</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">l</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">2.0f</span><span class="si">}</span><span class="s2">% CR&quot;</span><span class="p">,</span>
+       <span class="n">cr_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;colors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;aquamarine&#39;</span><span class="p">,</span> <span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x12d1f5750&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_87_1.png" src="../_images/jup_plotting-examples_87_1.png" />
+</div>
+</div>
+<p>You can, of course, use this approach to layer skymaps over images from arbitrary FITS sources. Let’s plot a random Swift-BAT high-SNR FITS image (downloaded from <code class="docutils literal notranslate"><span class="pre">astroquery</span></code>) alongside our second set of <a class="reference external" href="#Scatterplots">point sources</a> with only the <a class="reference external" href="#Contours-around-Credible-Regions">credible region boundaries</a> from our skymap showing:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span> <span class="nn">astroquery.skyview</span> <span class="kn">import</span> <span class="n">SkyView</span>
+
+<span class="c1"># get a Swift-BAT high-SNR FITS image from around M1 (Crab Nebula)</span>
+<span class="n">hdu</span> <span class="o">=</span> <span class="n">SkyView</span><span class="o">.</span><span class="n">get_images</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="s1">&#39;M1&#39;</span><span class="p">,</span> <span class="n">survey</span><span class="o">=</span><span class="s1">&#39;BAT SNR 150-195&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">WCS</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">header</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gist_heat_r&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12e8ab910&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_89_1.png" src="../_images/jup_plotting-examples_89_1.png" />
+</div>
+</div>
+<p>We can also interpolate a standard FITS image (as long as the <code class="docutils literal notranslate"><span class="pre">astropy.wcs.WCS</span></code> coordinate transforms are implemented in FITS) using HPMOC. This lets us put images in arbitrary projections into the same pixelization, making it easy to plot them on the arbitrary axes, do analyses with them, etc. You can see that the results are indistinguishable from the original:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># interpolate the FITS image</span>
+<span class="n">mh</span> <span class="o">=</span> <span class="n">PartialUniqSkymap</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">WCS</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">header</span><span class="p">))</span>
+
+<span class="c1"># plot a comparison</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axw</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">WCS</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">header</span><span class="p">))</span>
+<span class="n">axw</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gist_heat_r&#39;</span><span class="p">)</span>
+<span class="n">axh</span> <span class="o">=</span> <span class="n">mh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="n">axw</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">projection</span><span class="o">=</span><span class="n">WCS</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">header</span><span class="p">))</span>
+<span class="n">axh</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_91_0.png" src="../_images/jup_plotting-examples_91_0.png" />
+</div>
+</div>
+<p>More usefully, we can do an all-sky plot of an arbitrarily-projected FITS image with almost no effort. We can label the missing regions as gray and increase the resolution of the image to capture the small bright region in the center:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">missing_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;astropy.visualization.wcsaxes.core.WCSAxes at 0x12eb00710&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_93_1.png" src="../_images/jup_plotting-examples_93_1.png" />
+</div>
+</div>
+<p>Note that by default, nearest neighbor interpolation will be used (at around 5-10 times the resolution of the original image), and units (and particularly area calculations/conversions) will <em>not</em> be handled automatically.</p>
+</div>
+<div class="section" id="Subplots">
+<h2>Subplots<a class="headerlink" href="#Subplots" title="Permalink to this headline"></a></h2>
+<p>You can plot to subplots using the subplot argument. For example, we can manually make a grid of subplots using <code class="docutils literal notranslate"><span class="pre">plt.subplot</span></code> and pass the corresponding axes to <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.plot"><span class="std std-ref">plot</span></a>. We can accomplish the same thing by passing the <code class="docutils literal notranslate"><span class="pre">subplot</span></code> argument to <code class="docutils literal notranslate"><span class="pre">plot</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">PartialUniqSkymap</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">BAYESTAR_NEST_FITS_GZ_1024</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;ligo&#39;</span><span class="p">)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">)},</span> <span class="n">subplot</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;S200105ae&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;S200316bj&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;S200316bj&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_96_1.png" src="../_images/jup_plotting-examples_96_1.png" />
+</div>
+</div>
+<p>This also works with <code class="docutils literal notranslate"><span class="pre">matplotlib.gridspec.SubplotSpec</span></code> as the <code class="docutils literal notranslate"><span class="pre">subplot</span></code> argument (if you want to plot to a specific axes on a <code class="docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code>). We can also get the axis manually with <code class="docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.add_subplot</span></code> and pass it as the <code class="docutils literal notranslate"><span class="pre">ax</span></code> argument.</p>
+</div>
+<div class="section" id="Grid-Plots">
+<h2>Grid Plots<a class="headerlink" href="#Grid-Plots" title="Permalink to this headline"></a></h2>
+<p>It is often useful to compare skymaps, or look at the same skymap with different sets of point sources, plot settings, or projections. The quickest way to do this using HPMOC is to use <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.gridplot"><span class="std std-ref">hpmoc.plot.gridplot</span></a>, which uses <code class="docutils literal notranslate"><span class="pre">GridSpec</span></code> behind the scenes. We can quickly do the same as above:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">gridplot</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(GridSpec(1, 2, width_ratios=[2.0, 2.0]),
+ [[&lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12f67f4d0&gt;,
+   &lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12f68c1d0&gt;]])
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_98_1.png" src="../_images/jup_plotting-examples_98_1.png" />
+</div>
+</div>
+<p>You can also specify multiple projections for each skymap:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">gridplot</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span> <span class="n">projections</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ARC&#39;</span><span class="p">,</span> <span class="s1">&#39;ZEA&#39;</span><span class="p">,</span> <span class="s1">&#39;TAN&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(GridSpec(1, 6, width_ratios=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0]),
+ [[&lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12f8fe810&gt;,
+   &lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12f641e10&gt;],
+  [&lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12f388e50&gt;,
+   &lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12f254610&gt;],
+  [&lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12ff35390&gt;,
+   &lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12f25a890&gt;]])
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_100_1.png" src="../_images/jup_plotting-examples_100_1.png" />
+</div>
+</div>
+<p>Specify how many columns (where different projections of the same skymap are grouped into a single column) appear on each row:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">gridplot</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span> <span class="n">projections</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CAR&#39;</span><span class="p">,</span> <span class="s1">&#39;ZEA&#39;</span><span class="p">,</span> <span class="s1">&#39;TAN&#39;</span><span class="p">],</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(GridSpec(2, 3, width_ratios=[2.0, 1.0, 1.0]),
+ [[&lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x130811810&gt;,
+   &lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12f67fd90&gt;],
+  [&lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x1308119d0&gt;,
+   &lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x130777710&gt;],
+  [&lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x130f10490&gt;,
+   &lt;matplotlib.axes._subplots.WCSAxesSubplot at 0x12d58c7d0&gt;]])
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_102_1.png" src="../_images/jup_plotting-examples_102_1.png" />
+</div>
+</div>
+<p>The first return value is the <code class="docutils literal notranslate"><span class="pre">GridSpec</span></code> used to arrange the subplots, while the second is a list whose rows correspond to each projection in the <code class="docutils literal notranslate"><span class="pre">projections</span></code> argument and are themselves lists of axes corresponding to each skymap. In other words, <code class="docutils literal notranslate"><span class="pre">gridplot(...)[1][p][s]</span></code> is the axes containing a plot of the s<img class="math" src="../_images/math/92b4154011c1cc7ddcf92d218d5569c758de0cf6.png" alt="^\text{th}"/> skymap using the p<img class="math" src="../_images/math/92b4154011c1cc7ddcf92d218d5569c758de0cf6.png" alt="^\text{th}"/> projection. You can use this to modify specific subplots, add titles to all plots, etc:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maps</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="n">PartialUniqSkymap</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;ligo&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span>
+                        <span class="p">(</span><span class="n">BAYESTAR_NEST_FITS_GZ_1024</span><span class="p">,</span> <span class="n">CWB_NEST_FITS_GZ_128</span><span class="p">,</span>
+                         <span class="n">CWB_RING_FITS_GZ_128</span><span class="p">)]]</span>
+<span class="n">gs</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">gridplot</span><span class="p">(</span><span class="o">*</span><span class="n">maps</span><span class="p">,</span> <span class="n">projections</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CEA&#39;</span><span class="p">,</span> <span class="s1">&#39;TAN&#39;</span><span class="p">])</span>
+<span class="k">for</span> <span class="o">*</span><span class="n">axx</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">axs</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;S200105ae&#39;</span><span class="p">,</span> <span class="s1">&#39;S200316bj-1-Preliminary&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;S200114f-3-Initial&#39;</span><span class="p">,</span> <span class="s1">&#39;S200129m-3-Initial&#39;</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axx</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_104_0.png" src="../_images/jup_plotting-examples_104_0.png" />
+</div>
+</div>
+<p>We can add scatter plots of points of interest using the <code class="docutils literal notranslate"><span class="pre">scatters</span></code> argument to pass a list of <a class="reference internal" href="../hpmoc.points.html#hpmoc.points.PointsTuple"><span class="std std-ref">PointsTuple</span></a> instances for each skymap, and we can pass separate keyword arguments to <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.plot"><span class="std std-ref">hpmoc.plot.plot</span></a> for each subplot (following the same shape as the returned axes). We can use this, for example, to adjust the zoom level and rotation of the gnomonic projections separately from the all-sky views and to set the
+<code class="docutils literal notranslate"><span class="pre">vmax</span></code> values for the color maps consistently across projections. Arguments shared across all subplots can be passed as keyword arguments to <a class="reference internal" href="../hpmoc.plot.html#hpmoc.plot.gridplot"><span class="std std-ref">gridplot</span></a>, as we will do for <code class="docutils literal notranslate"><span class="pre">vmin=0</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maps</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="n">PartialUniqSkymap</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;ligo&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span>
+                        <span class="p">(</span><span class="n">BAYESTAR_NEST_FITS_GZ_1024</span><span class="p">,</span> <span class="n">CWB_NEST_FITS_GZ_128</span><span class="p">,</span>
+                         <span class="n">CWB_RING_FITS_GZ_128</span><span class="p">)]]</span>
+<span class="n">gs</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">gridplot</span><span class="p">(</span><span class="o">*</span><span class="n">maps</span><span class="p">,</span> <span class="n">scatters</span><span class="o">=</span><span class="p">[[</span><span class="n">pts2</span><span class="p">]]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="n">projections</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CEA&#39;</span><span class="p">,</span> <span class="s1">&#39;TAN&#39;</span><span class="p">],</span>
+         <span class="n">subplot_kwargs</span><span class="o">=</span><span class="p">[[{</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">value</span><span class="p">}</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">maps</span><span class="p">],</span>
+                         <span class="p">[{</span><span class="s1">&#39;vdelta&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;hdelta&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+                           <span class="s1">&#39;rot&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;vmax&#39;</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">value</span><span class="p">}</span>
+                          <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">maps</span><span class="p">]],</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">])</span>
+<span class="k">for</span> <span class="o">*</span><span class="n">axx</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">axs</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;S200105ae&#39;</span><span class="p">,</span> <span class="s1">&#39;S200316bj-1-Preliminary&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;S200114f-3-Initial&#39;</span><span class="p">,</span> <span class="s1">&#39;S200129m-3-Initial&#39;</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axx</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/core.py:234: UserWarning: No contour levels were found within the data range.
+  cset = super().contour(*args, **kwargs)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_106_1.png" src="../_images/jup_plotting-examples_106_1.png" />
+</div>
+</div>
+<p>We can add colorbars and layer our images as we were able to do with <code class="docutils literal notranslate"><span class="pre">plot</span></code>, though this time instead of passing <code class="docutils literal notranslate"><span class="pre">ax</span></code> to our second invocation of the plotting function, we pass the returned <code class="docutils literal notranslate"><span class="pre">GridSpec</span></code> and axes list (after tweaking some of the spacing arguments to make the layout look better). We can use this approach to make quite intricate visualizations for multiple skymaps with fairly little effort:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maps</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="n">PartialUniqSkymap</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;ligo&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span>
+                        <span class="p">(</span><span class="n">BAYESTAR_NEST_FITS_GZ_1024</span><span class="p">,</span> <span class="n">CWB_NEST_FITS_GZ_128</span><span class="p">,</span>
+                         <span class="n">CWB_RING_FITS_GZ_128</span><span class="p">)]]</span>
+<span class="n">gs</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">gridplot</span><span class="p">(</span><span class="o">*</span><span class="n">maps</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">wshrink</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                   <span class="n">scatters</span><span class="o">=</span><span class="p">[[</span><span class="n">pts2</span><span class="p">]]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+                   <span class="n">projections</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CEA&#39;</span><span class="p">,</span> <span class="s1">&#39;TAN&#39;</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
+                   <span class="n">subplot_kwargs</span><span class="o">=</span><span class="p">[[{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">720</span><span class="p">,</span> <span class="s1">&#39;vmax&#39;</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">value</span><span class="p">}</span>
+                                    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">maps</span><span class="p">],</span>
+                                   <span class="p">[{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">360</span><span class="p">,</span> <span class="s1">&#39;vdelta&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+                                     <span class="s1">&#39;hdelta&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;cbar&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                                     <span class="s1">&#39;rot&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;vmax&#39;</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">value</span><span class="p">}</span>
+                                    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">maps</span><span class="p">]],</span>
+                   <span class="n">cr</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bone_r&#39;</span><span class="p">,</span>
+                   <span class="n">cr_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;colors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;aquamarine&#39;</span><span class="p">,</span> <span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]})</span>
+<span class="k">for</span> <span class="o">*</span><span class="n">axx</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">axs</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;S200105ae&#39;</span><span class="p">,</span> <span class="s1">&#39;S200316bj-1-Preliminary&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;S200114f-3-Initial&#39;</span><span class="p">,</span> <span class="s1">&#39;S200129m-3-Initial&#39;</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axx</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">orders</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">orders</span><span class="p">(</span><span class="n">as_skymap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">maps</span><span class="p">]</span>
+<span class="n">gridplot</span><span class="p">(</span><span class="o">*</span><span class="n">orders</span><span class="p">,</span> <span class="n">projections</span><span class="o">=</span><span class="n">axs</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">gs</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+         <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+         <span class="n">subplot_kwargs</span><span class="o">=</span><span class="p">[[{</span><span class="s1">&#39;cbar&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span> <span class="s1">&#39;vmax&#39;</span><span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">max</span><span class="p">()}</span>
+                          <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">orders</span><span class="p">],</span> <span class="p">[{</span><span class="s1">&#39;cmap&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}]</span><span class="o">*</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Order vs. Probability Density Near Candidate &amp; M1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/astropy/visualization/wcsaxes/core.py:234: UserWarning: No contour levels were found within the data range.
+  cset = super().contour(*args, **kwargs)
+/Users/s/anaconda3/envs/hpmoc-dev/lib/python3.7/site-packages/hpmoc/plot.py:886: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+  frame_class=frame_class)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 0.98, &#39;Order vs. Probability Density Near Candidate &amp; M1&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/jup_plotting-examples_108_2.png" src="../_images/jup_plotting-examples_108_2.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to HEALPix Multi-Order Coordinate Library (HPMOC)’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../hpmoc.html" class="btn btn-neutral float-right" title="hpmoc package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Stefan Trklja Countryman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
